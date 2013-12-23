@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:ignore="HardcodedText" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:background="@drawable/border" >
+
+        <Button
+            android:id="@+id/btnStat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/noborder_down"
+            android:minHeight="30dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/statpage1" />
+
+        <Button
+            android:id="@+id/btnStat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/noborder"
+            android:minHeight="30dp"
+            android:paddingBottom="5dp"
+            android:text="@string/statpage2" />
+
+        <Button
+            android:id="@+id/btnStat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/noborder"
+            android:minHeight="30dp"
+            android:minWidth="64dp"
+            android:paddingBottom="5dp"
+            android:text="@string/statpage3" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:background="@drawable/border" >
+
+        <LinearLayout
+            android:id="@+id/llStatPage1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/noborder"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <TextView
+                android:id="@+id/tvStatLine11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llStatPage2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/noborder"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <TextView
+                android:id="@+id/tvStatLine21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llStatPage3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/noborder"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <TextView
+                android:id="@+id/tvStatLine31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvStatLine35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚未完成"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
