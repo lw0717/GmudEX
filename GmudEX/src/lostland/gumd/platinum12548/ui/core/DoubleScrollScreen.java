@@ -16,14 +16,19 @@ import lostland.gumd.platinum12548.blgframework.IGame;
  * @author 12548
  */
 public abstract class DoubleScrollScreen extends ButtonControlledScreen {
-
 	
-	InnerScrollView v1,v2;
-	int layer = 0;
+	public InnerScrollView v1,v2;
+	protected int layer = 0;
 	
 	protected String s1[], s2[][];
 	
-	int x,y,w1,w2,max;
+	protected int x;
+	protected int y;
+	protected int w1;
+	protected  int w2;
+	protected  int max;
+	
+	public abstract void cancel();
 	
 	
 	/**
@@ -38,6 +43,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 		this.max = max;
 		gets();
 		v1 = new InnerScrollView(game, s1, x, y, w1, max);
+		re();
 	}
 
 	public abstract void gets();
@@ -46,7 +52,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 	{
 		gets();
 
-		v2 = new InnerScrollView(game,s2[v1.cursor],x+w1+1,y,w2,max);
+		v2 = new InnerScrollView(game,s2[v1.cursor],x+w1-1,y,w2,max);
 
 		v1.refresh();
 		v2.refresh();
@@ -72,6 +78,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 		{
 			if(layer == 0)
 			{
+				if(s2[v1.cursor].length<=0)return;
 				layer++;
 				re();
 			}
@@ -79,6 +86,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 			{
 				onClick(v2.cursor);
 				re();
+				if(s2[v1.cursor].length<=0)layer--;
 			}
 			
 		}
@@ -91,7 +99,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 			}
 			else
 			{
-				onCancel();
+				cancel();
 			}
 		}
 		else
@@ -100,6 +108,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 				v1.onButtonClick(b);
 			else
 				v2.onButtonClick(b);
+			re();
 		}
 	}
 
@@ -131,7 +140,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 		 */
 		public InnerScrollView(IGame game, String[] s, int x, int y, int width,
 				int max) {
-			super(game, s, x, y, width, max);
+			super(game, s, x, y, width, max,true);
 			// TODO 自动生成的构造函数存根
 		}
 

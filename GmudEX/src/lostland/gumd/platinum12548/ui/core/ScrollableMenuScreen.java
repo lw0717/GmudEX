@@ -26,6 +26,7 @@ public abstract class ScrollableMenuScreen extends ButtonControlledScreen {
 	protected SMBorder nborder;
 	public AutoButton buttons[];
 	
+	boolean showmax;
 	
 	public int cursor = 0;
 	
@@ -38,14 +39,14 @@ public abstract class ScrollableMenuScreen extends ButtonControlledScreen {
 	/**
 	 * @param game
 	 */
-	public ScrollableMenuScreen(IGame game,String[] s,int x, int y,int width,int max) {
+	public ScrollableMenuScreen(IGame game,String[] s,int x, int y,int width,int max,boolean showmax) {
 		super(game);
 		Log.w("SMS", "C0");
 		this.x = x;
 		this.y = y;
 		Log.w("SMS", "C1");
-		this.max = Math.min(max,s.length);
-		this.nborder = new SMBorder((GmudGame) game,x,y,width*12,this.max*12+2);
+		this.max = showmax?max:Math.min(max,s.length);
+		this.nborder = new SMBorder((GmudGame) game,x,y,width,this.max*12+2);
 		this.buttons = new AutoButton[s.length];
 		Log.w("SMS", "C2");
 		for(int i = 0; i < buttons.length;i++)
@@ -54,6 +55,7 @@ public abstract class ScrollableMenuScreen extends ButtonControlledScreen {
 		}
 		
 		Log.w("SMS", "CO");
+		this.showmax = showmax;
 		
 	}
 
@@ -62,8 +64,9 @@ public abstract class ScrollableMenuScreen extends ButtonControlledScreen {
 		this.x = x;
 		this.y = y;
 		
+		this.max = showmax?max:Math.min(max,s.length);
 		this.max = Math.min(max,s.length);
-		this.nborder = new SMBorder((GmudGame) game,x,y,width*12,this.max*12+2);
+		this.nborder = new SMBorder((GmudGame) game,x,y,width,this.max*12+2);
 		this.buttons = new AutoButton[s.length];
 		
 		for(int i = 0; i < buttons.length;i++)

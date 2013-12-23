@@ -55,7 +55,7 @@ public class MainMenuScreen extends MenuScreen {
 			game.setScreen(new StatusScreen(game));
 			break;
 		case 1:
-//			GmudWorld.mc.copy( MapScreen.map.getEvent(MainCharTile.frontAbsX(), MainCharTile.frontAbsY()));
+			game.setScreen(new InventoryScreen(game,false,this));
 			break;
 		case 2:
 			
@@ -98,7 +98,8 @@ public class MainMenuScreen extends MenuScreen {
 	protected void onButtonDown(NewButton b) {
 		if(b == NewButton.NB_ENTER)
 			if(cursor == 1)
-				SingleTouchHandler.flag = 6;
+				;
+//				SingleTouchHandler.flag = 6;
 			else if(cursor == 2)
 				SingleTouchHandler.flag = 5;
 		super.onButtonDown(b);

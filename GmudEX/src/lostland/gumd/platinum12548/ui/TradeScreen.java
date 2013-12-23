@@ -34,7 +34,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 	
 
 	public TradeScreen(IGame game, int npcid,CScreen ts) {
-		super(game, gets(npcid), 20, 30, 10, 6);
+		super(game, gets(npcid), 20, 30, 120, 6,false);
 		this.ts = ts;
 		Log.w("TS", "C1");
 		this.npcid = npcid;
