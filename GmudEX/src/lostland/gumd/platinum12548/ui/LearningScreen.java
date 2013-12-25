@@ -11,7 +11,6 @@ import lostland.gumd.platinum12548.GameConstants;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
-import lostland.gumd.platinum12548.data.MemAntiCheater;
 import lostland.gumd.platinum12548.data.Skill;
 import lostland.gumd.platinum12548.ui.core.ProgressScreen;
 import lostland.gumd.platinum12548.ui.core.YesNoScreen;
@@ -51,7 +50,6 @@ public class LearningScreen extends ProgressScreen {
 	@Override
 	public void onComplete() {
 		GmudWorld.mc.skills[sklid]++;
-		MemAntiCheater.notifyChange();
 		GmudWorld.mc.learning[sklid] = 0;
 		game.setScreen(new YesNoScreen(game,"¼ÌÐøÑ§Ï°Âð£¿"){
 			

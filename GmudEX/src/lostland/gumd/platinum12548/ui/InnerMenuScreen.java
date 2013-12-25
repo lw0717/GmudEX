@@ -9,6 +9,7 @@ package lostland.gumd.platinum12548.ui;
 
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
+import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.data.Skill;
@@ -95,6 +96,8 @@ public class InnerMenuScreen extends MenuScreen {
 				game.setScreen(new NotificationScreen(game,new NotificationScreen(game,this,"你催动真气，脸上一阵白一阵红，哇地一声，吐出一口淤血，脸色看起来好多了。"),"你全身放松，坐下来开始运功疗伤。"));
 			}
 		}
+		
+		BasicScreen.recheck();
 	}
 
 

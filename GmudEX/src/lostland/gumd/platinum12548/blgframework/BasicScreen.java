@@ -12,7 +12,6 @@ import java.util.zip.Adler32;
 import android.util.Log;
 
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.data.MemAntiCheater;
 
 /**
  * ¿‡√˚£∫BasicScreen <p>
@@ -23,7 +22,6 @@ public abstract class BasicScreen {
 
 	protected IGame game;
 
-	protected MemAntiCheater mac;
 	
 	public static boolean b = false;
 	public static boolean acr = true;
@@ -59,7 +57,6 @@ public abstract class BasicScreen {
 
 	public BasicScreen(IGame game) {
 		this.game = game;
-		mac = new MemAntiCheater();
 		sss = true;
 		stime = 0f;
 	}
@@ -104,10 +101,6 @@ public abstract class BasicScreen {
 	}
 
 
-	public void sr()
-	{
-		mac.recheck();
-	}
 	
 
 	public static void recheck()
@@ -117,29 +110,6 @@ public abstract class BasicScreen {
 		Log.w("Rechecked", GmudWorld.game.getCurrentScreen().toString());
 	}
 
-//	public static void smallrecheck()
-//	{
-//		smallchksum = getsmallchksum();
-//	}
-//
-//	public static long getsmallchksum()
-//	{
-//		
-//		smallchk.reset();
-//		smallchk.update(12548);
-//
-//		smallchk.update(GmudWorld.mc.exp);
-//		smallchk.update(GmudWorld.mc.potential);
-//
-//		smallchk.update(32768);
-//
-//		return smallchk.getValue();
-//	}
-//
-//	public static boolean smallcheck()
-//	{
-//		return smallchksum == getsmallchksum();
-//	}
 
 	public static long getchksum()
 	{
@@ -169,11 +139,11 @@ public abstract class BasicScreen {
 		for(int i : GmudWorld.mc.inventory)
 			chk.update(i);
 
-//		for(int i = 0;i<GmudWorld.npc.length;i++)
-//		{
-//			chk.update(Boolean.toString(GmudWorld.npc[i].qingjiaoable).getBytes());
-//			chk.update(Boolean.toString(GmudWorld.npc[i].dead).getBytes());
-//		}
+		for(int i = 0;i<GmudWorld.npc.length;i++)
+		{
+			chk.update(Boolean.toString(GmudWorld.npc[i].qingjiaoable).getBytes());
+			chk.update(Boolean.toString(GmudWorld.npc[i].dead).getBytes());
+		}
 
 		chk.update(GmudWorld.mc.hit);
 		chk.update(GmudWorld.mc.evd);
@@ -185,6 +155,11 @@ public abstract class BasicScreen {
 
 		chk.update(32768);
 
+		for(int i : GmudWorld.game.newint)
+			chk.update(i);
+		
+		for(boolean i : GmudWorld.game.newbool)
+			chk.update(Boolean.toString(i).getBytes());
 
 		return chk.getValue();
 	}
@@ -205,9 +180,5 @@ public abstract class BasicScreen {
 	public abstract boolean isStable();
 	
 	
-	public MemAntiCheater getMAC()
-	{
-		return mac;
-	}
 	
 }

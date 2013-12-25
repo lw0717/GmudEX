@@ -26,6 +26,7 @@ import lostland.gumd.platinum12548.ui.meta.TradeDialog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -185,7 +186,22 @@ public class SingleTouchHandler implements TouchHandler {
 		    			
 		    		}).show();
 					break;
+				case 1000:
+					new AlertDialog.Builder(GmudWorld.game)
+		    		.setTitle("白金英雄坛说")
+		    		.setMessage("检测到存档出错！")
+		    		.setPositiveButton("确定", new android.content.DialogInterface.OnClickListener(){
 
+		    			@Override
+		    			public void onClick(DialogInterface arg0, int arg1) {
+		    				SharedPreferences sp = GmudWorld.game.getFileIO().getPreferences();
+		    				while(!sp.edit().putBoolean("newgame", true).commit())
+		    					;
+		    				GmudWorld.game.oo();
+		    			}
+
+		    			
+		    		}).show();
 				}
 				if(flag<999)flag = 0;
 			}

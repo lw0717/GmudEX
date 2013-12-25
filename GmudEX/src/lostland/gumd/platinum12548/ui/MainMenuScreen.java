@@ -12,7 +12,6 @@ import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
 import lostland.gumd.platinum12548.blgframework.IGame;
-import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
 import lostland.gumd.platinum12548.ui.core.NewButton;
 
@@ -58,7 +57,7 @@ public class MainMenuScreen extends MenuScreen {
 			game.setScreen(new InventoryScreen(game,false,this));
 			break;
 		case 2:
-			
+			game.setScreen(new SkillScreen(game,this));
 			break;
 		case 3:
 			game.setScreen(new SysMenuScreen(game));
@@ -101,7 +100,8 @@ public class MainMenuScreen extends MenuScreen {
 				;
 //				SingleTouchHandler.flag = 6;
 			else if(cursor == 2)
-				SingleTouchHandler.flag = 5;
+				;
+//				SingleTouchHandler.flag = 5;
 		super.onButtonDown(b);
 	}
 	

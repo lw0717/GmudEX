@@ -12,7 +12,7 @@
     <string name="statpage2">描述</string>
     <string name="statpage3">属性</string>
     <string name="drinking">你在井边用杯子舀起井水喝</string>
-    <string name="version_name">v1.1【精雕细琢】</string>
+    <string name="version_name">v1.15</string>
     <color name="black">#000</color>
 
 </resources>

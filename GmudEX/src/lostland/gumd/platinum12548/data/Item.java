@@ -27,8 +27,8 @@ public class Item {
 		"白罗袍", "绸袍", "金锁子甲", "降魔袍", "霓虹羽衣", "雪山白袍", "亮银甲", "豹皮", "拳经", "焦黄纸页", 
 		"惊天刀谱", "手抄本", "毛笔", "钓杆", "鲤鱼", "牛皮束带", "鱼篓", "三角石板", "女儿红", "屠龙刀", 
 		"绣花针", "菜花宝典"
-		};
-	
+	};
+
 	public static final String item_desc[] = new String[]{
 		"12548",
 		"一支烤得香喷喷的鸡腿,你还犹豫什麼？ ",
@@ -111,10 +111,10 @@ public class Item {
 		"上好的美酒,据说喝一瓶能醉上三个月。",
 		"古人用来杀龙的刀,可以一击必杀,对人的效果不明",
 		"传说是用定海神珍铁磨成的绣花针",
-		"曾经在武林中引起血雨腥风的武功密籍，首页写着：欲练此功，必先自……"};
+	"曾经在武林中引起血雨腥风的武功密籍，首页写着：欲练此功，必先自……"};
 
-	
-	
+
+
 	// 物品属性!!
 	// 0食物，0，+food，+water，0，0，cost
 	// 1药物，type，+效果1，0，0，0，cost
@@ -289,23 +289,23 @@ public class Item {
 		{4, 0, 211, 60, 0, 0, 0}
 	};
 
-	
-	
-	
-	
+
+
+
+
 	public static int ROPE_INDEX = 19;
-	
+
 	public int id;
 	public int kind;
 	public int subkind;
 	public String name;
-	
+
 	public int a3,a4,a5,a6;
-	
+
 	public int cost;
-	
+
 	public String des = "尚无描述";
-	
+
 	/**
 	 * 
 	 */
@@ -313,7 +313,7 @@ public class Item {
 		// TODO 自动生成的构造函数存根
 	}
 
-	
+
 	public static void init()
 	{
 		int i;
@@ -330,6 +330,25 @@ public class Item {
 			GmudWorld.wp[i].a6 = item_attribs[i][5];
 			GmudWorld.wp[i].cost = item_attribs[i][6];
 			GmudWorld.wp[i].des = item_desc[i];
+		}
+	}
+
+	public static int getitmnpc(int itmid)
+	{
+		switch(itmid)
+		{
+		case 68: // 拳经
+			return GmudWorld.npc.length - 2;
+		case 69: // 焦黄纸页
+			return GmudWorld.npc.length - 3;
+		case 70:
+			return GmudWorld.npc.length - 4;
+		case 71:
+			return GmudWorld.npc.length - 5;
+		case 81:
+			return GmudWorld.npc.length - 6;
+		default:
+			return 0;
 		}
 	}
 

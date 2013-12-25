@@ -22,7 +22,7 @@ public abstract class GmudWindow {
 	protected Rect rect;
 	public int x;
 	public int y;
-	protected int width;
+	public int width;
 	public int height;
 	protected GmudGame game;
 	

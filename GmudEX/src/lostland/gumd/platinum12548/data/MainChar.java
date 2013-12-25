@@ -97,6 +97,7 @@ public class MainChar extends Npc {
 	}
 
 	public MainChar() {
+		super();
 		this.fame = 128;
 		this.sp = 100;
 		this.hp = 100;
@@ -128,7 +129,6 @@ public class MainChar extends Npc {
 	 */
 	public void setPotential(int potential) {
 		this.potential = potential;
-		MemAntiCheater.notifyChange();
 	}
 
 }

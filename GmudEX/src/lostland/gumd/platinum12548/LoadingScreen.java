@@ -20,6 +20,7 @@ import lostland.gumd.platinum12548.blgframework.IGraphics;
 import lostland.gumd.platinum12548.blgframework.IGraphics.PixmapFormat;
 import lostland.gumd.platinum12548.blgframework.impl.BLGFileIO;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGame;
+import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.data.Gesture;
 import lostland.gumd.platinum12548.data.Item;
 import lostland.gumd.platinum12548.data.MainChar;
@@ -46,7 +47,6 @@ public class LoadingScreen extends CScreen {
 	 */
 	public LoadingScreen(IGame game) {
 		super(game);
-		mac.stop();
 	}
 
 
@@ -62,7 +62,6 @@ public class LoadingScreen extends CScreen {
 		Log.e("Loading", "Loading Start");
 		
 		BasicScreen.b = false;
-		mac.stop();
 
 		BLGFileIO f=(BLGFileIO) game.getFileIO();
 		IGraphics g=game.getGraphics();
@@ -82,12 +81,9 @@ public class LoadingScreen extends CScreen {
 		Assets.vs=g.newPixmap("vs.png", PixmapFormat.ARGB8888);
 		Assets.hpfp=g.newPixmap("hpfp.png", PixmapFormat.ARGB8888);
 		Assets.boom=g.newPixmap("boom.png", PixmapFormat.ARGB8888);
-		Assets.up=g.newPixmap("up.png", PixmapFormat.ARGB8888);
-		Assets.down=g.newPixmap("down.png", PixmapFormat.ARGB8888);
+
 		Assets.left=g.newPixmap("left.png", PixmapFormat.ARGB8888);
 		Assets.right=g.newPixmap("right.png", PixmapFormat.ARGB8888);
-		Assets.enter=g.newPixmap("enter.png", PixmapFormat.ARGB8888);
-		Assets.menu=g.newPixmap("menu.png", PixmapFormat.ARGB8888);
 		
 		Assets.nbup=g.newPixmap("nbup.png", PixmapFormat.ARGB8888);
 		Assets.nbdown=g.newPixmap("nbdown.png", PixmapFormat.ARGB8888);
@@ -232,7 +228,7 @@ public class LoadingScreen extends CScreen {
 			int npcCnt = ReadInt(4, is);
 			is.skip(npcCnt * 4);// 索引区
 
-			GmudWorld.npc = new Npc[npcCnt+1];
+			GmudWorld.npc = new Npc[npcCnt+1+5];
 
 			byte[] buffer = new byte[400];
 			Npc t_npc = null;
@@ -369,6 +365,37 @@ public class LoadingScreen extends CScreen {
 			}
 			t_npc = null;
 
+			for(int itmid=0;itmid<100;itmid++)
+			{
+				switch(itmid)
+				{
+				case 68: // 拳经
+					push(250,1, itmid);
+					push(200,40, itmid);
+					break;
+				case 69: // 焦黄纸页
+					push(250,8, itmid);
+					push(250,7, itmid);
+					break;
+				case 70:
+					push(250,3, itmid);
+					push(200,29, itmid);
+					break;
+				case 71:
+					push(250,0, itmid);
+					push(250,20, itmid);
+					break;
+				case 81:
+					push(250,10, itmid);
+					push(100,41, itmid);
+					break;
+				default:
+					break;
+				}
+
+			}
+			
+			
 		} catch (IOException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
@@ -400,10 +427,15 @@ public class LoadingScreen extends CScreen {
 
 		Log.i("Loading Screen", "Loading");
 
-		for(int i=0;i<GmudWorld.npc.length-1;i++)
-			if(GmudWorld.wp[GmudWorld.npc[i].items[0]].kind!=2)
-				GmudWorld.npc[i].items=GmudWorld.push_top(GmudWorld.npc[i].items,0);
+//		for(int i=0;i<GmudWorld.npc.length-1;i++)
+//			if(GmudWorld.wp[GmudWorld.npc[i].items[0]].kind!=2)
+//				GmudWorld.npc[i].items=GmudWorld.push_top(GmudWorld.npc[i].items,0);
 
+		GmudWorld.game.newint = new int[1000];
+		GmudWorld.game.newbool = new boolean[200];
+		
+		
+		
 		Log.i("Loading Screen", "Loadingb");
 		GmudWorld.mms = new MainMenuScreen(game);
 		Log.i("Loading Screen", "Loadingb");
@@ -417,7 +449,7 @@ public class LoadingScreen extends CScreen {
 		MapScreen.zlEnabled = sp.getBoolean("zlgyxz", false);
 //		MapScreen.btnsEnabled = sp.getBoolean("dtajcz", true);
 
-		if(sp.getBoolean("newgame", true) || (sp.getInt("SaveFileVersion", 0) != 1))
+		if(sp.getBoolean("newgame", true) || (sp.getInt("SaveFileVersion", 0) != 2))
 		{
 			Log.e("Load", "New Got");
 			game.setScreen(new StartScreen(game));
@@ -604,17 +636,32 @@ public class LoadingScreen extends CScreen {
 				GmudWorld.mc.itemsckd[i] = Integer.parseInt(in.readLine());
 			}
 			
-			chksum = Long.parseLong(in.readLine());
+			
 
 			GmudWorld.mc.refreshItems();
 
+			
+			for(i=0;i<GmudWorld.game.newint.length;i++)
+			{
+				GmudWorld.game.newint[i] = Integer.parseInt(in.readLine());
+			}
+			
+			
+			for(i=0;i<GmudWorld.game.newbool.length;i++)
+			{
+				GmudWorld.game.newbool[i] = Boolean.parseBoolean(in.readLine());
+			}
 
+
+			chksum = Long.parseLong(in.readLine());
+			
 			Log.i("Loading Screen", "Loading file");
 
 			if(!BasicScreen.check())
 			{
 				SharedPreferences sp = f.getPreferences();
-				sp.edit().putBoolean("newgame", true).commit();
+				while(!sp.edit().putBoolean("newgame", true).commit())
+					;
 				game.oo();
 				Log.e("Loading", "存档校验失败");
 			}
@@ -623,6 +670,7 @@ public class LoadingScreen extends CScreen {
 
 		} catch (IOException e) {
 			Log.e("Loading","存档载入错误！");
+			SingleTouchHandler.flag = 1000;
 			SharedPreferences sp = f.getPreferences();
 			while(!sp.edit().putBoolean("newgame", true).commit())
 				;
@@ -632,6 +680,10 @@ public class LoadingScreen extends CScreen {
 		catch(NumberFormatException e)
 		{
 			Log.e("Loading","存档格式错误！");
+			SharedPreferences sp = f.getPreferences();
+			while(!sp.edit().putBoolean("newgame", true).commit())
+				;
+			game.oo();
 			e.printStackTrace();
 		}
 		finally {
@@ -643,5 +695,18 @@ public class LoadingScreen extends CScreen {
 
 		}
 
+		
+		
+		
+	}
+	
+	public void push(int lvl,int i,int itmid)
+	{	
+		if(GmudWorld.npc[Item.getitmnpc(itmid)] == null)
+			GmudWorld.npc[Item.getitmnpc(itmid)] = new Npc();
+		GmudWorld.npc[Item.getitmnpc(itmid)].trading = 102;
+		if(GmudWorld.npc[Item.getitmnpc(itmid)].skills == null)
+			GmudWorld.npc[Item.getitmnpc(itmid)].skills = new int[Skill.SKILL_COUNT];
+		GmudWorld.npc[Item.getitmnpc(itmid)].skills[i] = lvl;
 	}
 }

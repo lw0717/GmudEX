@@ -10,13 +10,13 @@ package lostland.gumd.platinum12548.ui;
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
+import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.data.Item;
 import lostland.gumd.platinum12548.data.Skill;
 import lostland.gumd.platinum12548.ui.core.DoubleScrollScreen;
 import lostland.gumd.platinum12548.ui.core.YesNoScreen;
-import lostland.gumd.platinum12548.ui.meta.ReadingDialog;
 
 /**
  * 类名：InventoryScreen <p>
@@ -26,13 +26,13 @@ import lostland.gumd.platinum12548.ui.meta.ReadingDialog;
 public class InventoryScreen extends DoubleScrollScreen {
 
 	boolean b = false;
-	
+
 	int sticking[][] = new int[10][Item.item_names.length];
-	
+
 	CScreen ts;
 	AutoWindow bottomWindow;
-	
-	
+
+
 	/**
 	 * @param game
 	 * @param x
@@ -44,6 +44,9 @@ public class InventoryScreen extends DoubleScrollScreen {
 	public InventoryScreen(IGame game, boolean b,CScreen ts) {
 		super(game, 60, 40, 36, 180, 6);
 		this.b = b;
+		gets();
+		v1 = new InnerScrollView(game, s1, x, y, w1, max);
+		re();
 		this.ts = ts;
 		bottomWindow = new AutoWindow((GmudGame) game, x, y + max * 12, w1+w2-1, 26, "");
 	}
@@ -57,15 +60,15 @@ public class InventoryScreen extends DoubleScrollScreen {
 			s1 = new String[] {"食物","药物"};
 		else
 			s1 = new String[] {"食物","药物","武器","装备","其他","丢弃"};
-		
+
 		if(s2 == null)
 			s2 = new String[6][];
-		
+
 		if(sticking == null)
 		{
 			sticking = new int[10][Item.item_names.length];
 		}
-		
+
 		int i,k;
 		for(i = 0 ; i < 5;i++)
 		{
@@ -73,9 +76,9 @@ public class InventoryScreen extends DoubleScrollScreen {
 			for(int  j : GmudWorld.mc.items)
 				if(j >0 && GmudWorld.wp[j].kind == i)
 					k++;
-			
+
 			s2[i] = new String[k];
-			
+
 			k=0;
 			for(int  j : GmudWorld.mc.items)
 			{
@@ -88,14 +91,14 @@ public class InventoryScreen extends DoubleScrollScreen {
 			}
 		}
 		i=5;
-		
+
 		k=0;
 		for(int  j : GmudWorld.mc.items)
 			if(j >0 && j != 77)
 				k++;
-		
+
 		s2[i] = new String[k];
-		
+
 		k=0;
 		for(int  j : GmudWorld.mc.items)
 		{
@@ -106,11 +109,13 @@ public class InventoryScreen extends DoubleScrollScreen {
 				k++;
 			}
 		}
-		
-		if(layer==1)
-			bottomWindow.text = GmudWorld.wp[sticking[v1.cursor][v2.cursor]].des;
-		else
-			bottomWindow.text = "";
+
+
+		if(bottomWindow != null)
+			if(layer==1)
+				bottomWindow.text = GmudWorld.wp[sticking[v1.cursor][v2.cursor]].des;
+			else
+				bottomWindow.text = "";
 	}
 
 	/* （非 Javadoc）
@@ -215,7 +220,8 @@ public class InventoryScreen extends DoubleScrollScreen {
 					else
 					{
 						GmudWorld.mc.faction = 7;
-						new ReadingDialog(GmudWorld.game).show(sticking[d][c]);
+						//						new ReadingDialog(GmudWorld.game).show(sticking[d][c]);
+						game.setScreen(new TradeScreen(game,Item.getitmnpc(sticking[d][c]),this));
 					}
 				}
 			}
@@ -225,10 +231,15 @@ public class InventoryScreen extends DoubleScrollScreen {
 				GmudWorld.mc.drop(sticking[d][c], 1);
 			break;
 		}
-		if(layer==1)
-			bottomWindow.text = GmudWorld.wp[sticking[d][c]].des;
-		else
-			bottomWindow.text = "";
+
+
+		if(bottomWindow != null)
+			if(layer==1)
+				bottomWindow.text = GmudWorld.wp[sticking[d][c]].des;
+			else
+				bottomWindow.text = "";
+		
+		BasicScreen.recheck();
 	}
 
 	/* （非 Javadoc）
@@ -236,8 +247,12 @@ public class InventoryScreen extends DoubleScrollScreen {
 	 */
 	@Override
 	public void drawbg() {
-		GmudWorld.mapTile.drawMap(GmudWorld.ms.map, GmudWorld.ms.X, GmudWorld.ms.Y);
-		GmudWorld.cnm.draw(MainCharTile.currentDirection, GmudWorld.cnm.currentStep, MainCharTile.X, MainCharTile.Y);
+		if(b)
+			GmudWorld.bs.present(0);
+		else {
+			GmudWorld.mapTile.drawMap(GmudWorld.ms.map, GmudWorld.ms.X, GmudWorld.ms.Y);
+			GmudWorld.cnm.draw(MainCharTile.currentDirection, GmudWorld.cnm.currentStep, MainCharTile.X, MainCharTile.Y);
+		}
 		bottomWindow.draw();
 	}
 

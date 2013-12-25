@@ -99,42 +99,10 @@ public class SavingScreen extends FullScreen {
 		BasicScreen.recheck();
 		ed = sp.edit();
 		
-		ed.putInt("SaveFileVersion", 1);
+		ed.putInt("SaveFileVersion", 2);
 		ed.putBoolean("newgame", false);
 		ed.putBoolean("zlgyxz", MapScreen.zlEnabled);
 		ed.putBoolean("dtajcz", MapScreen.btnsEnabled);
-//		ed.putLong("crc", BasicScreen.chksum);
-//		ed.putInt("int0",GmudWorld.mc.ads);
-//		ed.putInt("int1",GmudWorld.mc.age);
-//		ed.putInt("int2",GmudWorld.mc.agi);
-//		ed.putInt("int3",GmudWorld.mc.atk);
-//		ed.putInt("int4",GmudWorld.mc.bon);
-//		ed.putInt("int5",GmudWorld.mc.def);
-//		ed.putInt("int6",GmudWorld.mc.drink);
-//		ed.putInt("int7",GmudWorld.mc.evd);
-//		ed.putInt("int8",GmudWorld.mc.exp);
-//		ed.putInt("int9",GmudWorld.mc.faction);
-//		ed.putInt("int10",GmudWorld.mc.fame);
-//		ed.putInt("int11",GmudWorld.mc.food);
-//		ed.putInt("int12",GmudWorld.mc.fp);
-//		ed.putInt("int13",GmudWorld.mc.gold);
-//		ed.putInt("int14",GmudWorld.mc.hit);
-//		ed.putInt("int15",GmudWorld.mc.hp);
-//		ed.putInt("int16",GmudWorld.mc.looking);
-//		ed.putInt("int17",GmudWorld.mc.maxfp);
-//		ed.putInt("int18",GmudWorld.mc.maxhp);
-//		ed.putInt("int19",GmudWorld.mc.potential);
-//		ed.putInt("int20",GmudWorld.mc.sex);
-//		ed.putInt("int21",GmudWorld.mc.sp);
-//		ed.putInt("int22",GmudWorld.mc.str);
-//		ed.putInt("int23",GmudWorld.mc.wxg);
-//		
-//		int i;
-//		for(i=0;i<GmudWorld.npc.length-1;i++)
-//		{
-//			ed.putBoolean("b1",GmudWorld.npc[i].qingjiaoable);
-//			ed.putBoolean("b2",GmudWorld.npc[i].dead);
-//		}
 		
 		ed.commit();
 
@@ -213,7 +181,6 @@ public class SavingScreen extends FullScreen {
 				out.write(Integer.toString(GmudWorld.mc.inventory[i]) + '\n');
 			}
 			
-			
 			out.write(Integer.toString(GmudWorld.mc.itemsckd.length)+'\n');
 			
 			Log.w("Saving",GmudWorld.mc.itemsckd.length+" items checked");
@@ -221,6 +188,16 @@ public class SavingScreen extends FullScreen {
 			for(i=0;i<GmudWorld.mc.itemsckd.length;i++)
 			{
 				out.write(Integer.toString(GmudWorld.mc.itemsckd[i]) + '\n');
+			}
+			
+			for(i = 0;i < GmudWorld.game.newint.length;i++)
+			{
+				out.write(Integer.toString(GmudWorld.game.newint[i]) + '\n');
+			}
+			
+			for(i = 0;i < GmudWorld.game.newbool.length;i++)
+			{
+				out.write(Boolean.toString(GmudWorld.game.newbool[i]) + '\n');
 			}
 			
 			out.write(Long.toString(BasicScreen.chksum));

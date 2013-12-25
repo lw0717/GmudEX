@@ -32,6 +32,8 @@ public class TradeScreen extends ScrollableMenuScreen {
 
 	int npcid;
 	
+	
+	public static final int BTMWIDTH = 160;
 
 	public TradeScreen(IGame game, int npcid,CScreen ts) {
 		super(game, gets(npcid), 20, 30, 120, 6,false);
@@ -50,13 +52,16 @@ public class TradeScreen extends ScrollableMenuScreen {
 		case 101:
 			ss = "你想学什么就说吧！";
 			break;
+		case 102:
+			ss = "请选择你要阅读的内容：";
+			break;
 		default:
 			ss = "baga";
 			break;
 		}
 		Log.w("TS", "C2");
 		this.topWindow = new TalkingWindow((GmudGame) game, ss, false);
-		this.bottomWindow = new AutoWindow((GmudGame) game, nborder.x + 100, nborder.y + nborder.height +2, 160, 26, sticking[this.cursor] + "");
+		this.bottomWindow = new AutoWindow((GmudGame) game, nborder.x + 100, nborder.y + nborder.height +2, BTMWIDTH, 26, sticking[this.cursor] + "");
 		
 		
 		refresh();
@@ -113,7 +118,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 		switch(GmudWorld.npc[npcid].trading)
 		{
 		case 1:
-			if(GmudWorld.mc.gold > GmudWorld.wp[sticking[i]].cost)
+			if(GmudWorld.mc.gold >= GmudWorld.wp[sticking[i]].cost)
 			{
 				GmudWorld.mc.gold -= GmudWorld.wp[sticking[i]].cost;
 				GmudWorld.mc.give(sticking[i]);
@@ -129,6 +134,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 			}
 			break;
 		case 101:
+		case 102:
 			if(!GmudWorld.mc.expcanlearn(GmudWorld.mc.skills[sticking[i]]+1))
 				GmudWorld.game.setScreen(new NotificationScreen(GmudWorld.game,GmudWorld.ms,"你的武学经验不足，无法领会更深的功夫"));
 			else if(GmudWorld.mc.skills[sticking[i]] > GmudWorld.npc[npcid].skills[sticking[i]])
@@ -140,7 +146,8 @@ public class TradeScreen extends ScrollableMenuScreen {
 			}
 			else
 			{
-				GmudWorld.game.setScreen(new LearningScreen(GmudWorld.game,GmudWorld.ms,sticking[i], GmudWorld.npc[npcid].skills[sticking[i]]));
+				GmudWorld.game.setScreen(new LearningScreen(GmudWorld.game,this,sticking[i], GmudWorld.npc[npcid].skills[sticking[i]]));
+				refresh();
 				return;
 			}
 			break;
@@ -196,6 +203,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 			}
 			break;
 		case 101:
+		case 102:
 			Log.w("TS", "G101");
 			int tm;
 			tm = 0;
@@ -249,6 +257,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 			bottomWindow.text = "售价：" + (int)(GmudWorld.wp[sticking[this.cursor]].cost * 0.7f) + "\n金钱：" + GmudWorld.mc.gold;
 			break;
 		case 101:
+		case 102:
 			bottomWindow.text = "当前等级：" + GmudWorld.mc.skills[sticking[this.cursor]] + "\n潜能：" + GmudWorld.mc.potential;
 			break;
 		default:
@@ -262,6 +271,7 @@ public class TradeScreen extends ScrollableMenuScreen {
 		if(buttons.length < 1)
 			onCancel();
 		bottomWindow.y = nborder.y + nborder.height +2;
+		bottomWindow.width = BTMWIDTH;
 		refresh();
 	}
 

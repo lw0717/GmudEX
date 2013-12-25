@@ -21,6 +21,7 @@ public class AutoWindow extends GmudWindow {
 
 	public String text;
 	
+	
 	/**
 	 * @param game
 	 * @param x
@@ -41,7 +42,5 @@ public class AutoWindow extends GmudWindow {
 		this.drawBackground();
 		BLGGraphics g = (BLGGraphics) game.getGraphics();
 		g.drawText(text, x+1, y+1, FontSize.FT_12PX, width - 2); 
-		
 	}
-
 }

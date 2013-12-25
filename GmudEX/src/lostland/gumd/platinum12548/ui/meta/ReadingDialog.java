@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import lostland.gmud.platinum12548.R;
 import lostland.gumd.platinum12548.GmudWorld;
+import lostland.gumd.platinum12548.data.Skill;
 import lostland.gumd.platinum12548.ui.LearningScreen;
 import lostland.gumd.platinum12548.ui.NotificationScreen;
 
@@ -70,24 +71,26 @@ public class ReadingDialog extends Dialog {
 		switch(itmid)
 		{
 		case 68: // È­¾­
-			push(250,1);
-			push(200,40);
+			push(250,1, itmid);
+			push(200,40, itmid);
 			break;
 		case 69: // ½¹»ÆÖ½Ò³
-			push(250,8);
-			push(250,7);
+			push(250,8, itmid);
+			push(250,7, itmid);
 			break;
 		case 70:
-			push(250,3);
-			push(200,29);
+			push(250,3, itmid);
+			push(200,29, itmid);
 			break;
 		case 71:
-			push(250,0);
-			push(250,20);
+			push(250,0, itmid);
+			push(250,20, itmid);
 			break;
 		case 81:
-			push(250,10);
-			push(100,41);
+			push(250,10, itmid);
+			push(100,41, itmid);
+			break;
+		default:
 			break;
 		}
 
@@ -120,12 +123,21 @@ public class ReadingDialog extends Dialog {
 
 
 
-
-	public void push(int lvl,int i)
-	{
-		list.add(GmudWorld.skill[i].name + "x" + lvl);
-		sticking[list.size()-1] = i;
-		s2[sticking[s]] = lvl;
+	int cnt = 0;
+	public void push(int lvl,int i,int itmid)
+	{	
+		if(GmudWorld.npc[itmid + 1000].skills == null)
+			GmudWorld.npc[itmid + 1000].skills = new int[Skill.SKILL_COUNT];
+		GmudWorld.npc[itmid + 1000].skills[i] = lvl;
 	}
+
+
+
+	//	public void push(int lvl,int i)
+	//	{
+	//		list.add(GmudWorld.skill[i].name + "x" + lvl);
+	//		sticking[list.size()-1] = i;
+	//		s2[sticking[s]] = lvl;
+	//	}
 
 }

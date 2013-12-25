@@ -7,16 +7,18 @@
  */
 package lostland.gumd.platinum12548.battle;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.proc.AttackStatus;
 import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
 import lostland.gumd.platinum12548.battle.proc.StuntScreen;
+import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.data.Skill;
+import lostland.gumd.platinum12548.ui.InventoryScreen;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
-import lostland.gumd.platinum12548.ui.core.NewButton;
 
 /**
  * 类名：ControlScreen <p>
@@ -48,6 +50,13 @@ public class ControlScreen extends MenuScreen {
 	 */
 	@Override
 	protected void onClick(int index) {
+		
+		if(!BasicScreen.check())
+		{
+			Log.e("cheat",""+this.toString());
+			SingleTouchHandler.flag = 999;
+		}
+		
 		switch(index)
 		{
 		case 0:
@@ -125,6 +134,7 @@ public class ControlScreen extends MenuScreen {
 			
 			break;
 		case 3:
+			game.setScreen(new InventoryScreen(game,true,this));
 			break;
 		case 4:
 			if(bs.zdp.dz > 0)
@@ -151,6 +161,7 @@ public class ControlScreen extends MenuScreen {
 				}
 			}
 		}
+		BasicScreen.recheck();
 	}
 
 	/* （非 Javadoc）
@@ -174,16 +185,16 @@ public class ControlScreen extends MenuScreen {
 			buttons[i].draw();
 	}
 
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton)
-	 */
-	@Override
-	protected void onButtonDown(NewButton b) {
-		if(b == NewButton.NB_ENTER && cursor == 3)
-		{
-			SingleTouchHandler.flag = 7;
-		}
-		super.onButtonDown(b);
-	}
+//	/* （非 Javadoc）
+//	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton)
+//	 */
+//	@Override
+//	protected void onButtonDown(NewButton b) {
+//		if(b == NewButton.NB_ENTER && cursor == 3)
+//		{
+//			SingleTouchHandler.flag = 7;
+//		}
+//		super.onButtonDown(b);
+//	}
 
 }

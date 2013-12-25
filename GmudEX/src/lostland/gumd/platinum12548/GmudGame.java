@@ -45,7 +45,9 @@ public class GmudGame extends BLGGame {
 	public int max;
 
 	SittingThread ss;
-	
+
+	public int newint[];
+	public boolean newbool[];
 
 	static volatile boolean b = false;
 	
@@ -173,7 +175,6 @@ public class GmudGame extends BLGGame {
 				((DialogScreen)cs).onCancel();
 			}
 			
-			
 
 		if(keyCode == KeyEvent.KEYCODE_MENU)
 		{
@@ -227,23 +228,7 @@ public class GmudGame extends BLGGame {
 				}
 			}, 0, 1400);
 			
-			
-//			len = 0;
-//			try {
-//				do {
-//					while(len < max){
-//						len+=GmudWorld.mc.getBon()/5+GmudWorld.mc.skills[Skill.KIND_NEIGONG]/20 +GmudWorld.mc.skillsckd[3]/10;
-//						GmudWorld.mc.fp = len;
-//						Thread.sleep(200);
-//					}
-//					len = 0;
-//					max+=2;
-//					GmudWorld.mc.maxfp = max/2;
-//				}while(max/2 < GmudWorld.mc.getMaxmaxfp());
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+		
 		}
 
 	}

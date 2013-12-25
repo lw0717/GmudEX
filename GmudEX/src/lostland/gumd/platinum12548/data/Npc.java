@@ -57,14 +57,14 @@ public class Npc {
 	public int gold = 0;          // 金钱
 	
 	public int skills[] = new int[42];       //技能等级（所有技能）
-	public int items[];      //物品
+	public int items[]  = new int[0];     //物品
 	
-	public int skillsckd[];  //勾选技能
-	public int itemsckd[]; //勾选物品
+	public int skillsckd[] = new int[]{-1,-1,-1,-1,-1};  //勾选技能
+	public int itemsckd[]  = new int[] {0}; //勾选物品
 	
 	public int trading;      //交易列表id
 	
-	public int sells[];
+	public int sells[]  = new int[0];;
 	
 	/////////////////////////////////////////////////////////////////////////
 	
@@ -599,7 +599,6 @@ public class Npc {
 	 */
 	public void setExp(int exp) {
 		this.exp = exp;
-		MemAntiCheater.notifyChange();
 	}
 	
 }

@@ -51,6 +51,10 @@ public abstract class CScreen extends BasicScreen {
 				SingleTouchHandler.flag = 999;
 			}
 		}
+		else if(BasicScreen.b)
+		{
+			BasicScreen.recheck();
+		}
 		pause();
 	}
 	

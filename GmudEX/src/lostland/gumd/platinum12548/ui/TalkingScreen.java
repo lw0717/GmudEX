@@ -14,6 +14,7 @@ import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
 import lostland.gumd.platinum12548.MapScreen;
 import lostland.gumd.platinum12548.battle.DummyWindow;
+import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.ui.core.DialogScreen;
@@ -390,6 +391,8 @@ public class TalkingScreen extends DialogScreen {
 			}
 
 		}
+		
+		BasicScreen.recheck();
 		Log.e("talking", "npc:"+npcid);
 	}
 

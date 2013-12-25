@@ -51,9 +51,16 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 	public void re()
 	{
 		gets();
-
+		int t=0;
+		
+		if(layer==1 && v2 != null)
+			t = v2.cursor;
+		
 		v2 = new InnerScrollView(game,s2[v1.cursor],x+w1-1,y,w2,max);
 
+		if(layer==1)
+			v2.cursor = t;
+		
 		v1.refresh();
 		v2.refresh();
 		
@@ -128,7 +135,7 @@ public abstract class DoubleScrollScreen extends ButtonControlledScreen {
 	
 	public abstract void drawbg();
 	
-	protected class InnerScrollView extends ScrollableMenuScreen {
+	public class InnerScrollView extends ScrollableMenuScreen {
 
 		/**
 		 * @param game

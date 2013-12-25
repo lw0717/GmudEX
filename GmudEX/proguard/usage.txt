@@ -917,8 +917,9 @@ lostland.gumd.platinum12548.GmudMap:
 lostland.gumd.platinum12548.GmudWorld:
     27:27:public GmudWorld()
     63:63:public static boolean near(int,int,int,int)
+    77:81:public static int[] push_top(int[],int)
 lostland.gumd.platinum12548.LoadingScreen:
-    453:458:private int ReadInt16Signed(java.io.InputStream)
+    484:489:private int ReadInt16Signed(java.io.InputStream)
 lostland.gumd.platinum12548.MainCharTile:
     static final int MAINCHAR_WIDTH
     static final int MAINCHAR_HEIGHT
@@ -956,7 +957,7 @@ lostland.gumd.platinum12548.battle.proc.AttackStatus:
     98:125:boolean evade()
     132:153:boolean block()
 lostland.gumd.platinum12548.blgframework.BasicScreen:
-    87:88:public void sr()
+    109:110:public void sr()
 lostland.gumd.platinum12548.blgframework.IFileIO:
     public abstract java.io.InputStream readAsset(java.lang.String)
     public abstract java.io.InputStream readFile(java.lang.String)
@@ -994,15 +995,18 @@ lostland.gumd.platinum12548.blgframework.impl.AccelerometerHandler:
     61:61:public float getAccelX()
     69:69:public float getAccelY()
     77:77:public float getAccelZ()
+lostland.gumd.platinum12548.blgframework.impl.BLGGame:
+    public static final int FB2W
+    public static final int FB2H
 lostland.gumd.platinum12548.blgframework.impl.BLGGraphics:
     static final int TEXT_LINE_PX_LIMIT
     130:133:public void drawLine(int,int,int,int,int)
     149:161:public void drawText(java.lang.String,int,int,int)
-    507:507:public int getWidth()
-    515:515:public int getHeight()
-    532:534:public void SetClipRect(android.graphics.Rect)
-    537:538:public void ResetClipRect()
-    551:718:public void drawSplitedText(java.lang.String,int,int,lostland.gumd.platinum12548.FontSize,int)
+    517:517:public int getWidth()
+    525:525:public int getHeight()
+    542:544:public void SetClipRect(android.graphics.Rect)
+    547:548:public void ResetClipRect()
+    561:728:public void drawSplitedText(java.lang.String,int,int,lostland.gumd.platinum12548.FontSize,int)
 lostland.gumd.platinum12548.blgframework.impl.BLGInput:
     38:38:public boolean isKeyPressed(int)
     54:54:public int getTouchX(int)
@@ -1018,8 +1022,8 @@ lostland.gumd.platinum12548.blgframework.impl.BLGPixmap:
 lostland.gumd.platinum12548.blgframework.impl.KeyboardHandler:
     80:82:public boolean isKeyPressed(int)
 lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler:
-    189:189:public int getTouchX(int)
-    200:200:public int getTouchY(int)
+    217:217:public int getTouchX(int)
+    228:228:public int getTouchY(int)
 lostland.gumd.platinum12548.blgframework.impl.TouchHandler:
     public abstract int getTouchX(int)
     public abstract int getTouchY(int)
@@ -1044,7 +1048,7 @@ lostland.gumd.platinum12548.data.Skill:
     public static final int KIND_BIANFA
     public static final int KIND_ZHANGFA
     public static final int KIND_GUNFA
-    92:92:public static int getBasicSkill(int)
+    98:98:public static int getBasicSkill(int)
 lostland.gumd.platinum12548.ui.BottomWindow:
     static final int TOP
     static final int LEFT
@@ -1081,6 +1085,7 @@ lostland.gumd.platinum12548.ui.MainMenuScreen:
     boolean pretd
     int downx
     int downy
+lostland.gumd.platinum12548.ui.MapEventScreen
 lostland.gumd.platinum12548.ui.NpcMenuBorder:
     public static final int TOP
     public static final int LEFT
@@ -1128,10 +1133,9 @@ lostland.gumd.platinum12548.ui.core.CheckButton
 lostland.gumd.platinum12548.ui.core.GmudWindow:
     36:36:public boolean isBordered()
 lostland.gumd.platinum12548.ui.core.NewButton:
-    96:96:public boolean inBound(int,int)
+    103:103:public boolean inBound(int,int)
 lostland.gumd.platinum12548.ui.core.ProgressScreen:
     31:36:public ProgressScreen(lostland.gumd.platinum12548.blgframework.IGame,lostland.gumd.platinum12548.blgframework.CScreen,float,int,int,int)
-lostland.gumd.platinum12548.ui.core.ScrollableMenuScreen
 lostland.gumd.platinum12548.ui.core.SlowScreen:
     public abstract void draw()
 lostland.gumd.platinum12548.ui.meta.CreatingDialog:

@@ -51,11 +51,15 @@ public class Skill {
 	};
 	
 	public static final int equip_bias[] = new int[] {
-		1,1,5,-4,4
+		1,1,5,-3,4,4
 	};
 	
 	public static final int eqpbias2[] = new int []{
 		0,3,0,0,0,0,2,5,4,6
+	};
+	
+	public static final int equip_pos[] = new int[] {
+		3,0,1,1,1,1,1,2,4,5
 	};
 	
 	public static final int KIND_QUANJIAO = 1;
@@ -80,6 +84,8 @@ public class Skill {
 	public int zss;                    //招式编号起始
 	public int zse;                    //招式编号结束
 	
+	
+	public int pos;
 	
 	public Skill getBasicSkill()
 	{
@@ -109,6 +115,8 @@ public class Skill {
 			GmudWorld.skill[i].checkable = GmudWorld.skill[i].id>9 && GmudWorld.skill[i].kind !=9;
 			GmudWorld.skill[i].zss = skill_zs[2*i];
 			GmudWorld.skill[i].zse = skill_zs[2*i+1];
+			
+			GmudWorld.skill[i].pos = equip_pos[GmudWorld.skill[i].kind];
 		}
 	}
 	

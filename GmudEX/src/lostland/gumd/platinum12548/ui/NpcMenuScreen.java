@@ -13,6 +13,7 @@ import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
 import lostland.gumd.platinum12548.battle.proc.BattleStart;
+import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
 import lostland.gumd.platinum12548.data.Npc;
@@ -86,6 +87,8 @@ public class NpcMenuScreen extends MenuScreen {
 		{
 			game.setScreen(new TradeScreen(game,npcid,this));
 		}
+		
+		BasicScreen.recheck();
 	}
 
 	/* （非 Javadoc）
@@ -95,32 +98,6 @@ public class NpcMenuScreen extends MenuScreen {
 	public void onCancel() {
 		game.setScreen(GmudWorld.ms);
 	}
-
-
-//	/* （非 Javadoc）
-//	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onTouchDown(int, int)
-//	 */
-//	@Override
-//	protected void onTouchDown(int tx, int ty) {
-//		if(havefourth)
-//			if(buttons[3].inBound(tx, ty))
-//			{
-//				if(GmudWorld.npc[npcid].trading == 2)
-//					SingleTouchHandler.flag = 8;
-//				else if(GmudWorld.npc[npcid].trading<100)
-//					SingleTouchHandler.flag = 2;
-//				else if(GmudWorld.npc[npcid].trading == 101)
-//				{
-//					if(npcid == 6 && GmudWorld.mc.exp<50000)
-//						;//Do Nothing, process in onClick
-//					else if(!GmudWorld.npc[npcid].qingjiaoable)
-//						;//Do Nothing
-//					else 
-//						SingleTouchHandler.flag = 2;
-//				}
-//			}
-//		super.onTouchDown(tx, ty);
-//	}
 
 
 	boolean facTest(int fac)
@@ -389,6 +366,9 @@ public class NpcMenuScreen extends MenuScreen {
 			}
 		else
 			return false;
+		
+		
+		
 	}
 
 	/* （非 Javadoc）
@@ -445,28 +425,6 @@ public class NpcMenuScreen extends MenuScreen {
 
 	}
 
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton)
-	 */
-	@Override
-	protected void onButtonDown(NewButton b) {
-		super.onButtonDown(b);
-//		if(b == NewButton.NB_ENTER && cursor == 3)
-//		{
-//			if(GmudWorld.npc[npcid].trading == 2)
-//				SingleTouchHandler.flag = 8;
-//			else if(GmudWorld.npc[npcid].trading<100)
-//				SingleTouchHandler.flag = 2;
-//			else if(GmudWorld.npc[npcid].trading == 101)
-//			{
-//				if(npcid == 6 && GmudWorld.mc.exp<50000)
-//					;//Do Nothing, process in onClick
-//				else if(!GmudWorld.npc[npcid].qingjiaoable)
-//					;//Do Nothing
-//				else 
-//					SingleTouchHandler.flag = 2;
-//			}
-//		}
-	}
+
 
 }
