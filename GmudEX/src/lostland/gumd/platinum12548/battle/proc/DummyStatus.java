@@ -35,8 +35,9 @@ public class DummyStatus implements Status {
 		{
 			b=false;
 			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
-		}else
-		GmudWorld.bs.setStatus(AttackStatus.ts);
+		}
+		else
+			GmudWorld.bs.setStatus(AttackStatus.ts);
 		return false;
 	}
 

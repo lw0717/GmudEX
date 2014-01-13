@@ -36,7 +36,7 @@ public abstract class ArrowButton extends GmudWindow {
 	protected void drawBackground()
 	{
 		BLGGraphics g =(BLGGraphics) game.getGraphics();
-//		g.drawRect(x, y, width, height, GameConstants.BG_COLOR);
+//		g.drawRect(x+1, y+1, width-1, height-1, GameConstants.BG_COLOR);
 		if(bordered)
 			g.drawPixmap(Assets.arrow, this.x + 1, this.y + padding_top + 2);
 	}

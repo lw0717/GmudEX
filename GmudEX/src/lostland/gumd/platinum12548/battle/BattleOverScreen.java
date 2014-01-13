@@ -13,7 +13,6 @@ import java.util.Arrays;
 import lostland.gumd.platinum12548.GameOverScreen;
 import lostland.gumd.platinum12548.GmudMap;
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.MapScreen;
 import lostland.gumd.platinum12548.battle.proc.BattleStart;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
@@ -62,18 +61,23 @@ public class BattleOverScreen extends CScreen {
 		Arrays.fill(GmudWorld.mc.buff,0);
 		GmudWorld.mc.name = BattleStart.name;
 		
+		if(GmudWorld.game.newint[0] > 0)
+		{
+			GmudWorld.mc.ref0();
+		}
+		
 		
 		
 		if(tpflag)
 		{
 			bossflag = false;
-			GmudWorld.npc[GmudWorld.bs.enemyid].itemsckd[0]=BattleStart.wp;
-			GmudWorld.npc[GmudWorld.bs.enemyid].refresh();
-			
-			GmudWorld.mc.dz = 0;
-			Arrays.fill(GmudWorld.mc.sz,0);
-			Arrays.fill(GmudWorld.mc.buff,0);
-			GmudWorld.mc.name = BattleStart.name;
+//			GmudWorld.npc[GmudWorld.bs.enemyid].itemsckd[0]=BattleStart.wp;
+//			GmudWorld.npc[GmudWorld.bs.enemyid].refresh();
+//			
+//			GmudWorld.mc.dz = 0;
+//			Arrays.fill(GmudWorld.mc.sz,0);
+//			Arrays.fill(GmudWorld.mc.buff,0);
+//			GmudWorld.mc.name = BattleStart.name;
 			
 			zdflag = true;
 			game.setScreen(new TalkingScreen(game, "哪里逃！", false));
@@ -134,10 +138,10 @@ public class BattleOverScreen extends CScreen {
 							GmudWorld.ms.round++;
 							GmudWorld.ms.number = 0;
 						}
-						GmudWorld.game.nextBadman = MapScreen.getGameTime() + 300;
+						GmudWorld.game.nextBadman = 300;
 						GmudWorld.game.hunting = false;
 						
-						int t = (int) ((GmudWorld.mc.getWxg() + Math.random()*10) * (GmudWorld.ms.round+GmudWorld.ms.number));
+						int t = (int) ((50 + Math.random()*10) * (GmudWorld.ms.round+GmudWorld.ms.number));
 						
 
 						a.add("你被奖励了："+t*4+"点实战经验，"+t+"点潜能");

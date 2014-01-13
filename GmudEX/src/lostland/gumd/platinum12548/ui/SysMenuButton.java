@@ -23,7 +23,7 @@ public class SysMenuButton extends ArrowButton {
 	public static final int MARGIN_LEFT = 1;
 	static final int PADDING_LEFT = 11;
 	static final int PADDING_TOP = 1;
-	static final String S[] = {"内力","练功","存档","结束"};
+	static final String S[] = {"内力","练功","设置","存档","结束"};
 	
 	public static final int TOP = SysMenuBorder.TOP + MARGIN_TOP;
 	public static final int LEFT = SysMenuBorder.LEFT + MARGIN_LEFT;

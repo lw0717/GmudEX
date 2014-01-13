@@ -1248,30 +1248,28 @@ android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.a
     int clampViewPositionVertical(android.view.View,int,int) -> b
 lostland.gumd.platinum12548.Assets -> lostland.gumd.platinum12548.a:
     lostland.gumd.platinum12548.blgframework.IPixmap maincharTile -> a
-    lostland.gumd.platinum12548.blgframework.IPixmap mapTile -> b
-    lostland.gumd.platinum12548.blgframework.IPixmap loading -> c
-    lostland.gumd.platinum12548.blgframework.IPixmap arrow -> d
-    lostland.gumd.platinum12548.blgframework.IPixmap empty -> e
-    lostland.gumd.platinum12548.blgframework.IPixmap filled -> f
-    lostland.gumd.platinum12548.blgframework.IPixmap checked -> g
-    lostland.gumd.platinum12548.blgframework.IPixmap hpfp -> h
-    lostland.gumd.platinum12548.blgframework.IPixmap vs -> i
-    lostland.gumd.platinum12548.blgframework.IPixmap boom -> j
-    lostland.gumd.platinum12548.blgframework.IPixmap up -> k
-    lostland.gumd.platinum12548.blgframework.IPixmap down -> l
-    lostland.gumd.platinum12548.blgframework.IPixmap left -> m
-    lostland.gumd.platinum12548.blgframework.IPixmap right -> n
-    lostland.gumd.platinum12548.blgframework.IPixmap enter -> o
-    lostland.gumd.platinum12548.blgframework.IPixmap menu -> p
-    lostland.gumd.platinum12548.blgframework.IPixmap nbup -> q
-    lostland.gumd.platinum12548.blgframework.IPixmap nbdown -> r
-    lostland.gumd.platinum12548.blgframework.IPixmap nbleft -> s
-    lostland.gumd.platinum12548.blgframework.IPixmap nbright -> t
-    lostland.gumd.platinum12548.blgframework.IPixmap nbenter -> u
-    lostland.gumd.platinum12548.blgframework.IPixmap nbback -> v
-    byte[] ascii12 -> w
-    byte[] charGBK12 -> x
-    byte[] charGBK16 -> y
+    lostland.gumd.platinum12548.blgframework.IPixmap girl -> b
+    lostland.gumd.platinum12548.blgframework.IPixmap mapTile -> c
+    lostland.gumd.platinum12548.blgframework.IPixmap loading -> d
+    lostland.gumd.platinum12548.blgframework.IPixmap arrow -> e
+    lostland.gumd.platinum12548.blgframework.IPixmap empty -> f
+    lostland.gumd.platinum12548.blgframework.IPixmap filled -> g
+    lostland.gumd.platinum12548.blgframework.IPixmap checked -> h
+    lostland.gumd.platinum12548.blgframework.IPixmap hpfp -> i
+    lostland.gumd.platinum12548.blgframework.IPixmap vs -> j
+    lostland.gumd.platinum12548.blgframework.IPixmap boom -> k
+    lostland.gumd.platinum12548.blgframework.IPixmap left -> l
+    lostland.gumd.platinum12548.blgframework.IPixmap right -> m
+    lostland.gumd.platinum12548.blgframework.IPixmap nbup -> n
+    lostland.gumd.platinum12548.blgframework.IPixmap nbdown -> o
+    lostland.gumd.platinum12548.blgframework.IPixmap nbleft -> p
+    lostland.gumd.platinum12548.blgframework.IPixmap nbright -> q
+    lostland.gumd.platinum12548.blgframework.IPixmap nbenter -> r
+    lostland.gumd.platinum12548.blgframework.IPixmap nbback -> s
+    lostland.gumd.platinum12548.blgframework.IPixmap nbmenu -> t
+    byte[] ascii12 -> u
+    byte[] charGBK12 -> v
+    byte[] charGBK16 -> w
 lostland.gumd.platinum12548.Direction -> lostland.gumd.platinum12548.b:
     lostland.gumd.platinum12548.Direction LEFT -> a
     lostland.gumd.platinum12548.Direction RIGHT -> b
@@ -1314,26 +1312,22 @@ lostland.gumd.platinum12548.GmudGame -> lostland.gumd.platinum12548.GmudGame:
     float nextBadman -> a
     boolean hunting -> b
     boolean[] hasstone -> c
-    int len -> d
-    android.app.NotificationManager manager -> e
-    android.app.Notification notif -> f
-    int max -> g
-    boolean b -> h
-    android.os.Handler sittingHandler -> w
+    int[] newint -> d
+    boolean[] newbool -> e
+    boolean classickeymap -> f
+    boolean backkeyquit -> g
     void onCreate(android.os.Bundle) -> onCreate
     lostland.gumd.platinum12548.blgframework.CScreen getStartScreen() -> a
     void onDestroy() -> onDestroy
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     void onResume() -> onResume
 lostland.gumd.platinum12548.GmudGame$1 -> lostland.gumd.platinum12548.i:
-    void handleMessage(android.os.Message) -> handleMessage
+    lostland.gumd.platinum12548.GmudGame this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
 lostland.gumd.platinum12548.GmudGame$2 -> lostland.gumd.platinum12548.j:
     lostland.gumd.platinum12548.GmudGame this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-lostland.gumd.platinum12548.GmudGame$3 -> lostland.gumd.platinum12548.k:
-    lostland.gumd.platinum12548.GmudGame this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
-lostland.gumd.platinum12548.GmudMap -> lostland.gumd.platinum12548.l:
+lostland.gumd.platinum12548.GmudMap -> lostland.gumd.platinum12548.k:
     java.lang.String[] MAP_NAME -> a
     android.graphics.Point[][][] p -> b
     int i -> c
@@ -1351,13 +1345,13 @@ lostland.gumd.platinum12548.GmudMap -> lostland.gumd.platinum12548.l:
     int getWalkable(int,int) -> a
     int getEvent(int,int) -> b
     boolean isWalkable(int,int) -> c
-lostland.gumd.platinum12548.GmudNPC -> lostland.gumd.platinum12548.m:
+lostland.gumd.platinum12548.GmudNPC -> lostland.gumd.platinum12548.l:
     int[] NPC_IMGINDEX -> a
     lostland.gumd.platinum12548.GmudGame game -> b
     android.graphics.Point[] npcImgIndex -> c
     void draw(int,int,int) -> a
     void drawBiased(int,int,int,int,int) -> a
-lostland.gumd.platinum12548.GmudWorld -> lostland.gumd.platinum12548.n:
+lostland.gumd.platinum12548.GmudWorld -> lostland.gumd.platinum12548.m:
     java.util.Random rand -> a
     lostland.gumd.platinum12548.GmudGame game -> b
     lostland.gumd.platinum12548.MainCharTile cnm -> c
@@ -1378,7 +1372,9 @@ lostland.gumd.platinum12548.GmudWorld -> lostland.gumd.platinum12548.n:
     int[] teachers -> r
     int[][] t_faction -> s
     int[] push_back(int[],int) -> a
-lostland.gumd.platinum12548.LoadingScreen -> lostland.gumd.platinum12548.o:
+    int bool2int(boolean) -> a
+    boolean int2bool(int) -> a
+lostland.gumd.platinum12548.LoadingScreen -> lostland.gumd.platinum12548.n:
     boolean b -> a
     void update(float) -> a
     int ReadInt(int,java.io.InputStream) -> a
@@ -1386,14 +1382,18 @@ lostland.gumd.platinum12548.LoadingScreen -> lostland.gumd.platinum12548.o:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-    void load() -> d_
+    void loadAssets() -> d_
+    void loadMaps() -> e
+    void loadNpcs() -> f
+    void loadSavefile() -> g
     void push(int,int,int) -> a
-lostland.gumd.platinum12548.MainCharTile -> lostland.gumd.platinum12548.p:
+lostland.gumd.platinum12548.MainCharTile -> lostland.gumd.platinum12548.o:
     lostland.gumd.platinum12548.GmudGame game -> a
     int currentStep -> b
     int X -> c
     int Y -> d
-    lostland.gumd.platinum12548.Direction currentDirection -> e
+    lostland.gumd.platinum12548.blgframework.impl.BLGPixmap pixmap2 -> e
+    lostland.gumd.platinum12548.Direction currentDirection -> f
     void draw(lostland.gumd.platinum12548.Direction,int,int,int) -> a
     void drawOriWalking(lostland.gumd.platinum12548.Direction,int,int) -> a
     void drawInnerWalking(lostland.gumd.platinum12548.Direction,int,int,int) -> b
@@ -1401,7 +1401,7 @@ lostland.gumd.platinum12548.MainCharTile -> lostland.gumd.platinum12548.p:
     int absY() -> b
     int frontAbsX() -> c
     int frontAbsY() -> d
-lostland.gumd.platinum12548.MapScreen -> lostland.gumd.platinum12548.q:
+lostland.gumd.platinum12548.MapScreen -> lostland.gumd.platinum12548.p:
     boolean b -> a
     float STEP_TIME -> b
     float tickTime -> c
@@ -1418,11 +1418,13 @@ lostland.gumd.platinum12548.MapScreen -> lostland.gumd.platinum12548.q:
     float x -> n
     float y -> o
     float z -> p
-    boolean c -> q
-    boolean zlEnabled -> r
-    boolean btnsEnabled -> s
-    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$Direction -> P
-    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton -> Q
+    int tx -> q
+    int ty -> r
+    boolean c -> s
+    boolean zlEnabled -> t
+    boolean btnsEnabled -> u
+    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$Direction -> Q
+    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton -> R
     void update(float) -> a
     void pause() -> b_
     void resume() -> c_
@@ -1436,29 +1438,29 @@ lostland.gumd.platinum12548.MapScreen -> lostland.gumd.platinum12548.q:
     void show() -> g
     int[] $SWITCH_TABLE$lostland$gumd$platinum12548$Direction() -> h
     int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton() -> i
-lostland.gumd.platinum12548.MapTile -> lostland.gumd.platinum12548.r:
+lostland.gumd.platinum12548.MapTile -> lostland.gumd.platinum12548.q:
     lostland.gumd.platinum12548.GmudGame game -> a
     void draw(int,int,int,int) -> a
     void drawBiased(int,int,int,int,int,int) -> a
     void drawMap(lostland.gumd.platinum12548.GmudMap,int,int) -> a
     void drawMapWalking(lostland.gumd.platinum12548.GmudMap,int,int,int,int) -> a
-lostland.gumd.platinum12548.SavingScreen -> lostland.gumd.platinum12548.s:
+lostland.gumd.platinum12548.SavingScreen -> lostland.gumd.platinum12548.r:
     boolean b -> a
-    android.content.SharedPreferences$Editor ed -> b
     void onTouchDown(int,int) -> a
     void onTouchMove(int,int) -> b
     void onTouchUp(int,int) -> c
     void onClick(int,int) -> d
     void present(float) -> b
-    void save() -> f_
+    void savePerf() -> f_
+    void save() -> e
     void update(float) -> a
-lostland.gumd.platinum12548.SavingScreen$1 -> lostland.gumd.platinum12548.t:
+lostland.gumd.platinum12548.SavingScreen$1 -> lostland.gumd.platinum12548.s:
     lostland.gumd.platinum12548.SavingScreen this$0 -> a
     void draw() -> a
-lostland.gumd.platinum12548.Tileset -> lostland.gumd.platinum12548.u:
-    lostland.gumd.platinum12548.blgframework.impl.BLGPixmap pixmap -> f
-    int tileWidth -> g
-    int tileHeight -> h
+lostland.gumd.platinum12548.Tileset -> lostland.gumd.platinum12548.t:
+    lostland.gumd.platinum12548.blgframework.impl.BLGPixmap pixmap -> g
+    int tileWidth -> h
+    int tileHeight -> i
     void draw(lostland.gumd.platinum12548.blgframework.impl.BLGGraphics,int,int,int,int) -> a
 lostland.gumd.platinum12548.battle.BattleButton -> lostland.gumd.platinum12548.a.a:
     int X -> a
@@ -1498,6 +1500,9 @@ lostland.gumd.platinum12548.battle.BattleScreen -> lostland.gumd.platinum12548.a
     void resume() -> c_
     void dispose() -> c
     java.lang.String bsp(java.lang.String) -> a
+    void xiqiprocess() -> e
+    void atkprocess(lostland.gumd.platinum12548.data.Gesture,lostland.gumd.platinum12548.battle.proc.Status) -> a
+    void atkprocess(lostland.gumd.platinum12548.data.Gesture,lostland.gumd.platinum12548.battle.proc.Status,java.lang.String) -> a
 lostland.gumd.platinum12548.battle.ControlScreen -> lostland.gumd.platinum12548.a.e:
     lostland.gumd.platinum12548.battle.BattleScreen bs -> a
     void onClick(int) -> a
@@ -1530,6 +1535,8 @@ lostland.gumd.platinum12548.battle.proc.AttackStatus -> lostland.gumd.platinum12
     java.lang.String shfj(lostland.gumd.platinum12548.data.Npc) -> a
     boolean evd() -> b
     boolean blk() -> c
+    boolean critAttack() -> d
+    float critTimes() -> e
 lostland.gumd.platinum12548.battle.proc.BattleStart -> lostland.gumd.platinum12548.a.a.c:
     int wp -> a
     java.lang.String name -> b
@@ -1538,12 +1545,23 @@ lostland.gumd.platinum12548.battle.proc.DummyStatus -> lostland.gumd.platinum125
     boolean b -> a
     boolean execute() -> a
 lostland.gumd.platinum12548.battle.proc.FreeStatus -> lostland.gumd.platinum12548.a.a.e:
+    int nround -> a
     boolean execute() -> a
-lostland.gumd.platinum12548.battle.proc.RoundOverStatus -> lostland.gumd.platinum12548.a.a.f:
+lostland.gumd.platinum12548.battle.proc.PreAttackStatus -> lostland.gumd.platinum12548.a.a.f:
+    java.lang.String prefix -> a
+    lostland.gumd.platinum12548.data.Gesture ges -> b
+    lostland.gumd.platinum12548.battle.proc.Status controller -> c
+    boolean inDouble -> d
+    int round -> e
+    int db -> f
     boolean execute() -> a
-lostland.gumd.platinum12548.battle.proc.Status -> lostland.gumd.platinum12548.a.a.g:
+    void process() -> b
+    boolean doubleAttack() -> c
+lostland.gumd.platinum12548.battle.proc.RoundOverStatus -> lostland.gumd.platinum12548.a.a.g:
     boolean execute() -> a
-lostland.gumd.platinum12548.battle.proc.StuntScreen -> lostland.gumd.platinum12548.a.a.h:
+lostland.gumd.platinum12548.battle.proc.Status -> lostland.gumd.platinum12548.a.a.h:
+    boolean execute() -> a
+lostland.gumd.platinum12548.battle.proc.StuntScreen -> lostland.gumd.platinum12548.a.a.i:
     java.lang.String[] name -> a
     int[][] sklNeeded -> b
     int[] cost -> c
@@ -1552,20 +1570,21 @@ lostland.gumd.platinum12548.battle.proc.StuntScreen -> lostland.gumd.platinum125
     int[] t -> f
     java.util.ArrayList s -> g
     int i -> h
+    boolean canuse(int) -> b
     void onClick(int) -> a
     void onCancel() -> a_
     void StuntOver() -> e
     void show() -> g
     lostland.gumd.platinum12548.ui.core.GmudWindow[] getWindows() -> f
-lostland.gumd.platinum12548.battle.proc.StuntScreen$1 -> lostland.gumd.platinum12548.a.a.i:
+    void process(int) -> c
+lostland.gumd.platinum12548.battle.proc.StuntScreen$1 -> lostland.gumd.platinum12548.a.a.j:
     lostland.gumd.platinum12548.battle.proc.StuntScreen this$0 -> a
     void draw() -> a
-lostland.gumd.platinum12548.battle.proc.StuntScreen$2 -> lostland.gumd.platinum12548.a.a.j:
-    lostland.gumd.platinum12548.battle.proc.StuntScreen this$0 -> a
-    boolean execute() -> a
-lostland.gumd.platinum12548.battle.proc.StuntScreen$3 -> lostland.gumd.platinum12548.a.a.k:
+lostland.gumd.platinum12548.battle.proc.StuntScreen$2 -> lostland.gumd.platinum12548.a.a.k:
     int a -> a
     void draw() -> a
+lostland.gumd.platinum12548.battle.proc.StuntScreen$3 -> lostland.gumd.platinum12548.a.a.l:
+    boolean execute() -> a
 lostland.gumd.platinum12548.battle.proc.stunt.JiZiJue -> lostland.gumd.platinum12548.a.a.a.a:
     boolean execute() -> a
 lostland.gumd.platinum12548.battle.proc.stunt.LiuLangWenYing -> lostland.gumd.platinum12548.a.a.a.b:
@@ -1601,35 +1620,32 @@ lostland.gumd.platinum12548.battle.proc.stunt.²ø×Ö¾÷ -> lostland.gumd.platinum12
 lostland.gumd.platinum12548.battle.proc.stunt.Ó­·çÒ»µ¶Õ¶ -> lostland.gumd.platinum12548.a.a.a.l:
     boolean execute() -> a
 lostland.gumd.platinum12548.blgframework.BasicScreen -> lostland.gumd.platinum12548.b.a:
-    lostland.gumd.platinum12548.blgframework.IGame game -> t
-    lostland.gumd.platinum12548.data.MemAntiCheater mac -> u
-    boolean b -> v
-    boolean acr -> w
+    lostland.gumd.platinum12548.blgframework.IGame game -> v
+    boolean b -> w
+    boolean acr -> x
     java.util.zip.Adler32 chk -> a
-    float gameTime -> x
-    float yearTime -> y
-    float hungerTime -> z
-    long chksum -> A
-    long smallchksum -> B
-    float stime -> C
-    boolean sss -> D
-    float getGameTime() -> j
+    float gameTime -> y
+    float yearTime -> z
+    float hungerTime -> A
+    long chksum -> B
+    long smallchksum -> C
+    float stime -> D
+    boolean sss -> E
     void timeFlow(float) -> c
     void update(float) -> a
     void render(float) -> d
-    void recheck() -> k
-    long getchksum() -> l
-    boolean check() -> m
+    void recheck() -> j
+    long getchksum() -> k
+    boolean check() -> l
     boolean isStable() -> d
-    lostland.gumd.platinum12548.data.MemAntiCheater getMAC() -> n
 lostland.gumd.platinum12548.blgframework.CScreen -> lostland.gumd.platinum12548.b.b:
     void present(float) -> b
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
     boolean isStable() -> d
-    void npause() -> o
-    void nresume() -> p
+    void npause() -> m
+    void nresume() -> n
 lostland.gumd.platinum12548.blgframework.IFileIO -> lostland.gumd.platinum12548.b.c:
     android.content.SharedPreferences getPreferences() -> a
 lostland.gumd.platinum12548.blgframework.IGame -> lostland.gumd.platinum12548.b.d:
@@ -1652,8 +1668,11 @@ lostland.gumd.platinum12548.blgframework.IGraphics$PixmapFormat -> lostland.gumd
     lostland.gumd.platinum12548.blgframework.IGraphics$PixmapFormat valueOf(java.lang.String) -> valueOf
 lostland.gumd.platinum12548.blgframework.IInput -> lostland.gumd.platinum12548.b.g:
     boolean isTouchDown(int) -> a
-    java.util.List getKeyEvents() -> a
-    java.util.List getTouchEvents() -> b
+    float getAccelX() -> a
+    float getAccelY() -> b
+    float getAccelZ() -> c
+    java.util.List getKeyEvents() -> d
+    java.util.List getTouchEvents() -> e
 lostland.gumd.platinum12548.blgframework.IInput$KeyEvent -> lostland.gumd.platinum12548.b.h:
     int type -> a
     int keyCode -> b
@@ -1677,6 +1696,9 @@ lostland.gumd.platinum12548.blgframework.impl.AccelerometerHandler -> lostland.g
     float accelZ -> c
     void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
     void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
+    float getAccelX() -> a
+    float getAccelY() -> b
+    float getAccelZ() -> c
 lostland.gumd.platinum12548.blgframework.impl.BLGFastRenderView -> lostland.gumd.platinum12548.b.a.b:
     lostland.gumd.platinum12548.blgframework.impl.BLGGame game -> a
     android.graphics.Bitmap framebuffer -> b
@@ -1696,20 +1718,20 @@ lostland.gumd.platinum12548.blgframework.impl.BLGFileIO -> lostland.gumd.platinu
     java.io.OutputStream writeFile(java.lang.String) -> c
     android.content.SharedPreferences getPreferences() -> a
 lostland.gumd.platinum12548.blgframework.impl.BLGGame -> lostland.gumd.platinum12548.b.a.d:
-    lostland.gumd.platinum12548.blgframework.impl.BLGFastRenderView renderView -> i
-    lostland.gumd.platinum12548.blgframework.IGraphics graphics -> j
-    lostland.gumd.platinum12548.blgframework.IInput input -> k
-    lostland.gumd.platinum12548.blgframework.IFileIO fileIO -> l
-    lostland.gumd.platinum12548.blgframework.CScreen screen -> m
-    android.os.PowerManager$WakeLock wakeLock -> n
-    android.graphics.Bitmap SecondFB -> o
-    boolean exit -> p
-    float scaleX -> q
-    float scaleY -> r
-    float s2x -> s
-    float s2y -> t
-    int height -> u
-    int width -> v
+    lostland.gumd.platinum12548.blgframework.impl.BLGFastRenderView renderView -> h
+    lostland.gumd.platinum12548.blgframework.IGraphics graphics -> i
+    lostland.gumd.platinum12548.blgframework.IInput input -> j
+    lostland.gumd.platinum12548.blgframework.IFileIO fileIO -> k
+    lostland.gumd.platinum12548.blgframework.CScreen screen -> l
+    android.os.PowerManager$WakeLock wakeLock -> m
+    android.graphics.Bitmap SecondFB -> n
+    boolean exit -> o
+    float scaleX -> p
+    float scaleY -> q
+    float s2x -> r
+    float s2y -> s
+    int height -> t
+    int width -> u
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onPause() -> onPause
@@ -1754,8 +1776,11 @@ lostland.gumd.platinum12548.blgframework.impl.BLGInput -> lostland.gumd.platinum
     lostland.gumd.platinum12548.blgframework.impl.KeyboardHandler keyHandler -> b
     lostland.gumd.platinum12548.blgframework.impl.TouchHandler touchHandler -> c
     boolean isTouchDown(int) -> a
-    java.util.List getKeyEvents() -> a
-    java.util.List getTouchEvents() -> b
+    java.util.List getKeyEvents() -> d
+    java.util.List getTouchEvents() -> e
+    float getAccelX() -> a
+    float getAccelY() -> b
+    float getAccelZ() -> c
 lostland.gumd.platinum12548.blgframework.impl.BLGPixmap -> lostland.gumd.platinum12548.b.a.g:
     android.graphics.Bitmap bitmap -> a
     lostland.gumd.platinum12548.blgframework.IGraphics$PixmapFormat format -> b
@@ -1802,7 +1827,10 @@ lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler$3 -> lostland.g
 lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler$4 -> lostland.gumd.platinum12548.b.a.n:
     lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-lostland.gumd.platinum12548.blgframework.impl.TouchHandler -> lostland.gumd.platinum12548.b.a.o:
+lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler$5 -> lostland.gumd.platinum12548.b.a.o:
+    lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+lostland.gumd.platinum12548.blgframework.impl.TouchHandler -> lostland.gumd.platinum12548.b.a.p:
     boolean isTouchDown(int) -> a
     java.util.List getTouchEvents() -> a
 lostland.gumd.platinum12548.data.Gesture -> lostland.gumd.platinum12548.c.a:
@@ -1852,17 +1880,7 @@ lostland.gumd.platinum12548.data.MainChar -> lostland.gumd.platinum12548.c.c:
     int getWatermax() -> c
     int getface() -> d
     void setPotential(int) -> d
-lostland.gumd.platinum12548.data.MemAntiCheater -> lostland.gumd.platinum12548.c.d:
-    java.util.zip.Adler32 a -> a
-    boolean running -> b
-    long chksum -> c
-    int rint -> d
-    long check() -> a
-    void recheck() -> b
-    void stop() -> c
-    lostland.gumd.platinum12548.data.MemAntiCheater getInstance() -> e
-    void notifyChange() -> d
-lostland.gumd.platinum12548.data.Npc -> lostland.gumd.platinum12548.c.e:
+lostland.gumd.platinum12548.data.Npc -> lostland.gumd.platinum12548.c.d:
     int id -> h
     java.lang.String name -> i
     int faction -> j
@@ -1906,41 +1924,42 @@ lostland.gumd.platinum12548.data.Npc -> lostland.gumd.platinum12548.c.e:
     int dz -> V
     int[] buff -> W
     double temp_dmg_multiplier -> X
-    int getStr() -> e
-    int getAgi() -> f
-    int getWxg() -> g
-    int getBon() -> h
-    boolean have(int) -> c
-    void give(int) -> b
-    lostland.gumd.platinum12548.data.Gesture cg() -> i
+    void badman() -> e
     lostland.gumd.platinum12548.data.Gesture cag(int) -> e
+    lostland.gumd.platinum12548.data.Gesture cg() -> f
     int chooseAGesture(int) -> f
-    lostland.gumd.platinum12548.data.Skill getAttackSkill() -> j
-    int getWC() -> k
-    double getBattleHit() -> l
-    double getBattleEvd() -> m
-    double getBattleBLK() -> n
-    boolean equips(int) -> g
-    boolean expcanlearn(int) -> h
-    lostland.gumd.platinum12548.data.Skill getEquipedSkill(int) -> i
-    int getAtk() -> o
-    int getDef() -> p
-    int getHit() -> q
-    int getEvd() -> r
-    int getAdsLimit() -> s
-    void refresh() -> t
-    int getpj() -> u
-    java.lang.String getcs() -> v
+    void cure(int) -> g
     void dmg(int,int) -> b
-    void rec(int) -> j
-    void cure(int) -> k
-    void xiqi() -> w
-    int getMaxmaxfp() -> x
-    int getMaxhp() -> y
+    boolean equips(int) -> h
+    boolean expcanlearn(int) -> i
+    int getAdsLimit() -> g
+    int getAgi() -> h
+    int getAtk() -> i
+    lostland.gumd.platinum12548.data.Skill getAttackSkill() -> j
+    double getBattleBLK() -> k
+    double getBattleEvd() -> l
+    double getBattleHit() -> m
+    int getBon() -> n
+    java.lang.String getcs() -> o
+    int getDef() -> p
+    lostland.gumd.platinum12548.data.Skill getEquipedSkill(int) -> j
+    int getEvd() -> q
+    int getHit() -> r
+    int getMaxhp() -> s
+    int getMaxmaxfp() -> t
+    int getpj() -> u
+    int getStr() -> v
+    int getWC() -> w
+    int getWxg() -> x
+    void give(int) -> b
+    boolean have(int) -> c
+    void rec(int) -> k
+    void refresh() -> y
+    void ref0() -> z
     void setDifficulty(float) -> a
-    void badman() -> z
     void setExp(int) -> l
-lostland.gumd.platinum12548.data.Skill -> lostland.gumd.platinum12548.c.f:
+    void xiqi() -> A
+lostland.gumd.platinum12548.data.Skill -> lostland.gumd.platinum12548.c.e:
     java.lang.String[] skill_name -> a
     int[] skill_zs -> b
     int[] skill_kind -> c
@@ -1962,13 +1981,25 @@ lostland.gumd.platinum12548.data.Skill -> lostland.gumd.platinum12548.c.f:
 lostland.gumd.platinum12548.ui.AutoButton -> lostland.gumd.platinum12548.d.a:
     java.lang.String s -> a
     void draw() -> a
+    void setS(java.lang.String) -> a
 lostland.gumd.platinum12548.ui.AutoWindow -> lostland.gumd.platinum12548.d.b:
     java.lang.String text -> a
     void draw() -> a
 lostland.gumd.platinum12548.ui.BottomWindow -> lostland.gumd.platinum12548.d.c:
     java.lang.String text -> a
     void draw() -> a
-lostland.gumd.platinum12548.ui.EventScreen -> lostland.gumd.platinum12548.d.d:
+lostland.gumd.platinum12548.ui.CreatingScreen -> lostland.gumd.platinum12548.d.d:
+    lostland.gumd.platinum12548.ui.AutoWindow border -> a
+    int[] attr -> b
+    int d -> c
+    java.lang.String[] diff -> d
+    void onClick(int) -> a
+    void onCancel() -> a_
+    void show() -> g
+    lostland.gumd.platinum12548.ui.AutoButton[] getButtons() -> e
+    void onButtonClick(lostland.gumd.platinum12548.ui.core.NewButton) -> b
+    boolean isStable() -> d
+lostland.gumd.platinum12548.ui.EventScreen -> lostland.gumd.platinum12548.d.e:
     lostland.gumd.platinum12548.blgframework.CScreen ts -> a
     lostland.gumd.platinum12548.ui.TalkingWindow window -> b
     void onTouchDown(int,int) -> a
@@ -1980,7 +2011,7 @@ lostland.gumd.platinum12548.ui.EventScreen -> lostland.gumd.platinum12548.d.d:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.ExchangeScreen -> lostland.gumd.platinum12548.d.e:
+lostland.gumd.platinum12548.ui.ExchangeScreen -> lostland.gumd.platinum12548.d.f:
     boolean fail -> a
     int change -> b
     int count -> c
@@ -1990,7 +2021,7 @@ lostland.gumd.platinum12548.ui.ExchangeScreen -> lostland.gumd.platinum12548.d.e
     void present(float) -> b
     void onYes() -> a
     void onNo() -> b
-lostland.gumd.platinum12548.ui.FinishScreen -> lostland.gumd.platinum12548.d.f:
+lostland.gumd.platinum12548.ui.FinishScreen -> lostland.gumd.platinum12548.d.g:
     boolean flag -> a
     java.lang.String s -> b
     int x -> c
@@ -2000,18 +2031,19 @@ lostland.gumd.platinum12548.ui.FinishScreen -> lostland.gumd.platinum12548.d.f:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.InnerMenuBorder -> lostland.gumd.platinum12548.d.g:
+lostland.gumd.platinum12548.ui.InnerMenuBorder -> lostland.gumd.platinum12548.d.h:
     void draw() -> a
-lostland.gumd.platinum12548.ui.InnerMenuButton -> lostland.gumd.platinum12548.d.h:
+lostland.gumd.platinum12548.ui.InnerMenuButton -> lostland.gumd.platinum12548.d.i:
     java.lang.String[] S -> a
     int index -> b
     void draw() -> a
-lostland.gumd.platinum12548.ui.InnerMenuScreen -> lostland.gumd.platinum12548.d.i:
+lostland.gumd.platinum12548.ui.InnerMenuScreen -> lostland.gumd.platinum12548.d.j:
     void onClick(int) -> a
     void onCancel() -> a_
     void show() -> g
     void onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton) -> a
-lostland.gumd.platinum12548.ui.InventoryScreen -> lostland.gumd.platinum12548.d.j:
+    boolean isStable() -> d
+lostland.gumd.platinum12548.ui.InventoryScreen -> lostland.gumd.platinum12548.d.k:
     boolean b -> a
     int[][] sticking -> b
     lostland.gumd.platinum12548.blgframework.CScreen ts -> c
@@ -2020,25 +2052,25 @@ lostland.gumd.platinum12548.ui.InventoryScreen -> lostland.gumd.platinum12548.d.
     void onClick(int) -> a
     void drawbg() -> f
     void cancel() -> h
-lostland.gumd.platinum12548.ui.InventoryScreen$1 -> lostland.gumd.platinum12548.d.k:
+lostland.gumd.platinum12548.ui.InventoryScreen$1 -> lostland.gumd.platinum12548.d.l:
     lostland.gumd.platinum12548.ui.InventoryScreen this$0 -> a
     void onYes() -> a
     void onNo() -> b
-lostland.gumd.platinum12548.ui.InventoryScreen$1$1 -> lostland.gumd.platinum12548.d.l:
+lostland.gumd.platinum12548.ui.InventoryScreen$1$1 -> lostland.gumd.platinum12548.d.m:
     lostland.gumd.platinum12548.ui.InventoryScreen$1 this$1 -> a
     void onYes() -> a
     void onNo() -> b
-lostland.gumd.platinum12548.ui.LearningScreen -> lostland.gumd.platinum12548.d.m:
+lostland.gumd.platinum12548.ui.LearningScreen -> lostland.gumd.platinum12548.d.n:
     int sklid -> a
     int limit -> b
     void onComplete() -> h_
     void tick() -> f
     void binding(int) -> a
-lostland.gumd.platinum12548.ui.LearningScreen$1 -> lostland.gumd.platinum12548.d.n:
+lostland.gumd.platinum12548.ui.LearningScreen$1 -> lostland.gumd.platinum12548.d.o:
     lostland.gumd.platinum12548.ui.LearningScreen this$0 -> a
     void onYes() -> a
     void onNo() -> b
-lostland.gumd.platinum12548.ui.LookScreen -> lostland.gumd.platinum12548.d.o:
+lostland.gumd.platinum12548.ui.LookScreen -> lostland.gumd.platinum12548.d.p:
     java.util.ArrayList pages -> a
     lostland.gumd.platinum12548.blgframework.impl.BLGGraphics g -> b
     int page -> c
@@ -2051,30 +2083,29 @@ lostland.gumd.platinum12548.ui.LookScreen -> lostland.gumd.platinum12548.d.o:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.MainMenuBorder -> lostland.gumd.platinum12548.d.p:
+lostland.gumd.platinum12548.ui.MainMenuBorder -> lostland.gumd.platinum12548.d.q:
     void draw() -> a
-lostland.gumd.platinum12548.ui.MainMenuButton -> lostland.gumd.platinum12548.d.q:
+lostland.gumd.platinum12548.ui.MainMenuButton -> lostland.gumd.platinum12548.d.r:
     java.lang.String[] S -> a
     int index -> b
     void draw() -> a
-lostland.gumd.platinum12548.ui.MainMenuScreen -> lostland.gumd.platinum12548.d.r:
+lostland.gumd.platinum12548.ui.MainMenuScreen -> lostland.gumd.platinum12548.d.s:
     void onClick(int) -> a
     void onCancel() -> a_
     void show() -> g
-    void onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton) -> a
-lostland.gumd.platinum12548.ui.NotificationScreen -> lostland.gumd.platinum12548.d.s:
+lostland.gumd.platinum12548.ui.NotificationScreen -> lostland.gumd.platinum12548.d.t:
     java.lang.String text -> b
     float time -> a
     void tick() -> f
     void draw() -> e
     void onClick(int,int) -> d
-lostland.gumd.platinum12548.ui.NpcMenuBorder -> lostland.gumd.platinum12548.d.t:
+lostland.gumd.platinum12548.ui.NpcMenuBorder -> lostland.gumd.platinum12548.d.u:
     void draw() -> a
-lostland.gumd.platinum12548.ui.NpcMenuButton -> lostland.gumd.platinum12548.d.u:
+lostland.gumd.platinum12548.ui.NpcMenuButton -> lostland.gumd.platinum12548.d.v:
     int index -> a
     java.lang.String[] S -> b
     void draw() -> a
-lostland.gumd.platinum12548.ui.NpcMenuScreen -> lostland.gumd.platinum12548.d.v:
+lostland.gumd.platinum12548.ui.NpcMenuScreen -> lostland.gumd.platinum12548.d.w:
     int npcid -> a
     int fourth -> b
     boolean havefourth -> c
@@ -2084,23 +2115,22 @@ lostland.gumd.platinum12548.ui.NpcMenuScreen -> lostland.gumd.platinum12548.d.v:
     boolean masterTest() -> e
     void show() -> g
     lostland.gumd.platinum12548.ui.core.GmudWindow[] getWindows(int) -> c
-    void onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton) -> a
-lostland.gumd.platinum12548.ui.PracticeMenuBorder -> lostland.gumd.platinum12548.d.w:
+lostland.gumd.platinum12548.ui.PracticeMenuBorder -> lostland.gumd.platinum12548.d.x:
     void draw() -> a
-lostland.gumd.platinum12548.ui.PracticeMenuButton -> lostland.gumd.platinum12548.d.x:
+lostland.gumd.platinum12548.ui.PracticeMenuButton -> lostland.gumd.platinum12548.d.y:
     int item -> a
     int index -> b
     void draw() -> a
-lostland.gumd.platinum12548.ui.PracticeMenuScreen -> lostland.gumd.platinum12548.d.y:
+lostland.gumd.platinum12548.ui.PracticeMenuScreen -> lostland.gumd.platinum12548.d.z:
     void onClick(int) -> a
     lostland.gumd.platinum12548.ui.core.GmudWindow[] getWindows() -> e
     void onCancel() -> a_
     void show() -> g
-lostland.gumd.platinum12548.ui.PracticingScreen -> lostland.gumd.platinum12548.d.z:
+lostland.gumd.platinum12548.ui.PracticingScreen -> lostland.gumd.platinum12548.d.aa:
     int skild -> a
     void onComplete() -> h_
     void binding(int) -> a
-lostland.gumd.platinum12548.ui.RopeScreen -> lostland.gumd.platinum12548.d.aa:
+lostland.gumd.platinum12548.ui.RopeScreen -> lostland.gumd.platinum12548.d.ab:
     void onTouchDown(int,int) -> a
     void onTouchMove(int,int) -> b
     void onTouchUp(int,int) -> c
@@ -2111,7 +2141,15 @@ lostland.gumd.platinum12548.ui.RopeScreen -> lostland.gumd.platinum12548.d.aa:
     void resume() -> c_
     void dispose() -> c
     boolean isStable() -> d
-lostland.gumd.platinum12548.ui.SignScreen -> lostland.gumd.platinum12548.d.ab:
+lostland.gumd.platinum12548.ui.SettingScreen -> lostland.gumd.platinum12548.d.ac:
+    lostland.gumd.platinum12548.ui.StatusBorder nborder -> a
+    java.lang.String[][] s -> b
+    int[] pointer -> c
+    void onClick(int) -> a
+    void onCancel() -> a_
+    void show() -> g
+    lostland.gumd.platinum12548.ui.AutoButton[] getButtons() -> e
+lostland.gumd.platinum12548.ui.SignScreen -> lostland.gumd.platinum12548.d.ad:
     void onTouchDown(int,int) -> a
     void onTouchMove(int,int) -> b
     void onTouchUp(int,int) -> c
@@ -2121,14 +2159,14 @@ lostland.gumd.platinum12548.ui.SignScreen -> lostland.gumd.platinum12548.d.ab:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.SittingScreen -> lostland.gumd.platinum12548.d.ac:
+lostland.gumd.platinum12548.ui.SittingScreen -> lostland.gumd.platinum12548.d.ae:
     int s_now -> a
     int s_max -> b
     int s_smax -> c
     void onComplete() -> h_
     void binding(int) -> a
     void draw() -> e
-lostland.gumd.platinum12548.ui.SkillScreen -> lostland.gumd.platinum12548.d.ad:
+lostland.gumd.platinum12548.ui.SkillScreen -> lostland.gumd.platinum12548.d.af:
     int[][] sticking -> a
     lostland.gumd.platinum12548.blgframework.CScreen ts -> b
     lostland.gumd.platinum12548.ui.AutoWindow bottomWindow -> c
@@ -2136,7 +2174,7 @@ lostland.gumd.platinum12548.ui.SkillScreen -> lostland.gumd.platinum12548.d.ad:
     void onClick(int) -> a
     void drawbg() -> f
     void cancel() -> h
-lostland.gumd.platinum12548.ui.StartScreen -> lostland.gumd.platinum12548.d.ae:
+lostland.gumd.platinum12548.ui.StartScreen -> lostland.gumd.platinum12548.d.ag:
     boolean flag -> a
     java.lang.String s -> b
     int x -> c
@@ -2146,33 +2184,35 @@ lostland.gumd.platinum12548.ui.StartScreen -> lostland.gumd.platinum12548.d.ae:
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.StatusBorder -> lostland.gumd.platinum12548.d.af:
+lostland.gumd.platinum12548.ui.StatusBorder -> lostland.gumd.platinum12548.d.ah:
     void draw() -> a
-lostland.gumd.platinum12548.ui.StatusButton -> lostland.gumd.platinum12548.d.ag:
-lostland.gumd.platinum12548.ui.StatusScreen -> lostland.gumd.platinum12548.d.ah:
+lostland.gumd.platinum12548.ui.StatusButton -> lostland.gumd.platinum12548.d.ai:
+lostland.gumd.platinum12548.ui.StatusScreen -> lostland.gumd.platinum12548.d.aj:
     java.lang.String[] sex_text -> a
     java.lang.String[][] face_text -> b
     int page -> c
     java.lang.String[] text -> d
     lostland.gumd.platinum12548.ui.core.NewButton[] cl -> e
-    int cc -> f
+    lostland.gumd.platinum12548.ui.core.NewButton[] cl2 -> f
+    int cc -> g
+    int cc2 -> h
     int get_face_level(int) -> b
     void onClick(int) -> a
     void onCancel() -> a_
     void show() -> g
     void onButtonClick(lostland.gumd.platinum12548.ui.core.NewButton) -> b
-lostland.gumd.platinum12548.ui.SysMenuBorder -> lostland.gumd.platinum12548.d.ai:
+lostland.gumd.platinum12548.ui.SysMenuBorder -> lostland.gumd.platinum12548.d.ak:
     void draw() -> a
-lostland.gumd.platinum12548.ui.SysMenuButton -> lostland.gumd.platinum12548.d.aj:
+lostland.gumd.platinum12548.ui.SysMenuButton -> lostland.gumd.platinum12548.d.al:
     java.lang.String[] S -> a
     int index -> b
     void draw() -> a
-lostland.gumd.platinum12548.ui.SysMenuScreen -> lostland.gumd.platinum12548.d.ak:
+lostland.gumd.platinum12548.ui.SysMenuScreen -> lostland.gumd.platinum12548.d.am:
     void onClick(int) -> a
     void onCancel() -> a_
     void show() -> g
     void onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton) -> a
-lostland.gumd.platinum12548.ui.TalkingScreen -> lostland.gumd.platinum12548.d.al:
+lostland.gumd.platinum12548.ui.TalkingScreen -> lostland.gumd.platinum12548.d.an:
     lostland.gumd.platinum12548.blgframework.CScreen ts -> a
     java.lang.String[][] text -> b
     int npcid -> c
@@ -2202,7 +2242,7 @@ lostland.gumd.platinum12548.ui.TalkingScreen -> lostland.gumd.platinum12548.d.al
     void resume() -> c_
     void dispose() -> c
     boolean isStable() -> d
-lostland.gumd.platinum12548.ui.TalkingWindow -> lostland.gumd.platinum12548.d.am:
+lostland.gumd.platinum12548.ui.TalkingWindow -> lostland.gumd.platinum12548.d.ao:
     boolean splited -> a
     boolean b -> b
     java.util.ArrayList pages -> c
@@ -2210,7 +2250,7 @@ lostland.gumd.platinum12548.ui.TalkingWindow -> lostland.gumd.platinum12548.d.am
     int page -> e
     int getPages() -> i_
     void draw() -> a
-lostland.gumd.platinum12548.ui.TradeScreen -> lostland.gumd.platinum12548.d.an:
+lostland.gumd.platinum12548.ui.TradeScreen -> lostland.gumd.platinum12548.d.ap:
     lostland.gumd.platinum12548.ui.TalkingWindow topWindow -> a
     lostland.gumd.platinum12548.ui.AutoWindow bottomWindow -> b
     lostland.gumd.platinum12548.blgframework.CScreen ts -> c
@@ -2225,7 +2265,8 @@ lostland.gumd.platinum12548.ui.TradeScreen -> lostland.gumd.platinum12548.d.an:
     boolean isStable() -> d
     void refresh() -> f
     void re() -> h
-lostland.gumd.platinum12548.ui.WateringScreen -> lostland.gumd.platinum12548.d.ao:
+    void resume() -> c_
+lostland.gumd.platinum12548.ui.WateringScreen -> lostland.gumd.platinum12548.d.aq:
     void onTouchDown(int,int) -> a
     void onTouchMove(int,int) -> b
     void onTouchUp(int,int) -> c
@@ -2235,7 +2276,7 @@ lostland.gumd.platinum12548.ui.WateringScreen -> lostland.gumd.platinum12548.d.a
     void pause() -> b_
     void resume() -> c_
     void dispose() -> c
-lostland.gumd.platinum12548.ui.WinScreen -> lostland.gumd.platinum12548.d.ap:
+lostland.gumd.platinum12548.ui.WinScreen -> lostland.gumd.platinum12548.d.ar:
     java.lang.String s -> a
     lostland.gumd.platinum12548.blgframework.impl.BLGGraphics g -> b
     int[] stonenpc -> c
@@ -2255,12 +2296,12 @@ lostland.gumd.platinum12548.ui.core.ArrowButton -> lostland.gumd.platinum12548.d
 lostland.gumd.platinum12548.ui.core.BlockButton -> lostland.gumd.platinum12548.d.a.b:
     void drawBackground() -> b
 lostland.gumd.platinum12548.ui.core.ButtonControlledScreen -> lostland.gumd.platinum12548.d.a.c:
-    int otx -> E
-    int oty -> F
-    int dx -> G
-    int dy -> H
-    boolean isDown -> I
-    lostland.gumd.platinum12548.ui.core.GmudWindow dummyBorder -> J
+    int otx -> F
+    int oty -> G
+    int dx -> H
+    int dy -> I
+    boolean isDown -> J
+    lostland.gumd.platinum12548.ui.core.GmudWindow dummyBorder -> K
     boolean inbound(int,int,int,int) -> a
     void onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton) -> a
     void onButtonClick(lostland.gumd.platinum12548.ui.core.NewButton) -> b
@@ -2271,11 +2312,11 @@ lostland.gumd.platinum12548.ui.core.ButtonControlledScreen -> lostland.gumd.plat
     void onClick(int,int) -> d
     void present(float) -> b
 lostland.gumd.platinum12548.ui.core.DialogScreen -> lostland.gumd.platinum12548.d.a.d:
-    lostland.gumd.platinum12548.ui.core.GmudWindow border -> K
-    boolean td -> L
-    boolean pretd -> M
-    int downx -> N
-    int downy -> O
+    lostland.gumd.platinum12548.ui.core.GmudWindow border -> L
+    boolean td -> M
+    boolean pretd -> N
+    int downx -> O
+    int downy -> P
     void onTouchDown(int,int) -> a
     void onTouchMove(int,int) -> b
     void onTouchUp(int,int) -> c
@@ -2334,7 +2375,6 @@ lostland.gumd.platinum12548.ui.core.GmudWindow -> lostland.gumd.platinum12548.d.
 lostland.gumd.platinum12548.ui.core.MenuScreen -> lostland.gumd.platinum12548.d.a.j:
     int cursor -> i
     lostland.gumd.platinum12548.ui.core.GmudWindow[] buttons -> j
-    boolean bb -> k
     int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton -> a
     void onClick(int) -> a
     void onCancel() -> a_
@@ -2351,14 +2391,16 @@ lostland.gumd.platinum12548.ui.core.NewButton -> lostland.gumd.platinum12548.d.a
     lostland.gumd.platinum12548.ui.core.NewButton NB_RIGHT -> d
     lostland.gumd.platinum12548.ui.core.NewButton NB_ENTER -> e
     lostland.gumd.platinum12548.ui.core.NewButton NB_BACK -> f
-    lostland.gumd.platinum12548.ui.core.NewButton NB_NULL -> g
-    int BOTTOM -> h
-    int LEFT -> i
-    int RIGHT -> j
-    int CENTER -> k
-    int RADIUS -> l
-    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton -> m
-    lostland.gumd.platinum12548.ui.core.NewButton[] ENUM$VALUES -> n
+    lostland.gumd.platinum12548.ui.core.NewButton NB_MENU -> g
+    lostland.gumd.platinum12548.ui.core.NewButton NB_NULL -> h
+    boolean menubutton -> i
+    int BOTTOM -> j
+    int LEFT -> k
+    int RIGHT -> l
+    int CENTER -> m
+    int RADIUS -> n
+    int[] $SWITCH_TABLE$lostland$gumd$platinum12548$ui$core$NewButton -> o
+    lostland.gumd.platinum12548.ui.core.NewButton[] ENUM$VALUES -> p
     int x() -> a
     int y() -> b
     lostland.gumd.platinum12548.blgframework.IPixmap getPixmap() -> c
@@ -2429,13 +2471,9 @@ lostland.gumd.platinum12548.ui.meta.AdsDialog -> lostland.gumd.platinum12548.d.b
     void show() -> show
     void cancel() -> cancel
 lostland.gumd.platinum12548.ui.meta.CreatingDialog -> lostland.gumd.platinum12548.d.b.b:
-    android.view.Window mWindow -> g
+    android.view.Window mWindow -> c
     android.widget.EditText etName -> a
-    android.widget.EditText etStr -> b
-    android.widget.EditText etAgi -> c
-    android.widget.EditText etBon -> d
-    android.widget.EditText etWxg -> e
-    android.widget.Button btnOK -> f
+    android.widget.Button btnOK -> b
 lostland.gumd.platinum12548.ui.meta.CreatingDialog$1 -> lostland.gumd.platinum12548.d.b.c:
     lostland.gumd.platinum12548.ui.meta.CreatingDialog this$0 -> a
     void onClick(android.view.View) -> onClick

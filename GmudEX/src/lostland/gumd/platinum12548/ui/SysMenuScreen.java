@@ -31,7 +31,8 @@ public class SysMenuScreen extends MenuScreen {
 				new SysMenuButton((GmudGame) game,0),
 				new SysMenuButton((GmudGame) game,1),
 				new SysMenuButton((GmudGame) game,2),
-				new SysMenuButton((GmudGame) game,3)
+				new SysMenuButton((GmudGame) game,3),
+				new SysMenuButton((GmudGame) game,4)
 		});
 		dummyBorder = new SysMenuBorder((GmudGame) game);
 
@@ -55,9 +56,12 @@ public class SysMenuScreen extends MenuScreen {
 				game.setScreen(new PracticeMenuScreen(game));
 			break;
 		case 2:
-			game.setScreen(new SavingScreen(game));
+			game.setScreen(new SettingScreen(game));
 			break;
 		case 3:
+			game.setScreen(new SavingScreen(game));
+			break;
+		case 4:
 			break;
 		}
 	}
@@ -79,9 +83,9 @@ public class SysMenuScreen extends MenuScreen {
 	 */
 	@Override
 	protected void show() {
-		GmudWorld.mms.present(0);
+		GmudWorld.mms.present(-1);
 		dummyBorder.draw();
-		for(int i=0;i<4;i++)
+		for(int i=0;i<5;i++)
 		{
 			buttons[i].draw();
 		}
@@ -96,7 +100,7 @@ public class SysMenuScreen extends MenuScreen {
 	protected void onButtonDown(NewButton b) {
 		if(b == NewButton.NB_ENTER)
 		{
-			if(cursor == 3)
+			if(cursor == 4)
 				SingleTouchHandler.flag = 10;
 		}
 		super.onButtonDown(b);

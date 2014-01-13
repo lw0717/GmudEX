@@ -20,6 +20,8 @@ import lostland.gumd.platinum12548.battle.ViewScreen;
 public class FreeStatus implements Status {
 
 	
+	public static int nround = -1;
+	
 	public FreeStatus() {
 		// TODO 自动生成的构造函数存根
 	}
@@ -46,10 +48,48 @@ public class FreeStatus implements Status {
 			return false;
 		}
 		
-		AttackStatus.ag = GmudWorld.bs.zdp.cg();
-		GmudWorld.bs.setStatus(new AttackStatus(new RoundOverStatus()));
-		ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-		GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		double basicSpecialMovementRate = 0.2 * GmudWorld.game.newint[0];
+		int aiXiqiCooldown = 4 - GmudWorld.game.newint[0];
+		int aiStuntCoolDown = 5 - GmudWorld.game.newint[0];
+		
+		nround++;
+		
+		int avStunts[] = new int[0];
+		
+		for(int i = 0; i <  StuntScreen.name.length; i++)
+		{
+			if(StuntScreen.canuse(i)) {
+				avStunts = GmudWorld.push_back(avStunts, i);
+				Log.i("FreeStatus", StuntScreen.name[i] + " is avalible");
+			}
+		}
+		
+		Log.i("FreeStatus", avStunts.length + " Stunts avalible in total");
+		
+		if(avStunts.length > 0 && nround >= aiStuntCoolDown && Math.random() < basicSpecialMovementRate)
+		{
+			StuntScreen.process(avStunts[(int) (Math.random() * avStunts.length)]);
+			nround=-1;
+			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		}
+		else if(GmudWorld.bs.zdp.sp < GmudWorld.bs.zdp.hp && GmudWorld.bs.zdp.fp > 0 && nround >= aiXiqiCooldown && Math.random() < basicSpecialMovementRate)
+		{
+			GmudWorld.bs.xiqiprocess();
+			nround=-1;
+		}
+		else
+		{
+			GmudWorld.bs.atkprocess(null, null);
+		}
+		
+		
+		
+		
+		
+//		AttackStatus.ag = GmudWorld.bs.zdp.cg();
+//		GmudWorld.bs.setStatus(new AttackStatus(new RoundOverStatus()));
+//		ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//		GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		return false;
 	}
 

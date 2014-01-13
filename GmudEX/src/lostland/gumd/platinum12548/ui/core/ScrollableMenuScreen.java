@@ -97,6 +97,8 @@ public abstract class ScrollableMenuScreen extends ButtonControlledScreen {
 			else
 				buttons[i].setBordered(false);
 		}
+		
+		nborder.height = this.max*12+2;
 	}
 	
 	

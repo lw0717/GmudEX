@@ -35,6 +35,7 @@ public class BattleStart implements Status {
 		
 		GmudWorld.bs.zdp = GmudWorld.mc;
 		GmudWorld.bs.bdp = GmudWorld.npc[GmudWorld.bs.enemyid];
+//		GmudWorld.bs.bdp.setDifficulty(GmudWorld.game.getDifficulty());
 		GmudWorld.bs.bdp.refresh();
 		GmudWorld.bs.setStatus(new FreeStatus());
 		GmudWorld.bs.eob = false;

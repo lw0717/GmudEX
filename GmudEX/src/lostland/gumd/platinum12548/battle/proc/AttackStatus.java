@@ -42,6 +42,7 @@ public class AttackStatus implements Status {
 	 */
 	@Override
 	public boolean execute() {
+		String prefix = "";
 		
 		if(evd())
 			ViewScreen.setText(GmudWorld.bs.bsp(GmudWorld.bs.bdp.getEquipedSkill(2).chooseAGesture().c));
@@ -67,19 +68,24 @@ public class AttackStatus implements Status {
 			
 			int dmg = (int) (a/2.0 + Math.random()*a/2.0);
 			
+			Log.i("伤害=",""+dmg);
+			
+			if(critAttack())
+			{
+				prefix += "【暴击】";
+				dmg *= critTimes();
+				Log.i("暴击伤害=",""+dmg);
+			}
+			
 			
 			GmudWorld.bs.bdp.dmg(dmg,ag.dmgfix);
-			
 			GmudWorld.bs.zdp.sp += GmudWorld.bs.zdp.skills[41]*dmg / 100;
 			if(GmudWorld.bs.zdp.sp>GmudWorld.bs.zdp.hp)GmudWorld.bs.zdp.sp=GmudWorld.bs.zdp.hp;
 			
-			ViewScreen.setText(GmudWorld.bs.bsp(get_damage_string(ag.dmg_type,dmg))+shfj(GmudWorld.bs.bdp) + "#hit#");
-			
+			ViewScreen.setText(GmudWorld.bs.bsp(prefix + get_damage_string(ag.dmg_type,dmg))+shfj(GmudWorld.bs.bdp) + "#hit#");
 			
 		}
-		
-		
-		
+			
 		GmudWorld.bs.setStatus(new DummyStatus());
 		GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		return false;
@@ -127,7 +133,6 @@ public class AttackStatus implements Status {
 	
 	boolean block()
 	{
-		
 		
 		double basic_block_rate=GameConstants.BASE_BASIC_BLOCK_RATE;
 		Log.i("attack_process", "基本格挡率："+basic_block_rate);
@@ -224,7 +229,7 @@ public class AttackStatus implements Status {
 			s[8]="结果对$n造成了非常可怕的严重伤害";
 		}
 		
-		if(dmg==0)
+		if(dmg<=0)
 			return s[0];
 		else if(dmg<10)
 			return s[1];
@@ -247,7 +252,8 @@ public class AttackStatus implements Status {
 	String shfj(Npc p)
 	{
 		String t;
-		String s1[] = new String[]{"看起来充满活力，一点也不累",
+		String s1[] = new String[]{
+				"看起来充满活力，一点也不累",
 				"似乎有些疲惫，但是十分有活力",
 				"看起来可能有些累了",
 				"动作似乎开始有点不太灵光",
@@ -258,7 +264,8 @@ public class AttackStatus implements Status {
 				"摇头晃脑，眼看就要倒在地上",
 				"已经陷入半昏迷状态"
 				};
-		String s2[] = new String[]{"看起来气血充盈，并没有受伤",
+		String s2[] = new String[]{
+				"看起来气血充盈，并没有受伤",
 				"似乎受了点轻伤，不过看不出来",
 				"看起来可能受了点轻伤",
 				"受了几处伤，不过似乎并不碍事",
@@ -294,21 +301,61 @@ public class AttackStatus implements Status {
 	boolean evd()
 	{
 		Log.w("Attack", "正在获取命中率");
-		double hr = GmudWorld.bs.zdp.getBattleHit() / GmudWorld.bs.bdp.getBattleEvd() * 0.5;
+		double h = GmudWorld.bs.zdp.getBattleHit();
+		
+		
+		double hr = h / (GmudWorld.bs.bdp.getBattleEvd() + h);
+		
+		hr += hr * (1 - hr);
+		
 		Log.i("attack_process", "命中率="+hr);
 		boolean isHit=Math.random()<=hr;
 		Log.i("attack_process", "命中="+isHit);
+		
 		return !isHit;
 	}
 	
 	boolean blk()
 	{
-		double hr = GmudWorld.bs.bdp.getBattleBLK() / GmudWorld.bs.zdp.getBattleHit() * 0.1;
+		double b = GmudWorld.bs.bdp.getBattleBLK();
+		
+		double hr = b / (GmudWorld.bs.zdp.getBattleHit() + b);
+		
+		hr *= 0.3;
+		
 		Log.i("attack_process", "格挡率："+hr);
 		
 		boolean isBlocked=Math.random()<=hr;
 		Log.i("attack_process", "格挡："+isBlocked);
 		return isBlocked;
 	}
+	
+	boolean critAttack()
+	{
+		double r1 = 0.5;
+		if(GmudWorld.bs.zdp.getAdsLimit() <= 0)
+			r1 = 0.5;
+		else
+			r1 = (((double)GmudWorld.bs.zdp.ads) / ((double)GmudWorld.bs.zdp.getAdsLimit()));
+		double r2 = GmudWorld.game.newint[0] * 0.10f;
+		double r3 = ((double)GmudWorld.bs.zdp.getStr()) / (((double)GmudWorld.bs.zdp.getStr() + ((double)GmudWorld.bs.bdp.getBon())));
+		double r = r1*r2*r3;
+		Log.i("AttackStatus", "暴击率：" + r);
+		boolean da = Math.random() < r;
+		Log.i("AttackStatus", "暴击：" + da);
+		
+		return da;
+	}
 
+	float critTimes()
+	{
+		float t =1f;
+		
+		t += GmudWorld.bs.zdp.getWxg() * 0.025 * GmudWorld.game.newint[0];
+		
+		Log.i("AttackStatus", "暴击倍数：" + t);
+		
+		return t;
+	}
+	
 }

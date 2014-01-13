@@ -8,9 +8,6 @@
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.battle.ViewScreen;
-import lostland.gumd.platinum12548.battle.proc.AnotherDummyStatus;
-import lostland.gumd.platinum12548.battle.proc.AttackStatus;
 import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
 import lostland.gumd.platinum12548.battle.proc.Status;
 
@@ -41,16 +38,22 @@ public class LiuLangWenYing implements Status {
 	public boolean execute() {
 		round++;
 		if(round ==0)
-		{
-			
+		{	
 			if(GmudWorld.bs.zdp.skillsckd[0] == 12)
 				a=2;
-			AttackStatus.ag = GmudWorld.bs.zdp.cg();
-			GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(this)));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
-
-		}else if(round<a)
+			
+			String p = "¡¾ÁøÀËÎÅÝº"  + (round+1) + "/3¡¿";
+			if(GmudWorld.bs.zdp.skillsckd[1] == 11)
+				p = "¡¾°ËØÔµ¶Ó°ÕÆ"  + (round+1) + "/"+a+"¡¿";
+			
+			GmudWorld.bs.atkprocess(null, this,p);
+			
+//			AttackStatus.ag = GmudWorld.bs.zdp.cg();
+//			GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(this)));
+//			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		}
+		else if(round<a)
 		{
 			if(b){
 				t = GmudWorld.bs.zdp.itemsckd[0];
@@ -58,10 +61,17 @@ public class LiuLangWenYing implements Status {
 				b=false;
 			}
 
-			AttackStatus.ag = GmudWorld.bs.zdp.cg();
-			GmudWorld.bs.setStatus(new AttackStatus(this));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+			
+			String p = "¡¾ÁøÀËÎÅÝº"  + (round+1) + "/3¡¿";
+			if(GmudWorld.bs.zdp.skillsckd[1] == 11)
+				p = "¡¾°ËØÔµ¶Ó°ÕÆ"  + (round+1) + "/"+a+"¡¿";
+			
+			GmudWorld.bs.atkprocess(null, this,p);
+			
+//			AttackStatus.ag = GmudWorld.bs.zdp.cg();
+//			GmudWorld.bs.setStatus(new AttackStatus(this));
+//			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		}
 		else
 		{

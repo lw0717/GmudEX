@@ -8,10 +8,6 @@
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.battle.ViewScreen;
-import lostland.gumd.platinum12548.battle.proc.AnotherDummyStatus;
-import lostland.gumd.platinum12548.battle.proc.AttackStatus;
-import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
 import lostland.gumd.platinum12548.battle.proc.Status;
 
 /**
@@ -33,11 +29,14 @@ public class 迎风一刀斩 implements Status {
 	 */
 	@Override
 	public boolean execute() {
-		AttackStatus.ag = GmudWorld.bs.zdp.cg();
+//		AttackStatus.ag = GmudWorld.bs.zdp.cg();
 		GmudWorld.bs.bdp.temp_dmg_multiplier = 3.0;
-		GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(new RoundOverStatus())));
-		ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-		GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		
+		GmudWorld.bs.atkprocess(null, null,"【迎风一刀斩】");
+		
+//		GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(new RoundOverStatus())));
+//		ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//		GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		return false;
 	}
 

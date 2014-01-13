@@ -8,18 +8,21 @@
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.battle.ViewScreen;
-import lostland.gumd.platinum12548.battle.proc.AnotherDummyStatus;
-import lostland.gumd.platinum12548.battle.proc.AttackStatus;
 import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
 import lostland.gumd.platinum12548.battle.proc.Status;
 
 /**
- * 类名：XueHuaLiuChu <p>
+ * 类名：XueHuaLiuChu
+ * <p>
  * 说明：
+ * 
  * @author 12548
  */
 public class XueHuaLiuChu implements Status {
+
+	int round = -1;
+
+	int chu;
 
 	/**
 	 * 
@@ -28,35 +31,38 @@ public class XueHuaLiuChu implements Status {
 		// TODO 自动生成的构造函数存根
 	}
 
-	int round = -1;
-	int chu;
-	
-	/* （非 Javadoc）
+	/*
+	 * （非 Javadoc）
+	 * 
 	 * @see lostland.gumd.platinum12548.battle.proc.Status#execute()
 	 */
 	@Override
 	public boolean execute() {
 		round++;
-		if(round ==0)
-		{
-			chu = 1+(GmudWorld.bs.zdp.skills[38]-60)/20;
-			AttackStatus.ag = GmudWorld.bs.zdp.cg();
-			GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(this)));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
-		}else if(round<chu)
-		{
-			AttackStatus.ag = GmudWorld.bs.zdp.cg();
-			GmudWorld.bs.setStatus(new AttackStatus(this));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
-		}
-		else
-		{
-			GmudWorld.bs.zdp.dz +=3;
+		if (round == 0) {
+			chu = 1 + (GmudWorld.bs.zdp.skills[38] - 60) / 20;
+			String p = "【雪花六出" + (round + 1) + "/" + chu + "】";
+			GmudWorld.bs.atkprocess(null, this, p);
+
+			// AttackStatus.ag = GmudWorld.bs.zdp.cg();
+			// GmudWorld.bs.setStatus(new AnotherDummyStatus(new
+			// AttackStatus(this)));
+			// ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+			// GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		} else if (round < chu) {
+
+			String p = "【雪花六出" + (round + 1) + "/" + chu + "】";
+			GmudWorld.bs.atkprocess(null, this, p);
+
+			// AttackStatus.ag = GmudWorld.bs.zdp.cg();
+			// GmudWorld.bs.setStatus(new AttackStatus(this));
+			// ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+			// GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+		} else {
+			GmudWorld.bs.zdp.dz += 3;
 			GmudWorld.bs.setStatus(new RoundOverStatus());
 		}
-		
+
 		return false;
 	}
 

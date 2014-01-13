@@ -43,7 +43,6 @@ public class LearningScreen extends ProgressScreen {
 
 	
 	
-	
 	/* £¨·Ç Javadoc£©
 	 * @see lostland.gumd.platinum12548.ui.core.ProgressScreen#onComplete()
 	 */
@@ -51,6 +50,7 @@ public class LearningScreen extends ProgressScreen {
 	public void onComplete() {
 		GmudWorld.mc.skills[sklid]++;
 		GmudWorld.mc.learning[sklid] = 0;
+		bg.resume();
 		game.setScreen(new YesNoScreen(game,"¼ÌÐøÑ§Ï°Âð£¿"){
 			
 			@Override

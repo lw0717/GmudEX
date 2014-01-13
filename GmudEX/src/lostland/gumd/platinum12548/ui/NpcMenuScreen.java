@@ -19,7 +19,6 @@ import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
 import lostland.gumd.platinum12548.data.Npc;
 import lostland.gumd.platinum12548.ui.core.GmudWindow;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
-import lostland.gumd.platinum12548.ui.core.NewButton;
 
 /**
  * ¿‡√˚£∫NpcMenuScreen <p>

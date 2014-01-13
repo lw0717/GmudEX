@@ -92,18 +92,17 @@ public class SkillScreen extends DoubleScrollScreen {
 		i = 4;
 		
 		k=0;
-		for(int  j = 10; j < GmudWorld.mc.skills.length;j++)
-			if(GmudWorld.mc.skills[j] >0 && (GmudWorld.skill[j].pos == 0 || GmudWorld.skill[j].pos == 1))
+		for(int  j = 8; j < GmudWorld.mc.skills.length;j++)
+			if(GmudWorld.mc.skills[j] >0 && (GmudWorld.skill[j].pos == 0 || GmudWorld.skill[j].pos == 1 || GmudWorld.skill[j].pos == 4))
 				k++;
 
-		s2[i] = new String[k+1];
+		s2[i] = new String[k];
 
-		s2[i][0] = GmudWorld.skill[Skill.KIND_ZHAOJIA].name;
 		
-		k=1;
-		for(int  j = 10; j < GmudWorld.mc.skills.length;j++)
+		k=0;
+		for(int  j = 8; j < GmudWorld.mc.skills.length;j++)
 		{
-			if(GmudWorld.mc.skills[j] >0 && (GmudWorld.skill[j].pos == 0 || GmudWorld.skill[j].pos == 1))
+			if(GmudWorld.mc.skills[j] >0 && (GmudWorld.skill[j].pos == 0 || GmudWorld.skill[j].pos == 1 || GmudWorld.skill[j].pos == 4))
 			{
 
 				boolean b = false;

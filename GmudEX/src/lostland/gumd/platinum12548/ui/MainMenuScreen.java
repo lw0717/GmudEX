@@ -13,7 +13,6 @@ import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
-import lostland.gumd.platinum12548.ui.core.NewButton;
 
 /**
  * ¿‡√˚£∫MainMenuScreen <p>
@@ -90,19 +89,5 @@ public class MainMenuScreen extends MenuScreen {
 
 
 
-	/* £®∑« Javadoc£©
-	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton)
-	 */
-	@Override
-	protected void onButtonDown(NewButton b) {
-		if(b == NewButton.NB_ENTER)
-			if(cursor == 1)
-				;
-//				SingleTouchHandler.flag = 6;
-			else if(cursor == 2)
-				;
-//				SingleTouchHandler.flag = 5;
-		super.onButtonDown(b);
-	}
 	
 }

@@ -7,8 +7,6 @@
  */
 package lostland.gumd.platinum12548.ui.meta;
 
-import java.util.Arrays;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -21,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ToggleButton;
 import lostland.gmud.platinum12548.R;
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.SavingScreen;
 import lostland.gumd.platinum12548.data.MainChar;
 import lostland.gumd.platinum12548.ui.StartScreen;
 
@@ -65,10 +62,10 @@ public class CreatingDialog extends Dialog {
 		etName = (EditText) findViewById(R.id.etName);
 		
 		btnOK = (Button) findViewById(R.id.btnOK);
-		etStr = (EditText) findViewById(R.id.etStr);
-		etAgi = (EditText) findViewById(R.id.etAgi);
-		etBon = (EditText) findViewById(R.id.etBon);
-		etWxg = (EditText) findViewById(R.id.etWxg);
+//		etStr = (EditText) findViewById(R.id.etStr);
+//		etAgi = (EditText) findViewById(R.id.etAgi);
+//		etBon = (EditText) findViewById(R.id.etBon);
+//		etWxg = (EditText) findViewById(R.id.etWxg);
 		
 		
 		btnOK.setOnClickListener(new View.OnClickListener() {
@@ -78,39 +75,39 @@ public class CreatingDialog extends Dialog {
 				
 				try{
 					
-					int str = Integer.parseInt(etStr.getText().toString());
-					int agi = Integer.parseInt(etAgi.getText().toString());
-					int bon = Integer.parseInt(etBon.getText().toString());
-					int wxg = Integer.parseInt(etWxg.getText().toString());
-					
-					if(str>=10 && agi>=10 && bon>=10 && wxg>=10 && str<=30 && agi<=30 && bon<=30 && wxg<=30 && str+agi+bon+wxg <= 80)
-					{
+//					int str = Integer.parseInt(etStr.getText().toString());
+//					int agi = Integer.parseInt(etAgi.getText().toString());
+//					int bon = Integer.parseInt(etBon.getText().toString());
+//					int wxg = Integer.parseInt(etWxg.getText().toString());
+//					
+//					if(str>=10 && agi>=10 && bon>=10 && wxg>=10 && str<=30 && agi<=30 && bon<=30 && wxg<=30 && str+agi+bon+wxg <= 80)
+//					{
 						GmudWorld.mc = new MainChar();
 						GmudWorld.mc.name = etName.getText().toString();
-						GmudWorld.mc.str = str;
-						GmudWorld.mc.agi = agi;
-						GmudWorld.mc.bon = bon;
-						GmudWorld.mc.wxg = wxg;
-						
-						Arrays.fill(GmudWorld.mc.skills,0);
-						Arrays.fill(GmudWorld.mc.skillsckd,-1);
-						Arrays.fill(GmudWorld.mc.inventory, 0);
-						GmudWorld.mc.inventory[42] = 1;
-						GmudWorld.mc.refreshItems();
-						
-						GmudWorld.mc.sex = str<15?1:0;
-						
-						GmudWorld.mc.looking = (int) (30 - str + Math.random() * (30 - wxg/2));
-						
-						GmudWorld.mc.food = 100;
-						GmudWorld.mc.drink = 100;
-						
+//						GmudWorld.mc.str = str;
+//						GmudWorld.mc.agi = agi;
+//						GmudWorld.mc.bon = bon;
+//						GmudWorld.mc.wxg = wxg;
+//						
+//						Arrays.fill(GmudWorld.mc.skills,0);
+//						Arrays.fill(GmudWorld.mc.skillsckd,-1);
+//						Arrays.fill(GmudWorld.mc.inventory, 0);
+//						GmudWorld.mc.inventory[42] = 1;
+//						GmudWorld.mc.refreshItems();
+//						
+//						GmudWorld.mc.sex = str<15?1:0;
+//						
+//						GmudWorld.mc.looking = (int) (30 - str + Math.random() * (30 - wxg/2));
+//						
+//						GmudWorld.mc.food = 100;
+//						GmudWorld.mc.drink = 100;
+//						
 						StartScreen.flag = true;
 						cancel();
-					}
+//					}
+//					
 					
-					
-					new SavingScreen(GmudWorld.game).save();
+//					new SavingScreen(GmudWorld.game).save();
 					
 				} catch(NumberFormatException e){
 					e.printStackTrace();

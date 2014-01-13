@@ -63,11 +63,10 @@ public class RoundOverStatus implements Status {
 						break;
 					case 3:
 						ViewScreen.setText(GmudWorld.bs.bsp("$n识破了$N的烟幕诡计，攻守自如多了。"));
-						GmudWorld.bs.zdp.hit_bouns -= GmudWorld.bs.bdp.hit;
+						GmudWorld.bs.bdp.hit_bouns += 20;
 						break;
 					case 4:
 						ViewScreen.setText(GmudWorld.bs.bsp("$N忍法影分身运行完毕，制造出来的幻影也跟著消失。"));
-						GmudWorld.bs.zdp.wxg_bouns -= 90;
 						break;
 					case 5:
 						ViewScreen.setText(GmudWorld.bs.bsp("$N冰心决运行完毕，笼罩在身周的护体真气逐渐散去。"));

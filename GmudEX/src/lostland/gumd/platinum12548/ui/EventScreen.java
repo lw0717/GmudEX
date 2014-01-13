@@ -27,7 +27,6 @@ public class EventScreen extends DialogScreen {
 	public static CScreen ts=null;
 	
 	TalkingWindow window;
-	
 
 	public EventScreen(IGame game,ArrayList<String> s,boolean splited)
 	{

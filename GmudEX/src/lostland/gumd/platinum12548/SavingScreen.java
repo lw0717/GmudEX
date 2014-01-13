@@ -20,6 +20,7 @@ import lostland.gumd.platinum12548.blgframework.impl.BLGFileIO;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
 import lostland.gumd.platinum12548.ui.core.FullScreen;
 import lostland.gumd.platinum12548.ui.core.GmudWindow;
+import lostland.gumd.platinum12548.ui.core.NewButton;
 
 /**
  * 类名：SavingScreen <p>
@@ -29,7 +30,6 @@ import lostland.gumd.platinum12548.ui.core.GmudWindow;
 public class SavingScreen extends FullScreen {
 
 	boolean b = true;
-	private Editor ed;
 	
 	/**
 	 * @param game
@@ -90,21 +90,36 @@ public class SavingScreen extends FullScreen {
 		BLGGraphics g = (BLGGraphics) game.getGraphics();
 		g.drawText("存档成功！", 51, 51, FontSize.FT_12PX);
 	}
+	
+	
+	public static void savePerf()
+	{
+		BLGFileIO f = (BLGFileIO) GmudWorld.game.getFileIO();
+		SharedPreferences sp = f.getPreferences();
+		Editor edd = sp.edit();
+		
+		edd.putInt("SaveFileVersion", 2);
+		edd.putBoolean("newgame", false);
+		edd.putBoolean("zlgyxz", MapScreen.zlEnabled);
+		edd.putBoolean("dtajcz", MapScreen.btnsEnabled);
+		edd.putBoolean("标准键位", GmudGame.classickeymap);
+		edd.putBoolean("显示菜单键", NewButton.menubutton);
+		edd.putBoolean("返回键退出", GmudGame.backkeyquit);
+		
+		if(!edd.commit())
+			savePerf();
+	}
+	
 
 
 	public void save()
 	{
 		BLGFileIO f = (BLGFileIO) game.getFileIO();
-		SharedPreferences sp = f.getPreferences();
 		BasicScreen.recheck();
-		ed = sp.edit();
 		
-		ed.putInt("SaveFileVersion", 2);
-		ed.putBoolean("newgame", false);
-		ed.putBoolean("zlgyxz", MapScreen.zlEnabled);
-		ed.putBoolean("dtajcz", MapScreen.btnsEnabled);
+		savePerf();
 		
-		ed.commit();
+		
 
 
 		

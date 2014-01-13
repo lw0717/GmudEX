@@ -7,6 +7,7 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
 import lostland.gumd.platinum12548.battle.proc.Status;
@@ -31,8 +32,13 @@ public class JiZiJue implements Status {
 	 */
 	@Override
 	public boolean execute() {
-		boolean hit = GmudWorld.rand.nextBoolean();
 		
+		double hit_rate = 0.3 + 0.3 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+
+		Log.i("挤字诀","命中率1=" + hit_rate);
+
+		boolean hit = Math.random() < hit_rate;
+
 		if(hit)
 		{
 			ViewScreen.setText(GmudWorld.bs.bsp("跟著$N横劲发出，$n给这么一挤，招式中的劲力打了个空，心中空荡荡的十分难受！"));
@@ -41,7 +47,12 @@ public class JiZiJue implements Status {
 		}
 		else
 		{
-			boolean hit2 = GmudWorld.rand.nextBoolean();
+			double hit_rate2 = 0.4 + 0.4 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+
+			Log.i("挤字诀","命中率2=" + hit_rate2);
+
+			boolean hit2 = Math.random() < hit_rate2;
+			
 			if(hit2)
 			{
 				ViewScreen.setText(GmudWorld.bs.bsp("$n见此情景，一声惊噫，连忙收回自己的劲力，闪身避让！"));
@@ -56,7 +67,7 @@ public class JiZiJue implements Status {
 		}
 
 		StuntScreen.StuntOver();
-		
+
 		return false;
 	}
 

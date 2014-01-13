@@ -82,6 +82,8 @@ public class InventoryScreen extends DoubleScrollScreen {
 			k=0;
 			for(int  j : GmudWorld.mc.items)
 			{
+				if(GmudWorld.wp[j].kind == 5)
+					GmudWorld.wp[j].kind = 4;
 				if(j >0 && GmudWorld.wp[j].kind == i)
 				{
 					s2[i][k] = GmudWorld.wp[j].name + (GmudWorld.mc.equips(j)?"（已装备）":"") + "x" + GmudWorld.mc.inventory[j];
@@ -211,7 +213,9 @@ public class InventoryScreen extends DoubleScrollScreen {
 				}
 				else
 				{
-					if(GmudWorld.mc.skills[Skill.KIND_ZHISHI] <= 0)
+					if(Item.getitmnpc(sticking[d][c]) == 0)
+						;
+					else if(GmudWorld.mc.skills[Skill.KIND_ZHISHI] <= 0)
 						GmudWorld.game.setScreen(new NotificationScreen(GmudWorld.game,GmudWorld.ms,"你还是个文盲！"));
 					else if(GmudWorld.mc.faction < 7 && GmudWorld.mc.faction > 0)
 					{

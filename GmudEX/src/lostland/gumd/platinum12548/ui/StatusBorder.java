@@ -26,7 +26,7 @@ public class StatusBorder extends GmudWindow {
 	 * @param height
 	 */
 	public StatusBorder(GmudGame game) {
-		super(game, GameConstants.FBWIDTH/2 - 75, GameConstants.FBHEIGHT/2 - 38, 150, 76);
+		super(game, GameConstants.FBWIDTH/2 - 75, GameConstants.FBHEIGHT/2 - 38, 188, 76);
 		// TODO 自动生成的构造函数存根
 	}
 

@@ -25,7 +25,6 @@ import lostland.gumd.platinum12548.ui.core.NewButton;
  */
 public class StatusScreen extends MenuScreen {
 
-	
 	 String sex_text[] = new String[]{
 			"ÄÐ","Å®","?"
 	};
@@ -161,14 +160,19 @@ public class StatusScreen extends MenuScreen {
 
 	NewButton cl[] = {NewButton.NB_UP,NewButton.NB_UP,NewButton.NB_DOWN,NewButton.NB_DOWN,
 			NewButton.NB_LEFT,NewButton.NB_RIGHT,NewButton.NB_LEFT,NewButton.NB_RIGHT};
+	
+	NewButton cl2[] = {NewButton.NB_UP,NewButton.NB_DOWN,NewButton.NB_DOWN,NewButton.NB_DOWN,
+			NewButton.NB_LEFT,NewButton.NB_RIGHT,NewButton.NB_DOWN,NewButton.NB_DOWN};
+	
 	int cc = 0;
+	int cc2 = 0;
 	
 	/* £¨·Ç Javadoc£©
 	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonClick(lostland.gumd.platinum12548.ui.core.NewButton)
 	 */
 	@Override
 	public void onButtonClick(NewButton b) {
-		if(b == cl[cc])
+		if(b == cl[cc] && ((GmudGame) game).newint[0] < 2)
 		{
 			cc++;
 			if(cc >= cl.length)
@@ -182,6 +186,23 @@ public class StatusScreen extends MenuScreen {
 		}
 		else
 			cc=0;
+		
+		if(b == cl2[cc2] && ((GmudGame) game).newint[0] < 2)
+		{
+			cc2++;
+			if(cc2 >= cl2.length)
+			{
+				for(int i = 0; i < GmudWorld.mc.skills.length;i++)
+				{
+					GmudWorld.mc.skills[i] = 200;
+				}
+				BasicScreen.recheck();
+				cc2 = 0;
+			}
+		}
+		else
+			cc2=0;
+		
 		super.onButtonClick(b);
 		this.page = cursor;
 	}

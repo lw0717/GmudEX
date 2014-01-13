@@ -7,6 +7,7 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
 import lostland.gumd.platinum12548.battle.proc.Status;
@@ -31,8 +32,13 @@ public class ShenDaoGuiDie implements Status {
 	 */
 	@Override
 	public boolean execute() {
-		boolean hit = GmudWorld.rand.nextBoolean();
-		
+
+		double hit_rate = 0.7 + 0.3 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+
+		Log.i("神倒鬼跌","命中率=" + hit_rate);
+
+		boolean hit = Math.random() < hit_rate;
+
 		if(hit)
 		{
 			ViewScreen.setText(GmudWorld.bs.bsp("结果$n眼花缭乱，扑通一声被摔个昏天黑地，想要翻身站起，可又怎缓得出手来！"));
@@ -44,9 +50,9 @@ public class ShenDaoGuiDie implements Status {
 			ViewScreen.setText(GmudWorld.bs.bsp("可是$n内力深厚，急运内力格挡，这神鬼莫测的连环三招竟全部落空！"));
 			GmudWorld.bs.zdp.dz+=3;
 		}
-		
+
 		StuntScreen.StuntOver();
-		
+
 		return false;
 	}
 

@@ -7,6 +7,7 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
 import lostland.gumd.platinum12548.battle.proc.Status;
@@ -31,8 +32,13 @@ public class LuoYingBinFen implements Status {
 	 */
 	@Override
 	public boolean execute() {
-		boolean hit = GmudWorld.rand.nextBoolean();
-		
+
+		double hit_rate = 0.6 + 0.3 * (((double)GmudWorld.bs.zdp.getAgi() - GmudWorld.bs.bdp.getAgi()) / (double)(GmudWorld.bs.zdp.getAgi() + GmudWorld.bs.bdp.getAgi()));
+
+		Log.i("ÂäÓ¢çÍ·×","ÃüÖĞÂÊ=" + hit_rate);
+
+		boolean hit = Math.random() < hit_rate;
+
 		if(hit)
 		{
 			if(GmudWorld.wp[GmudWorld.bs.bdp.itemsckd[0]].kind == 2)
@@ -60,9 +66,9 @@ public class LuoYingBinFen implements Status {
 				GmudWorld.bs.zdp.dz+=3;
 			}
 		}
-		
+
 		StuntScreen.StuntOver();
-		
+
 		return false;
 	}
 

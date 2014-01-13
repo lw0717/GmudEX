@@ -9,7 +9,6 @@ package lostland.gumd.platinum12548.ui;
 
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.data.Skill;
@@ -95,9 +94,10 @@ public class InnerMenuScreen extends MenuScreen {
 				if(GmudWorld.mc.hp>GmudWorld.mc.maxhp)GmudWorld.mc.hp=GmudWorld.mc.maxhp;
 				game.setScreen(new NotificationScreen(game,new NotificationScreen(game,this,"你催动真气，脸上一阵白一阵红，哇地一声，吐出一口淤血，脸色看起来好多了。"),"你全身放松，坐下来开始运功疗伤。"));
 			}
+			break;
 		}
 		
-		BasicScreen.recheck();
+		
 	}
 
 
@@ -127,7 +127,7 @@ public class InnerMenuScreen extends MenuScreen {
 	 */
 	@Override
 	protected void show() {
-		GmudWorld.ms.present(0);
+		GmudWorld.ms.present(-1);
 		dummyBorder.draw();
 		for(int i=0;i<4;i++)
 		{
@@ -148,5 +148,16 @@ public class InnerMenuScreen extends MenuScreen {
 			SingleTouchHandler.flag = 1;
 		}
 		super.onButtonDown(b);
+	}
+
+
+
+
+	/* （非 Javadoc）
+	 * @see lostland.gumd.platinum12548.ui.core.DialogScreen#isStable()
+	 */
+	@Override
+	public boolean isStable() {
+		return false;
 	}
 }

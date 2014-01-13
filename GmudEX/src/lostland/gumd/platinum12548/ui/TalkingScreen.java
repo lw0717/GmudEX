@@ -12,7 +12,6 @@ import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudMap;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.MainCharTile;
-import lostland.gumd.platinum12548.MapScreen;
 import lostland.gumd.platinum12548.battle.DummyWindow;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
@@ -156,6 +155,11 @@ public class TalkingScreen extends DialogScreen {
 		{"$n打了个哈哈：今天的天气真是，哈哈。","我什么也都不知道，就算知道也不说，打死你我也不说。","$n看了你一眼，转身又忙自己的事情去了。","没看到我在忙吗？你还是找别人CHAT去吧。","$n睁大眼睛望着你，显然不知道你在说什么。"},
 		{"$n打了个哈哈：今天的天气真是，哈哈。","我什么也都不知道，就算知道也不说，打死你我也不说。","$n看了你一眼，转身又忙自己的事情去了。","没看到我在忙吗？你还是找别人CHAT去吧。","$n睁大眼睛望着你，显然不知道你在说什么。"},
 		{"$n打了个哈哈：今天的天气真是，哈哈。","我什么也都不知道，就算知道也不说，打死你我也不说。","$n看了你一眼，转身又忙自己的事情去了。","没看到我在忙吗？你还是找别人CHAT去吧。","$n睁大眼睛望着你，显然不知道你在说什么。"},
+		{"书1"},
+		{"书2"},
+		{"书3"},
+		{"书4"},
+		{"书5"},
 		{"小兔崽子儿,我看你是不想活了."}};
 
 	int npcid = -1;
@@ -189,15 +193,16 @@ public class TalkingScreen extends DialogScreen {
 			{
 				window = new TalkingWindow((GmudGame) game,"在下不是请你去收服"+GmudWorld.npc[GmudWorld.npc.length-1].name+"吗？", false);
 			}
-			else if(GmudWorld.game.nextBadman<MapScreen.getGameTime() && !(GmudWorld.game.nextBadman == 0))
+			else if(GmudWorld.game.nextBadman > 0)
 			{
 				window = new TalkingWindow((GmudGame) game,"多谢，奸邪暂时已经除尽了，请休息一下吧！", false);
+				Log.i("TalkingScreen","捕快冷却时间还有：" + GmudWorld.game.nextBadman);
 			}
 			else
 			{
 				boolean ok = true;
 
-				map = (int) (Math.random() * GmudWorld.map.length - 3);
+				map = (int) (Math.random() * (GmudWorld.map.length - 3));
 
 				do
 				{
@@ -356,15 +361,33 @@ public class TalkingScreen extends DialogScreen {
 				boolean jl = GmudWorld.rand.nextBoolean();
 				if(jl)
 				{
-					int exp = (int) (Math.random()*GmudWorld.mc.getWxg()*4 + 50);
-					window = new TalkingWindow((GmudGame) game,"你被奖励了："+exp+"经验", false);
-					GmudWorld.mc.setExp(GmudWorld.mc.exp+exp);
+					if(Math.random() * (GmudWorld.mc.getface() + 401) > 400)
+					{
+						int exp = (int) (Math.random()*2000 * (Math.abs(GmudWorld.mc.fame-128)+1) + 500);
+						window = new TalkingWindow((GmudGame) game,"顾炎武对你非常满意，你被奖励了："+exp+"经验", false);
+						GmudWorld.mc.setExp(GmudWorld.mc.exp+exp);
+					}
+					else 
+					{
+						int exp = (int) (Math.random()*200 * (Math.abs(GmudWorld.mc.fame-128)+1) + 50);
+						window = new TalkingWindow((GmudGame) game,"你被奖励了："+exp+"经验", false);
+						GmudWorld.mc.setExp(GmudWorld.mc.exp+exp);
+					}
 				}
 				else
 				{
-					int pot = (int) (Math.random()*GmudWorld.mc.getWxg()*2 + 20);
-					window = new TalkingWindow((GmudGame) game,"你被奖励了："+pot+"潜能", false);
-					GmudWorld.mc.setPotential(GmudWorld.mc.potential +pot);
+					if(Math.random() * (GmudWorld.mc.getface() + 401) > 400)
+					{
+						int pot = (int) (Math.random()*1000 * (Math.abs(GmudWorld.mc.fame-128)+1) + 200);
+						window = new TalkingWindow((GmudGame) game,"顾炎武对你非常满意，你被奖励了："+pot+"潜能", false);
+						GmudWorld.mc.setPotential(GmudWorld.mc.potential +pot);
+					}
+					else
+					{
+						int pot = (int) (Math.random()*100 * (Math.abs(GmudWorld.mc.fame-128)+1) + 20);
+						window = new TalkingWindow((GmudGame) game,"你被奖励了："+pot+"潜能", false);
+						GmudWorld.mc.setPotential(GmudWorld.mc.potential +pot);
+					}	
 				}
 				mdone = false;
 			}
@@ -391,7 +414,7 @@ public class TalkingScreen extends DialogScreen {
 			}
 
 		}
-		
+
 		BasicScreen.recheck();
 		Log.e("talking", "npc:"+npcid);
 	}

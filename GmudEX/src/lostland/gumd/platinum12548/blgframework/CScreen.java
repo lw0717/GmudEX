@@ -19,10 +19,6 @@ public abstract class CScreen extends BasicScreen {
 	public CScreen(IGame game)
 	{
 		super(game);
-//		if(isStable())
-//		{
-//			BasicScreen.recheck();
-//		}
 	}
 	
 	public abstract void present(float deltaTime);

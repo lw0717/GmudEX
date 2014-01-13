@@ -7,10 +7,8 @@
  */
 package lostland.gumd.platinum12548.battle;
 
-import android.util.Log;
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.battle.proc.AttackStatus;
 import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
 import lostland.gumd.platinum12548.battle.proc.StuntScreen;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
@@ -19,6 +17,7 @@ import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.data.Skill;
 import lostland.gumd.platinum12548.ui.InventoryScreen;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
+import android.util.Log;
 
 /**
  * 类名：ControlScreen <p>
@@ -70,10 +69,15 @@ public class ControlScreen extends MenuScreen {
 			}
 			else
 			{
-				AttackStatus.ag = bs.zdp.cg();
-				bs.setStatus(new AttackStatus(new RoundOverStatus()));
-				ViewScreen.setText(bs.bsp(AttackStatus.ag.c));
-				game.setScreen(new ViewScreen(game));
+				
+				GmudWorld.bs.atkprocess(null, null);
+				game.setScreen(GmudWorld.bs);
+				
+				
+//				AttackStatus.ag = bs.zdp.cg();
+//				bs.setStatus(new AttackStatus(new RoundOverStatus()));
+//				ViewScreen.setText(bs.bsp(AttackStatus.ag.c));
+//				game.setScreen(new ViewScreen(game));
 			}
 			break;
 		case 1:
@@ -127,9 +131,10 @@ public class ControlScreen extends MenuScreen {
 			}
 			else
 			{
-				bs.zdp.xiqi();
-				ViewScreen.setText("你深深吸了口气，脸色看起来好多了。");
-				game.setScreen(new ViewScreen(game));
+				bs.xiqiprocess();
+//				bs.zdp.xiqi();
+//				ViewScreen.setText("你深深吸了口气，脸色看起来好多了。");
+//				game.setScreen(new ViewScreen(game));
 			}
 			
 			break;
@@ -185,16 +190,5 @@ public class ControlScreen extends MenuScreen {
 			buttons[i].draw();
 	}
 
-//	/* （非 Javadoc）
-//	 * @see lostland.gumd.platinum12548.ui.core.MenuScreen#onButtonDown(lostland.gumd.platinum12548.ui.core.NewButton)
-//	 */
-//	@Override
-//	protected void onButtonDown(NewButton b) {
-//		if(b == NewButton.NB_ENTER && cursor == 3)
-//		{
-//			SingleTouchHandler.flag = 7;
-//		}
-//		super.onButtonDown(b);
-//	}
 
 }

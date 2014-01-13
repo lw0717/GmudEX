@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content" >
 
         <TextView
@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/etName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请输入您的姓名" />
@@ -26,7 +26,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
 
         <TextView
             android:id="@+id/TextView02"
@@ -46,7 +47,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
 
         <TextView
             android:id="@+id/TextView01"
@@ -66,7 +68,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
 
         <TextView
             android:id="@+id/textView1"
@@ -89,7 +92,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
 
         <TextView
             android:id="@+id/TextView03"
@@ -111,7 +115,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="请在以上4项属性中输入10-30之间的整数并且总和不大于80，否则没有反应" />
+        android:text="请在以上4项属性中输入10-30之间的整数并且总和不大于80，否则没有反应"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btnOK"

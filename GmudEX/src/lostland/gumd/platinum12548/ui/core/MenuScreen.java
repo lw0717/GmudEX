@@ -65,7 +65,7 @@ public abstract class MenuScreen extends ButtonControlledScreen {
 //			}
 //	}
 
-	boolean bb=false;
+//	boolean bb=false;
 	/**
 	 * @param game
 	 */
@@ -84,7 +84,7 @@ public abstract class MenuScreen extends ButtonControlledScreen {
 	 */
 	@Override
 	public void pause() {
-		bb = false;
+//		bb = false;
 	}
 
 	/* £¨·Ç Javadoc£©
@@ -92,7 +92,7 @@ public abstract class MenuScreen extends ButtonControlledScreen {
 	 */
 	@Override
 	public void resume() {
-		bb = true;
+//		bb = true;
 		refresh();
 	}
 

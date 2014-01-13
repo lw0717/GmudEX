@@ -7,9 +7,9 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
-import lostland.gumd.platinum12548.battle.proc.AnotherDummyStatus;
 import lostland.gumd.platinum12548.battle.proc.AttackStatus;
 import lostland.gumd.platinum12548.battle.proc.DummyStatus;
 import lostland.gumd.platinum12548.battle.proc.RoundOverStatus;
@@ -51,7 +51,11 @@ public class YinYangJue implements Status {
 				AttackStatus.ts = this;
 				GmudWorld.bs.setStatus(new DummyStatus());
 			}else{
-				boolean hit = GmudWorld.rand.nextBoolean();
+				double hit_rate = 0.6 + 0.4 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+				
+				Log.i("阴阳诀","命中率=" + hit_rate);
+				
+				boolean hit = Math.random() < hit_rate;
 				if(hit)
 				{
 					ViewScreen.setText(GmudWorld.bs.bsp("$n於$N阴阳变化莫测之际，哪里还能招架，身子被太极柔劲推得跌跌撞撞！"));
@@ -68,21 +72,26 @@ public class YinYangJue implements Status {
 			
 		}else if(round ==0)
 		{
-			AttackStatus.ag = GmudWorld.zs[121+round];
-			GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(this)));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+			
+			GmudWorld.bs.atkprocess(GmudWorld.zs[121+round], this);
+			
+//			AttackStatus.ag = GmudWorld.zs[121+round];
+//			GmudWorld.bs.setStatus(new AnotherDummyStatus(new AttackStatus(this)));
+//			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		}else if(round<3)
 		{
-			AttackStatus.ag = GmudWorld.zs[121+round];
-			GmudWorld.bs.setStatus(new AttackStatus(this));
-			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
-			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
+			GmudWorld.bs.atkprocess(GmudWorld.zs[121+round], this);
+			
+//			AttackStatus.ag = GmudWorld.zs[121+round];
+//			GmudWorld.bs.setStatus(new AttackStatus(this));
+//			ViewScreen.setText(GmudWorld.bs.bsp(AttackStatus.ag.c));
+//			GmudWorld.game.setScreen(new ViewScreen(GmudWorld.game));
 		}
 		else
 		{
 			GmudWorld.bs.zdp.dz +=3;
-			GmudWorld.bs.zdp.str_bouns += ( GmudWorld.bs.zdp.skills[1] +GmudWorld.bs.zdp.skills[31] * 2 ) / 10;
+//			GmudWorld.bs.zdp.str_bouns += ( GmudWorld.bs.zdp.skills[1] +GmudWorld.bs.zdp.skills[31] * 2 ) / 10;
 			
 			GmudWorld.bs.setStatus(new RoundOverStatus());
 		}

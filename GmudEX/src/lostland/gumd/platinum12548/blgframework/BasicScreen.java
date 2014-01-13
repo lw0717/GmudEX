@@ -45,6 +45,9 @@ public abstract class BasicScreen {
 		
 		float time_multiplier = 0.4f;
 		
+		if(GmudWorld.game.nextBadman > 0)
+			GmudWorld.game.nextBadman -= time;
+		
 		gameTime += time * time_multiplier;
 		yearTime += time * time_multiplier;
 		hungerTime += time * time_multiplier;

@@ -267,11 +267,21 @@ public class TradeScreen extends ScrollableMenuScreen {
 
 
 	protected void re() {
-		super.re(gets(npcid), 20, 30, 10, 10);
+		super.re(gets(npcid), 20, 30, 120, 6);
 		if(buttons.length < 1)
 			onCancel();
 		bottomWindow.y = nborder.y + nborder.height +2;
-		bottomWindow.width = BTMWIDTH;
+		refresh();
+	}
+
+
+
+	/* £¨·Ç Javadoc£©
+	 * @see lostland.gumd.platinum12548.ui.core.FullScreen#resume()
+	 */
+	@Override
+	public void resume() {
+		super.resume();
 		refresh();
 	}
 

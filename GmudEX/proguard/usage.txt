@@ -868,6 +868,10 @@ lostland.gmud.platinum12548.R$menu
 lostland.gmud.platinum12548.R$string
 lostland.gmud.platinum12548.R$style
 lostland.gumd.platinum12548.Assets:
+    public static lostland.gumd.platinum12548.blgframework.IPixmap up
+    public static lostland.gumd.platinum12548.blgframework.IPixmap down
+    public static lostland.gumd.platinum12548.blgframework.IPixmap enter
+    public static lostland.gumd.platinum12548.blgframework.IPixmap menu
     17:17:public Assets()
 lostland.gumd.platinum12548.BackgroundingScreen
 lostland.gumd.platinum12548.Direction:
@@ -902,12 +906,12 @@ lostland.gumd.platinum12548.GameEvent:
     public static final int DRINK
     public static final int SIGN
     public static final int ROPE
-    29:29:public GameEvent()
+    31:31:public GameEvent()
 lostland.gumd.platinum12548.GmudGame:
-    lostland.gumd.platinum12548.GmudGame$SittingThread ss
-    52:52:static synthetic android.os.Handler access$0()
-lostland.gumd.platinum12548.GmudGame$SittingThread
-lostland.gumd.platinum12548.GmudGame$SittingThread$1
+    public int len
+    public android.app.NotificationManager manager
+    public android.app.Notification notif
+    public int max
 lostland.gumd.platinum12548.GmudMap:
     public static final int MP_WALKABLE
     public static final int MP_UNWALKABLE
@@ -919,22 +923,20 @@ lostland.gumd.platinum12548.GmudWorld:
     63:63:public static boolean near(int,int,int,int)
     77:81:public static int[] push_top(int[],int)
 lostland.gumd.platinum12548.LoadingScreen:
-    484:489:private int ReadInt16Signed(java.io.InputStream)
+    182:187:private int ReadInt16Signed(java.io.InputStream)
 lostland.gumd.platinum12548.MainCharTile:
     static final int MAINCHAR_WIDTH
     static final int MAINCHAR_HEIGHT
     static final int WALK_STEPS
     38:39:public MainCharTile(lostland.gumd.platinum12548.blgframework.impl.BLGPixmap,int,int)
-    107:107:public static int frontX()
-    112:112:public static int frontY()
+    116:116:public static int frontX()
+    121:121:public static int frontY()
 lostland.gumd.platinum12548.MapScreen:
     public static final int C_COLUMNS
     public static final int C_ROWS
     public static final int WS_INNER
     public static final int WS_OUTSIDE
     int fps
-    int tx
-    int ty
     int downX
     int downY
     boolean outsided
@@ -954,10 +956,10 @@ lostland.gumd.platinum12548.Tileset:
 lostland.gumd.platinum12548.battle.BattleScreen:
     public lostland.gumd.platinum12548.battle.proc.FreeStatus fs
 lostland.gumd.platinum12548.battle.proc.AttackStatus:
-    98:125:boolean evade()
-    132:153:boolean block()
+    104:131:boolean evade()
+    137:158:boolean block()
 lostland.gumd.platinum12548.blgframework.BasicScreen:
-    109:110:public void sr()
+    38:38:public static float getGameTime()
 lostland.gumd.platinum12548.blgframework.IFileIO:
     public abstract java.io.InputStream readAsset(java.lang.String)
     public abstract java.io.InputStream readFile(java.lang.String)
@@ -975,9 +977,6 @@ lostland.gumd.platinum12548.blgframework.IInput:
     public abstract boolean isKeyPressed(int)
     public abstract int getTouchX(int)
     public abstract int getTouchY(int)
-    public abstract float getAccelX()
-    public abstract float getAccelY()
-    public abstract float getAccelZ()
 lostland.gumd.platinum12548.blgframework.IInput$KeyEvent:
     public static final int KEY_DOWN
     public static final int KEY_UP
@@ -991,10 +990,6 @@ lostland.gumd.platinum12548.blgframework.IPixmap:
     public abstract int getHeight()
     public abstract lostland.gumd.platinum12548.blgframework.IGraphics$PixmapFormat getFormat()
     public abstract void dispose()
-lostland.gumd.platinum12548.blgframework.impl.AccelerometerHandler:
-    61:61:public float getAccelX()
-    69:69:public float getAccelY()
-    77:77:public float getAccelZ()
 lostland.gumd.platinum12548.blgframework.impl.BLGGame:
     public static final int FB2W
     public static final int FB2H
@@ -1011,9 +1006,6 @@ lostland.gumd.platinum12548.blgframework.impl.BLGInput:
     38:38:public boolean isKeyPressed(int)
     54:54:public int getTouchX(int)
     62:62:public int getTouchY(int)
-    86:86:public float getAccelX()
-    94:94:public float getAccelY()
-    102:102:public float getAccelZ()
 lostland.gumd.platinum12548.blgframework.impl.BLGPixmap:
     36:36:public int getWidth()
     44:44:public int getHeight()
@@ -1022,19 +1014,15 @@ lostland.gumd.platinum12548.blgframework.impl.BLGPixmap:
 lostland.gumd.platinum12548.blgframework.impl.KeyboardHandler:
     80:82:public boolean isKeyPressed(int)
 lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler:
-    217:217:public int getTouchX(int)
-    228:228:public int getTouchY(int)
+    232:232:public int getTouchX(int)
+    243:243:public int getTouchY(int)
 lostland.gumd.platinum12548.blgframework.impl.TouchHandler:
     public abstract int getTouchX(int)
     public abstract int getTouchY(int)
-lostland.gumd.platinum12548.data.MemAntiCheater:
-    41:57:public void render()
-    96:98:public void start()
-    119:119:public boolean isRunning()
 lostland.gumd.platinum12548.data.Npc:
     public static final int NPC_COUNT
-    416:440:public void copy(int)
-    594:594:public int getExp()
+    212:236:public void copy(int)
+    433:433:public int getExp()
 lostland.gumd.platinum12548.data.Skill:
     public static final int SKILL_COUNT
     public static final int KIND_QUANJIAO
@@ -1049,6 +1037,8 @@ lostland.gumd.platinum12548.data.Skill:
     public static final int KIND_ZHANGFA
     public static final int KIND_GUNFA
     98:98:public static int getBasicSkill(int)
+lostland.gumd.platinum12548.ui.AutoButton:
+    56:56:public java.lang.String getS()
 lostland.gumd.platinum12548.ui.BottomWindow:
     static final int TOP
     static final int LEFT
@@ -1056,7 +1046,6 @@ lostland.gumd.platinum12548.ui.BottomWindow:
     static final int HEIGHT
     static final int PADDING_TOP
     static final int PADDING_LEFT
-lostland.gumd.platinum12548.ui.ExplorerMenuScreen
 lostland.gumd.platinum12548.ui.InnerMenuBorder:
     public static final int TOP
     public static final int LEFT
@@ -1127,16 +1116,22 @@ lostland.gumd.platinum12548.ui.SysMenuButton:
     public static final int HEIGHT
 lostland.gumd.platinum12548.ui.TalkingWindow:
     java.lang.String s
+lostland.gumd.platinum12548.ui.TradeScreen:
+    public static final int BTMWIDTH
 lostland.gumd.platinum12548.ui.core.ButtonControlledScreen:
     51:51:public boolean isInbound(lostland.gumd.platinum12548.ui.core.NewButton)
 lostland.gumd.platinum12548.ui.core.CheckButton
 lostland.gumd.platinum12548.ui.core.GmudWindow:
     36:36:public boolean isBordered()
 lostland.gumd.platinum12548.ui.core.NewButton:
-    103:103:public boolean inBound(int,int)
+    164:164:public boolean inBound(int,int)
 lostland.gumd.platinum12548.ui.core.ProgressScreen:
     31:36:public ProgressScreen(lostland.gumd.platinum12548.blgframework.IGame,lostland.gumd.platinum12548.blgframework.CScreen,float,int,int,int)
 lostland.gumd.platinum12548.ui.core.SlowScreen:
     public abstract void draw()
 lostland.gumd.platinum12548.ui.meta.CreatingDialog:
     android.widget.ToggleButton tb
+    android.widget.EditText etStr
+    android.widget.EditText etAgi
+    android.widget.EditText etBon
+    android.widget.EditText etWxg

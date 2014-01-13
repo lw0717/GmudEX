@@ -126,7 +126,7 @@ public class PracticeMenuScreen extends MenuScreen {
 	 */
 	@Override
 	public void onCancel() {
-		game.setScreen(GmudWorld.ms);
+		game.setScreen(GmudWorld.mms);
 	}
 
 
@@ -141,7 +141,7 @@ public class PracticeMenuScreen extends MenuScreen {
 			return;
 		}
 		
-		GmudWorld.ms.present(0);
+		GmudWorld.ms.present(-1);
 		dummyBorder.draw();
 		for(GmudWindow i:buttons)
 		{

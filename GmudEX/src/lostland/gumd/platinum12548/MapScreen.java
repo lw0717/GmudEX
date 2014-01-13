@@ -37,13 +37,13 @@ public class MapScreen extends ButtonControlledScreen {
 	public static final int WS_OUTSIDE=2;
 
 	public static boolean b=false;
-	final float STEP_TIME=0.09f;
+	final float STEP_TIME=0.06f;
 
 	float tickTime=0.0f,rTime=0.0f;
 	int fCount=0,fps;
 	public static boolean walking=false;
 	public static int walkStep,walkState;
-	public int X=0,Y=0;
+	public int X,Y;
 
 	public GmudMap map;
 
@@ -113,19 +113,19 @@ public class MapScreen extends ButtonControlledScreen {
 			BasicScreen.recheck();
 		}
 
-//		IInput i= game.getInput();
-//		synchronized(this){
-//			x=i.getAccelX();
-//			y=i.getAccelY();
-//			z=i.getAccelZ();
-//			tx=SingleTouchHandler.touchX;
-//			ty=SingleTouchHandler.touchY;
-//			//			pretd=td;
-//			//			td=i.isTouchDown(0);
-//		}
-//
-//		game.getInput().getKeyEvents();
-//		game.getInput().getTouchEvents();
+		IInput i= game.getInput();
+		synchronized(this){
+			x=i.getAccelX();
+			y=i.getAccelY();
+			z=i.getAccelZ();
+			tx=SingleTouchHandler.touchX;
+			ty=SingleTouchHandler.touchY;
+//			pretd=td;
+//			td=i.isTouchDown(0);
+		}
+
+		game.getInput().getKeyEvents();
+		game.getInput().getTouchEvents();
 
 		if(walking)
 		{
@@ -135,17 +135,17 @@ public class MapScreen extends ButtonControlledScreen {
 				tickTime-=STEP_TIME;
 				walkStep++;
 				GmudWorld.cnm.currentStep=(GmudWorld.cnm.currentStep+1)%4;
-				if(walkStep>= MainCharTile.WALK_STEPS)
+				if(walkStep >= MainCharTile.WALK_STEPS)
 				{
-					if(walkState== WS_INNER)
+					if(walkState == WS_INNER)
 					{
-						MainCharTile.X+=MainCharTile.currentDirection.dx();
-						MainCharTile.Y+=MainCharTile.currentDirection.dy();
+						MainCharTile.X += MainCharTile.currentDirection.dx();
+						MainCharTile.Y += MainCharTile.currentDirection.dy();
 					}
 					else
 					{
-						X+=MainCharTile.currentDirection.dx();
-						Y+=MainCharTile.currentDirection.dy();
+						X += MainCharTile.currentDirection.dx();
+						Y += MainCharTile.currentDirection.dy();
 					}
 					walkStep=0;
 					walking=false;
@@ -209,7 +209,7 @@ public class MapScreen extends ButtonControlledScreen {
 				MainCharTile.Y-=tt;
 			}
 			
-			if(map.width < 9)
+			if(map.width < 10)
 			{
 				int tt = -X;
 				X = 0;
@@ -223,8 +223,6 @@ public class MapScreen extends ButtonControlledScreen {
 				if(zlEnabled)
 					accelWalkDetect();
 		}
-
-
 
 	}
 
@@ -264,8 +262,6 @@ public class MapScreen extends ButtonControlledScreen {
 		{
 			switch(NewButton.inbound(otx, oty))
 			{
-			case NB_BACK:
-				break;
 			case NB_DOWN:
 				MainCharTile.currentDirection= Direction.DOWN;
 				if( map.isWalkable( X+MainCharTile.X+MainCharTile.currentDirection.dx(),
@@ -274,8 +270,6 @@ public class MapScreen extends ButtonControlledScreen {
 					walkProcess();
 					return true;
 				}
-				break;
-			case NB_ENTER:
 				break;
 			case NB_LEFT:
 				MainCharTile.currentDirection= Direction.LEFT;
@@ -306,95 +300,12 @@ public class MapScreen extends ButtonControlledScreen {
 				break;
 			default:
 				break;
-
 			}
 		}
-		return true;
+		return false;
 	}
-	
-	//	
-	//	boolean btnsDetect()
-	//	{
-	//		if(td){
-	//			if(!pretd){
-	//				downX  = tx;
-	//				downY  = ty;
-	//			}
-	//			else
-	//			{
-	//				if(btnUp.inBound(tx, ty))
-	//				{
-	//					MainCharTile.currentDirection= Direction.UP;
-	//					if( map.isWalkable( X+MainCharTile.X+MainCharTile.currentDirection.dx(),
-	//							Y+MainCharTile.Y +MainCharTile.currentDirection.dy()))
-	//					{
-	//						walkProcess();
-	//						return true;
-	//					}
-	//				}else if(btnDown.inBound(tx, ty))
-	//				{
-	//					MainCharTile.currentDirection= Direction.DOWN;
-	//					if( map.isWalkable( X+MainCharTile.X+MainCharTile.currentDirection.dx(),
-	//							Y+MainCharTile.Y +MainCharTile.currentDirection.dy()))
-	//					{
-	//						walkProcess();
-	//						return true;
-	//					}
-	//				}else if(btnLeft.inBound(tx, ty))
-	//				{
-	//					MainCharTile.currentDirection= Direction.LEFT;
-	//					if( map.isWalkable( X+MainCharTile.X+MainCharTile.currentDirection.dx(),
-	//							Y+MainCharTile.Y +MainCharTile.currentDirection.dy()))
-	//					{
-	//						walkProcess();
-	//						return true;
-	//					}
-	//				}
-	//				else if(btnRight.inBound(tx, ty))
-	//				{
-	//					MainCharTile.currentDirection= Direction.RIGHT;
-	//					if( map.isWalkable( X+MainCharTile.X+MainCharTile.currentDirection.dx(),
-	//							Y+MainCharTile.Y +MainCharTile.currentDirection.dy()))
-	//					{
-	//						walkProcess();
-	//						return true;
-	//					}
-	//				}
-	//				
-	//			}
-	//		}
-	//		else if(pretd)
-	//		{
-	//			if(btnEnter.inBound(downX, downY) && btnEnter.inBound(tx, ty))
-	//			{
-	//				if(map.getWalkable(MainCharTile.frontAbsX(), MainCharTile.frontAbsY())==GmudMap.MP_NPC)
-	//					if(!GmudWorld.npc[map.getEvent(MainCharTile.frontAbsX(), MainCharTile.frontAbsY())].dead)
-	//					{
-	//						if(map.getEvent(MainCharTile.frontAbsX(), MainCharTile.frontAbsY()) == GmudWorld.npc.length-1){
-	//							GmudWorld.npc[GmudWorld.npc.length-1].badman();
-	//							GmudWorld.npc[GmudWorld.npc.length-1].setDifficulty(0.8f + (round+number)*0.05f);
-	//						}
-	//						game.setScreen(new NpcMenuScreen(game,map.getEvent(MainCharTile.frontAbsX(), MainCharTile.frontAbsY())));
-	//					}
-	//					else
-	//						;//Do nothing
-	//				else if(map.getWalkable(MainCharTile.frontAbsX(), MainCharTile.frontAbsY())== GmudMap.MP_EVENT)
-	//				{
-	//					eventProcess(map.getEvent(MainCharTile.frontAbsX(), MainCharTile.frontAbsY()));
-	//				}
-	//			}
-	//			else if(btnMenu.inBound(downX, downY) && btnMenu.inBound(tx, ty))
-	//			{
-	//				game.setScreen(GmudWorld.mms);
-	//			}
-	//		}
-	//			
-	//		
-	//		return false;
-	//	}
-	//	
-	//	
 
+	
 	//
 	//	boolean touchDetect() {
 	//
@@ -546,8 +457,8 @@ public class MapScreen extends ButtonControlledScreen {
 
 	void accelWalkDetect()
 	{
-		final float LINGMINDU = 3.5f;
-		final float JINGQUEDU = 2.5f;
+		final float LINGMINDU = 3.0f;
+		final float JINGQUEDU = 2.0f;
 		float ax=Math.abs(x);
 		float ay=Math.abs(y);
 		int sgn=z>0?1:-1;
@@ -661,6 +572,9 @@ public class MapScreen extends ButtonControlledScreen {
 				break;
 			case NB_UP:
 				break;
+			case NB_MENU:
+				game.setScreen(GmudWorld.mms);
+				break;
 			default:
 				break;
 
@@ -707,12 +621,12 @@ public class MapScreen extends ButtonControlledScreen {
 			g.drawText(s, 0, 0, FontSize.FT_12PX);
 		}
 
-		if(BuildConfig.DEBUG)
-		{
-			String s = MainCharTile.absX() + "," + MainCharTile.absY();
-			g.drawRect(0, 12, s.length() * 6, 12, GameConstants.BG_COLOR);
-			g.drawText(s, 0, 12, FontSize.FT_12PX);
-		}
+//		if(BuildConfig.DEBUG)
+//		{
+//			String s = MainCharTile.absX() + "," + MainCharTile.absY();
+//			g.drawRect(0, 12, s.length() * 6, 12, GameConstants.BG_COLOR);
+//			g.drawText(s, 0, 12, FontSize.FT_12PX);
+//		}
 
 		//		if(btnsEnabled)
 		//		{

@@ -10,7 +10,6 @@ package lostland.gumd.platinum12548.blgframework.impl;
 import lostland.gumd.platinum12548.GameConstants;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.LoadingScreen;
-import lostland.gumd.platinum12548.SavingScreen;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IFileIO;
@@ -234,8 +233,8 @@ public class BLGGame extends Activity implements IGame {
 	 */
 	@Override
 	protected void onDestroy() {
-		if(!exit)
-			new SavingScreen(this).save();
+//		if(!exit)
+//			new SavingScreen(this).save();
 		super.onDestroy();
 	}
 }

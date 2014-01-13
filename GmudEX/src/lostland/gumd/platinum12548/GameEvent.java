@@ -9,6 +9,8 @@ package lostland.gumd.platinum12548;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 import lostland.gumd.platinum12548.battle.proc.BattleStart;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.IFileIO;
@@ -41,6 +43,7 @@ public class GameEvent {
 			break;
 		case DRINK:
 			GmudWorld.game.setScreen(new WateringScreen(GmudWorld.game));
+			Log.i("info", "dif=" + GmudWorld.game.newint[0]);
 			break;
 		case SIGN:
 			GmudWorld.game.setScreen(new SignScreen(GmudWorld.game));
@@ -55,14 +58,14 @@ public class GameEvent {
 				TalkingScreen.mpp = 0;
 				return;
 			}
-			GmudWorld.mc.sp-=cost[eventid];
-			GmudWorld.mc.setExp(GmudWorld.mc.exp + 20);
-			GmudWorld.mc.setPotential(GmudWorld.mc.potential + 10);
-			GmudWorld.mc.gold += 50;
+			
+			
 			String s[] = {"","","","",
 					"挑水挑水我挑水\n倒水进缸水花飞","一桶两桶三四桶\n反正不用交水费",
 					"劈柴劈柴我劈柴\n抡起斧子劈起来","保护树木讲环保\n婆婆没事别乱烧",
 					"扫地扫地我扫地\n地上还有西瓜皮","婆婆家中欠打扫\n尘土满天难呼吸"};
+			
+			GmudWorld.mc.sp-=cost[eventid];
 			
 			ArrayList<String> a = new ArrayList<String>();
 			
@@ -70,7 +73,22 @@ public class GameEvent {
 			a.add(s[2*eventid+1]);
 			
 			a.add("费了好大力气，总算干完了");
-			a.add("你被奖励了：\n20实战经验10潜能50金钱");
+			
+			if(Math.random() * (GmudWorld.mc.getface() + 200) > 200)
+			{
+				int pot = (int) (Math.random()*1000 + 200);
+				a.add("老婆破对你的工作非常满意，你被奖励了："+pot+"潜能");
+				GmudWorld.mc.setPotential(GmudWorld.mc.potential +pot);
+			}
+			else
+			{
+				GmudWorld.mc.gold += 50;
+				GmudWorld.mc.setExp(GmudWorld.mc.exp + 20);
+				GmudWorld.mc.setPotential(GmudWorld.mc.potential + 10);
+				a.add("你被奖励了：\n20实战经验10潜能50金钱");
+			}
+			
+			
 			TalkingScreen.mpp = 0;
 			GmudWorld.game.setScreen(new EventScreen(GmudWorld.game,a,true));
 			

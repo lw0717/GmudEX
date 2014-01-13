@@ -20,8 +20,8 @@ public class SysMenuBorder extends GmudWindow {
 	
 	public static final int TOP = 5;
 	public static final int LEFT = 110;
-	public static final int HEIGHT = SysMenuButton.HEIGHT *4 + SysMenuButton.MARGIN_TOP * 5+2;
-	public static final int WIDTH = SysMenuButton.WIDTH + SysMenuButton.MARGIN_LEFT +4;
+	public static final int HEIGHT = SysMenuButton.HEIGHT * 5 + SysMenuButton.MARGIN_TOP * 6 + 2;
+	public static final int WIDTH = SysMenuButton.WIDTH + SysMenuButton.MARGIN_LEFT + 4;
 	
 	public SysMenuBorder(GmudGame game)
 	{

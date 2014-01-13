@@ -81,6 +81,23 @@ public class GmudWorld {
 		return t;
 	}
 	
+	public static int bool2int(boolean b)
+	{
+		if(b)
+			return 1;
+		else
+			return 0;
+	}
+	
+	public static boolean int2bool(int a)
+	{
+		if(a == 0)
+			return false;
+		else
+			return true;
+	}
+	
+	
 	
 	public static String pj[] = new String[]{
 			"不堪一击",
@@ -135,7 +152,8 @@ public class GmudWorld {
 			"返璞归真",
 			"极轻很轻",
 			"不轻不重",
-			"极重很重"
+			"极重很重",
+			"如同馆长"
 			};
 	
 	public static final int teachers[] = {38,43,47,56,57,58,66,73,80,87,90,94,96,97,101,122,118,110};

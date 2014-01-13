@@ -29,6 +29,7 @@ import lostland.gumd.platinum12548.data.Skill;
 import lostland.gumd.platinum12548.ui.MainMenuScreen;
 import lostland.gumd.platinum12548.ui.StartScreen;
 import lostland.gumd.platinum12548.ui.TalkingScreen;
+import lostland.gumd.platinum12548.ui.core.NewButton;
 import android.content.SharedPreferences;
 import android.util.Log;
 
@@ -56,11 +57,8 @@ public class LoadingScreen extends CScreen {
 	 */
 	@Override
 	public void update(float deltaTime) {
-		//		GmudWorld.tmd=new TopMenuDialog((Context) game);
-		//		GmudWorld.td = new TradeDialog((Context) game);
 		
 		Log.e("Loading", "Loading Start");
-		
 		BasicScreen.b = false;
 
 		BLGFileIO f=(BLGFileIO) game.getFileIO();
@@ -71,26 +69,8 @@ public class LoadingScreen extends CScreen {
 			Assets.loading = g.newPixmap("loading.png", PixmapFormat.RGB565);
 			return;
 		}
-
-		Assets.maincharTile=g.newPixmap("mainchartile.png", PixmapFormat.ARGB8888);
-		Assets.mapTile=g.newPixmap("gmudtile.png", PixmapFormat.ARGB8888);
-		Assets.arrow=g.newPixmap("arrow.png", PixmapFormat.ARGB8888);
-		Assets.empty=g.newPixmap("empty.png", PixmapFormat.ARGB8888);
-		Assets.filled=g.newPixmap("filled.png", PixmapFormat.ARGB8888);
-		Assets.checked=g.newPixmap("checked.png", PixmapFormat.ARGB8888);
-		Assets.vs=g.newPixmap("vs.png", PixmapFormat.ARGB8888);
-		Assets.hpfp=g.newPixmap("hpfp.png", PixmapFormat.ARGB8888);
-		Assets.boom=g.newPixmap("boom.png", PixmapFormat.ARGB8888);
-
-		Assets.left=g.newPixmap("left.png", PixmapFormat.ARGB8888);
-		Assets.right=g.newPixmap("right.png", PixmapFormat.ARGB8888);
 		
-		Assets.nbup=g.newPixmap("nbup.png", PixmapFormat.ARGB8888);
-		Assets.nbdown=g.newPixmap("nbdown.png", PixmapFormat.ARGB8888);
-		Assets.nbleft=g.newPixmap("nbleft.png", PixmapFormat.ARGB8888);
-		Assets.nbright=g.newPixmap("nbright.png", PixmapFormat.ARGB8888);
-		Assets.nbenter=g.newPixmap("nbenter.png", PixmapFormat.ARGB8888);
-		Assets.nbback=g.newPixmap("nbback.png", PixmapFormat.ARGB8888);
+		loadAssets();
 		
 		//		AssetManager mgr = ((Context)game).getAssets();
 		//		Assets.songti = Typeface.createFromAsset(mgr, "simhei.ttf");
@@ -98,7 +78,7 @@ public class LoadingScreen extends CScreen {
 		GmudWorld.mapTile=new MapTile((GmudGame) game);
 		GmudWorld.npcc=new GmudNPC((GmudGame) game);
 		GmudWorld.skill = new Skill[Skill.SKILL_COUNT];
-		Skill.init();;
+		Skill.init();
 		GmudWorld.zs = new Gesture[220];
 		Gesture.init();
 		GmudWorld.wp = new Item[82];
@@ -125,15 +105,180 @@ public class LoadingScreen extends CScreen {
 		
 		/////////////////////////////////////////////////
 
+
+
+
+		
+
+
+
+//		for(int i=0;i<7;i++)
+//			for(int j:GameConstants.master_faction[i])
+//			{
+//				GmudWorld.npc[j].faction = i;
+//			}
+		
+
+		Log.i("Loading Screen", "Loading");
+
+//		for(int i=0;i<GmudWorld.npc.length-1;i++)
+//			if(GmudWorld.wp[GmudWorld.npc[i].items[0]].kind!=2)
+//				GmudWorld.npc[i].items=GmudWorld.push_top(GmudWorld.npc[i].items,0);
+
+		GmudWorld.game.newint = new int[1000];
+		GmudWorld.game.newbool = new boolean[200];
+		
+		
+		
+		Log.i("Loading Screen", "Loadingb");
+		GmudWorld.mms = new MainMenuScreen(game);
+		Log.i("Loading Screen", "Loadingb");
+		GmudWorld.ms = new MapScreen(game);
+		Log.i("Loading Screen", "Loadingb");
+		GmudWorld.bs = new BattleScreen(game);
+
+		Log.i("Loading Screen", "Loadingb");
+
+		SharedPreferences sp = f.getPreferences();
+		MapScreen.zlEnabled = sp.getBoolean("zlgyxz", false);
+//		MapScreen.btnsEnabled = sp.getBoolean("dtajcz", true);
+		GmudGame.classickeymap = sp.getBoolean("标准键位", false);
+		NewButton.menubutton = sp.getBoolean("显示菜单键", true);
+		GmudGame.backkeyquit = sp.getBoolean("返回键退出", true);
+
+		if(sp.getBoolean("newgame", true) || (sp.getInt("SaveFileVersion", 0) != 2))
+		{
+			Log.e("Load", "New Got");
+			game.setScreen(new StartScreen(game));
+		}
+		else
+		{
+			try{
+				loadSavefile();
+//				if(BLGGame.exit)
+				{
+					BLGGame.exit = false;
+//					GmudWorld.mc.itemsckd = new int[]{0};
+//					GmudWorld.mc.skillsckd = new int[]{-1,-1,-1,-1,-1};
+
+					GmudWorld.ms.X = 0;
+					GmudWorld.ms.Y = 1;
+					MainCharTile.X=4;
+					MainCharTile.Y=3;
+					MainCharTile.currentDirection= Direction.DOWN;
+					GmudWorld.ms.map = GmudWorld.map[0];
+				}
+			}finally{
+				game.setScreen(GmudWorld.ms);
+			}
+			Log.i("Loading Screen", "Done Loading");
+		}
+
+	}
+
+	@SuppressWarnings("unused")
+	private int ReadInt16Signed(InputStream is)
+	{
+		int result = 0;
+		result = ReadInt(2, is);
+		if(result > 0x7FFF)
+			result -= 0x10000;
+
+		return result;
+	}
+	private int ReadInt(int byteCnt,InputStream is)
+	{
+		int result = 0;
+		for(int i = 0; i < byteCnt; i++)
+		{
+			try {
+				result |= ((is.read() & 0xFF) << (i << 3));
+			} catch (IOException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	/* （非 Javadoc）
+	 * @see lostland.gumd.platinum12548.blgframework.CScreen#present(float)
+	 */
+	@Override
+	public void present(float deltaTime) {
+
+		IGraphics g = game.getGraphics();
+
+		g.drawPixmap(Assets.loading, 0, 0);
+
+		b=true;
+
+	}
+
+	/* （非 Javadoc）
+	 * @see lostland.gumd.platinum12548.blgframework.CScreen#pause()
+	 */
+	@Override
+	public void pause() {
+		// TODO 自动生成的方法存根
+
+	}
+
+	/* （非 Javadoc）
+	 * @see lostland.gumd.platinum12548.blgframework.CScreen#resume()
+	 */
+	@Override
+	public void resume() {
+		// TODO 自动生成的方法存根
+
+	}
+
+	/* （非 Javadoc）
+	 * @see lostland.gumd.platinum12548.blgframework.CScreen#dispose()
+	 */
+	@Override
+	public void dispose() {
+		// TODO 自动生成的方法存根
+
+	}
+
+
+	public void loadAssets()
+	{
+		IGraphics g=game.getGraphics();
+		
+		Assets.maincharTile=g.newPixmap("mainchartile.png", PixmapFormat.ARGB8888);
+		Assets.girl=g.newPixmap("girl.png", PixmapFormat.ARGB8888);
+		Assets.mapTile=g.newPixmap("gmudtile.png", PixmapFormat.ARGB8888);
+		Assets.arrow=g.newPixmap("arrow.png", PixmapFormat.ARGB8888);
+		Assets.empty=g.newPixmap("empty.png", PixmapFormat.ARGB8888);
+		Assets.filled=g.newPixmap("filled.png", PixmapFormat.ARGB8888);
+		Assets.checked=g.newPixmap("checked.png", PixmapFormat.ARGB8888);
+		Assets.vs=g.newPixmap("vs.png", PixmapFormat.ARGB8888);
+		Assets.hpfp=g.newPixmap("hpfp.png", PixmapFormat.ARGB8888);
+		Assets.boom=g.newPixmap("boom.png", PixmapFormat.ARGB8888);
+
+		Assets.left=g.newPixmap("left.png", PixmapFormat.ARGB8888);
+		Assets.right=g.newPixmap("right.png", PixmapFormat.ARGB8888);
+		
+		Assets.nbup=g.newPixmap("nbup.png", PixmapFormat.ARGB8888);
+		Assets.nbdown=g.newPixmap("nbdown.png", PixmapFormat.ARGB8888);
+		Assets.nbleft=g.newPixmap("nbleft.png", PixmapFormat.ARGB8888);
+		Assets.nbright=g.newPixmap("nbright.png", PixmapFormat.ARGB8888);
+		Assets.nbenter=g.newPixmap("nbenter.png", PixmapFormat.ARGB8888);
+		Assets.nbback=g.newPixmap("nbback.png", PixmapFormat.ARGB8888);
+		Assets.nbmenu=g.newPixmap("nbmenu.png", PixmapFormat.ARGB8888);
+		
 		final int Lasc = 3072;// Added by 教头20130729
 		final int L1 = 182736;
 		final int L2 = 243648;
-
+		
 		Assets.ascii12 = new byte[Lasc];// Added by 教头20130729
 		Assets.charGBK12 = new byte[L1];
 		Assets.charGBK16 = new byte[L2];
-
-		InputStream is;
+		
+		BLGFileIO f=(BLGFileIO) game.getFileIO();
+		InputStream is = null;
 		try {
 			is = f.readAsset("ascii.bin");// Added by 教头20130729
 			is.read(Assets.ascii12);// Added by 教头20130729
@@ -146,8 +291,17 @@ public class LoadingScreen extends CScreen {
 			e1.printStackTrace();
 		}
 
-		Log.i("Loading Screen", "Loading");
-
+		
+		loadMaps();
+		loadNpcs();
+	}
+	
+	
+	public void loadMaps()
+	{
+		BLGFileIO f=(BLGFileIO) game.getFileIO();
+		InputStream is = null;
+		
 		final int MAP_COUNT=48;
 		GmudWorld.map=new GmudMap[MAP_COUNT];
 		try {
@@ -217,9 +371,15 @@ public class LoadingScreen extends CScreen {
 			e.printStackTrace();
 		}
 
-
-		Log.i("Loading Screen", "Loading");
-
+	}
+	
+	
+	public void loadNpcs()
+	{
+		
+		InputStream is = null;
+		BLGFileIO f=(BLGFileIO) game.getFileIO();
+		
 		// Block added by 教头 0730
 		// Read NPC data
 		try {
@@ -418,137 +578,14 @@ public class LoadingScreen extends CScreen {
 			for(int j:GmudWorld.t_faction[i])
 				GmudWorld.npc[j].faction = i;
 		
-//		for(int i=0;i<7;i++)
-//			for(int j:GameConstants.master_faction[i])
-//			{
-//				GmudWorld.npc[j].faction = i;
-//			}
+	}
+	
+	
+	
+	public void loadSavefile(){
+
+
 		
-
-		Log.i("Loading Screen", "Loading");
-
-//		for(int i=0;i<GmudWorld.npc.length-1;i++)
-//			if(GmudWorld.wp[GmudWorld.npc[i].items[0]].kind!=2)
-//				GmudWorld.npc[i].items=GmudWorld.push_top(GmudWorld.npc[i].items,0);
-
-		GmudWorld.game.newint = new int[1000];
-		GmudWorld.game.newbool = new boolean[200];
-		
-		
-		
-		Log.i("Loading Screen", "Loadingb");
-		GmudWorld.mms = new MainMenuScreen(game);
-		Log.i("Loading Screen", "Loadingb");
-		GmudWorld.ms = new MapScreen(game);
-		Log.i("Loading Screen", "Loadingb");
-		GmudWorld.bs = new BattleScreen(game);
-
-		Log.i("Loading Screen", "Loadingb");
-
-		SharedPreferences sp = f.getPreferences();
-		MapScreen.zlEnabled = sp.getBoolean("zlgyxz", false);
-//		MapScreen.btnsEnabled = sp.getBoolean("dtajcz", true);
-
-		if(sp.getBoolean("newgame", true) || (sp.getInt("SaveFileVersion", 0) != 2))
-		{
-			Log.e("Load", "New Got");
-			game.setScreen(new StartScreen(game));
-		}
-		else
-		{
-			try{
-				load();
-//				if(BLGGame.exit)
-				{
-					BLGGame.exit = false;
-//					GmudWorld.mc.itemsckd = new int[]{0};
-//					GmudWorld.mc.skillsckd = new int[]{-1,-1,-1,-1,-1};
-
-					GmudWorld.ms.X = 0;
-					GmudWorld.ms.Y = 1;
-					MainCharTile.X=4;
-					MainCharTile.Y=3;
-					MainCharTile.currentDirection= Direction.DOWN;
-					GmudWorld.ms.map = GmudWorld.map[0];
-				}
-			}finally{
-				game.setScreen(GmudWorld.ms);
-			}
-			Log.i("Loading Screen", "Done Loading");
-		}
-
-	}
-
-	@SuppressWarnings("unused")
-	private int ReadInt16Signed(InputStream is)
-	{
-		int result = 0;
-		result = ReadInt(2, is);
-		if(result > 0x7FFF)
-			result -= 0x10000;
-
-		return result;
-	}
-	private int ReadInt(int byteCnt,InputStream is)
-	{
-		int result = 0;
-		for(int i = 0; i < byteCnt; i++)
-		{
-			try {
-				result |= ((is.read() & 0xFF) << (i << 3));
-			} catch (IOException e) {
-				// TODO 自动生成的 catch 块
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.blgframework.CScreen#present(float)
-	 */
-	@Override
-	public void present(float deltaTime) {
-
-		IGraphics g = game.getGraphics();
-
-		g.drawPixmap(Assets.loading, 0, 0);
-
-		b=true;
-
-	}
-
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.blgframework.CScreen#pause()
-	 */
-	@Override
-	public void pause() {
-		// TODO 自动生成的方法存根
-
-	}
-
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.blgframework.CScreen#resume()
-	 */
-	@Override
-	public void resume() {
-		// TODO 自动生成的方法存根
-
-	}
-
-	/* （非 Javadoc）
-	 * @see lostland.gumd.platinum12548.blgframework.CScreen#dispose()
-	 */
-	@Override
-	public void dispose() {
-		// TODO 自动生成的方法存根
-
-	}
-
-
-	public void load(){
-
-
 		BLGFileIO f = (BLGFileIO) game.getFileIO();
 
 		Log.i("Loading Screen", "Loading file");

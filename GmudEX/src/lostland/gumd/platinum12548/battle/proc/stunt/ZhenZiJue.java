@@ -7,6 +7,7 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
 import lostland.gumd.platinum12548.battle.proc.Status;
@@ -32,7 +33,10 @@ public class ZhenZiJue implements Status {
 	@Override
 	public boolean execute() {
 		
-		boolean hit = GmudWorld.rand.nextBoolean();
+		double hit_rate = 0.5 + 0.5 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+		Log.i("震字诀","命中率=" + hit_rate);
+		boolean hit = Math.random() < hit_rate;
+		
 		
 		if(hit){
 			ViewScreen.setText(GmudWorld.bs.bsp("太极之意连绵不断,一个圆圈未完,第二个圆圈已生,喀喇一响,$n一处骨头已被绞断！"));

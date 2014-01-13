@@ -8,13 +8,8 @@
 package lostland.gumd.platinum12548.ui;
 
 import android.util.Log;
-import lostland.gumd.platinum12548.Direction;
 import lostland.gumd.platinum12548.FontSize;
 import lostland.gumd.platinum12548.GameConstants;
-import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.MainCharTile;
-import lostland.gumd.platinum12548.MapScreen;
-import lostland.gumd.platinum12548.SavingScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.IInput;
@@ -30,7 +25,8 @@ public class StartScreen extends CScreen {
 
 	public static boolean flag = false;
 	
-	String s = "在这件事没发生之前，我一直在平" +
+	String s =  " 百度白金英雄坛吧     白金制作组制作     白金英雄坛说玩家QQ群：255861173" +
+			"            在这件事没发生之前，我一直在平" +
 			"静地生活著；如果这件事没有发生，那" +
 			"么我会依然这样平静甚至有点单调地继续" +
 			"生活下去。可是最终它还是发生了，就" +
@@ -48,7 +44,7 @@ public class StartScreen extends CScreen {
 			"恶的渊源？我不知道，我只知道，从今" +
 			"以后，我的生活将完全改变．．．";
 	
-	int x =170;
+	int x =300;
 	
 	public StartScreen(IGame game) {
 		super(game);
@@ -62,23 +58,14 @@ public class StartScreen extends CScreen {
 	@Override
 	public void update(float deltaTime) {
 		
-		if(GmudWorld.ms == null)
-			GmudWorld.ms = new MapScreen(game);
-		
-		GmudWorld.ms.X = 0;
-		GmudWorld.ms.Y = 1;
-		MainCharTile.X=4;
-		MainCharTile.Y=3;
-		MainCharTile.currentDirection= Direction.DOWN;
-		
-		GmudWorld.ms.map = GmudWorld.map[0];
 		
 		x-=5;
 		if(flag){
-			new SavingScreen(GmudWorld.game).save();
+//			new SavingScreen(GmudWorld.game).save();
 			Log.w("SS", "1");
 
-			GmudWorld.game.setScreen(GmudWorld.ms);
+//			GmudWorld.game.setScreen(GmudWorld.ms);
+			game.setScreen(new CreatingScreen(game));
 			Log.w("SS", "2");
 		}
 		else {
@@ -101,7 +88,7 @@ public class StartScreen extends CScreen {
 		g.drawText(s, 0, x/10, FontSize.FT_16PX, 320);
 		
 		g.drawRect(0, 0, 320, 16, GameConstants.BG_COLOR);
-		g.drawText("==============白金英雄坛==============", 0, 0, FontSize.FT_16PX,999);
+		g.drawText("=============白金英雄坛说EX=============", 0, 0, FontSize.FT_16PX,9999);
 	}
 
 	/* （非 Javadoc）

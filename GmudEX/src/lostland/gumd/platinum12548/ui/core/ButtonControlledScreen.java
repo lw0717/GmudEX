@@ -131,6 +131,8 @@ public abstract class ButtonControlledScreen extends FullScreen {
 		
 		show();
 		
+		if(deltaTime<0)return;
+		
 		BLGGraphics g = (BLGGraphics) game.getGraphics();
 		for(NewButton i : NewButton.values())
 		{

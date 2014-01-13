@@ -7,6 +7,7 @@
  */
 package lostland.gumd.platinum12548.battle.proc.stunt;
 
+import android.util.Log;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.ViewScreen;
 import lostland.gumd.platinum12548.battle.proc.Status;
@@ -23,7 +24,7 @@ public class LuanHuanJue implements Status {
 	 * 
 	 */
 	public LuanHuanJue() {
-		
+
 		// TODO 自动生成的构造函数存根
 	}
 
@@ -32,9 +33,13 @@ public class LuanHuanJue implements Status {
 	 */
 	@Override
 	public boolean execute() {
-		
-		boolean hit = GmudWorld.rand.nextBoolean();
-		
+
+		double hit_rate = 0.7 + 0.3 * (((double)GmudWorld.bs.zdp.fp - GmudWorld.bs.bdp.fp) / (double)(GmudWorld.bs.zdp.fp + GmudWorld.bs.bdp.fp + 1));
+
+		Log.i("乱环诀","命中率=" + hit_rate);
+
+		boolean hit = Math.random() < hit_rate;
+
 		if(hit)
 		{
 			ViewScreen.setText(GmudWorld.bs.bsp("结果$n身不由己，被推进了$N的乱环阵内！"));
@@ -45,9 +50,9 @@ public class LuanHuanJue implements Status {
 			ViewScreen.setText(GmudWorld.bs.bsp("可是$n急中生智奋力一挣，竟然脱出了 [乱环诀] 的包围！"));
 			GmudWorld.bs.zdp.dz+=3;
 		}
-		
+
 		StuntScreen.StuntOver();
-		
+
 		return false;
 	}
 

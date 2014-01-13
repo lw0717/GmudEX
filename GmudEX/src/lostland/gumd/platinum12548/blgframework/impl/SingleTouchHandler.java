@@ -157,7 +157,6 @@ public class SingleTouchHandler implements TouchHandler {
 
 		    			@Override
 		    			public void onClick(DialogInterface arg0, int arg1) {
-		    				new SavingScreen(GmudWorld.game).save();
 		    				GmudWorld.game.oo();
 		    			}
 

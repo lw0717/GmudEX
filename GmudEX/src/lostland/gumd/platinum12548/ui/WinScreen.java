@@ -127,7 +127,7 @@ public class WinScreen extends DialogScreen {
 	@Override
 	public void present(float deltaTime) {
 		border.draw();
-		g.drawText(s, border.x+2, border.y+2, FontSize.FT_12PX, 144);
+		g.drawText(s, border.x+2, border.y+2, FontSize.FT_12PX, 180);
 	}
 
 	/* £¨·Ç Javadoc£©

@@ -15,7 +15,7 @@ import lostland.gumd.platinum12548.blgframework.IPixmap;
  * @author 12548
  */
 public class Assets {
-	public static IPixmap maincharTile;
+	public static IPixmap maincharTile,girl;
 	public static IPixmap mapTile;
 	public static IPixmap loading;
 	public static IPixmap arrow;
@@ -24,7 +24,7 @@ public class Assets {
 	public static IPixmap boom;
 	public static IPixmap up,down,left,right;
 	public static IPixmap enter,menu;
-	public static IPixmap nbup,nbdown,nbleft,nbright,nbenter,nbback;
+	public static IPixmap nbup,nbdown,nbleft,nbright,nbenter,nbback,nbmenu;
 	
 	public static byte ascii12[],charGBK12[],charGBK16[];// Modified by ½ÌÍ·20130729
 

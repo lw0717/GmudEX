@@ -46,18 +46,21 @@ public class LookScreen extends DialogScreen {
 				"\n´ø×Å:";
 		Log.i("look", "npc:"+npcid);
 		for(int i=0;i<GmudWorld.npc[npcid].items.length;i++)
-			if(GmudWorld.npc[npcid].items[i] !=0)
+			if(GmudWorld.npc[npcid].items[i] !=0 
+			&& GmudWorld.npc[npcid].items[i] != 77 
+			&& GmudWorld.npc[npcid].items[i] != 78 
+			&& GmudWorld.npc[npcid].items[i] != 26)
 				s+=" " + GmudWorld.wp[GmudWorld.npc[npcid].items[i]].name;
 		s+="\n";
 		Log.i("look", "npc:"+npcid);
 		if(npcid != GmudWorld.npc.length-1){
-			final int p1 = 24;
+			final int p1 = 30;
 			if(GmudWorld.npc[npcid].des.length()>p1)
 			{
 				s+=GmudWorld.npc[npcid].des.substring(0, p1);
 				pages.add(s);
 				String ss = GmudWorld.npc[npcid].des.substring(p1);
-				t = g.splitString(ss, FontSize.FT_12PX, 87, 6);
+				t = g.splitString(ss, FontSize.FT_12PX, 100, 6);
 				pages.addAll(t);
 			}
 			else
@@ -131,7 +134,7 @@ public class LookScreen extends DialogScreen {
 		if(page>0)
 			g.drawSplitedText(pages.get(page), border.x + 2, border.y + 2, FontSize.FT_12PX);
 		else
-			g.drawText(pages.get(page), border.x + 2, border.y + 2, FontSize.FT_12PX, 144);
+			g.drawText(pages.get(page), border.x + 2, border.y + 2, FontSize.FT_12PX, 180);
 
 	}
 

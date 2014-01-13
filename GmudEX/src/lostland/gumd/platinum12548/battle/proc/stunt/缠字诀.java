@@ -32,7 +32,7 @@ public class ²ø×Ö¾÷ implements Status {
 	@Override
 	public boolean execute() {
 		
-		boolean hit = GmudWorld.rand.nextBoolean();
+		boolean hit = Math.random() < 0.5 + Math.random() * 0.5;
 		
 		if(hit)
 		{

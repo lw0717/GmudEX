@@ -21,6 +21,8 @@ public class AutoButton extends ArrowButton {
 
 	
 	String s;
+	
+
 	/**
 	 * @param game
 	 * @param x
@@ -45,6 +47,20 @@ public class AutoButton extends ArrowButton {
 		
 		g.draw2Text(s, x + 10, y, FontSize.FT_12PX);
 
+	}
+
+	/**
+	 * @return s
+	 */
+	public String getS() {
+		return s;
+	}
+
+	/**
+	 * @param s ÒªÉèÖÃµÄ s
+	 */
+	public void setS(String s) {
+		this.s = s;
 	}
 
 }

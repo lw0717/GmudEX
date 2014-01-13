@@ -7,7 +7,6 @@
  */
 package lostland.gumd.platinum12548.battle;
 
-import android.text.Html;
 import android.util.Log;
 import lostland.gumd.platinum12548.Assets;
 import lostland.gumd.platinum12548.FontSize;
@@ -15,10 +14,13 @@ import lostland.gumd.platinum12548.GameConstants;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.battle.proc.BattleStart;
 import lostland.gumd.platinum12548.battle.proc.FreeStatus;
+import lostland.gumd.platinum12548.battle.proc.PreAttackStatus;
 import lostland.gumd.platinum12548.battle.proc.Status;
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
+import lostland.gumd.platinum12548.blgframework.impl.BLGPixmap;
+import lostland.gumd.platinum12548.data.Gesture;
 import lostland.gumd.platinum12548.data.Npc;
 
 /**
@@ -28,7 +30,6 @@ import lostland.gumd.platinum12548.data.Npc;
  * 
  * @author 12548
  */
-@SuppressWarnings("unused")
 public class BattleScreen extends CScreen {
 
 	public int enemyid = 0;
@@ -83,9 +84,13 @@ public class BattleScreen extends CScreen {
 
 		int i, j;
 
+		
+		BLGPixmap pixmap = (BLGPixmap) Assets.maincharTile;
+		if(GmudWorld.mc.sex > 0) pixmap = (BLGPixmap) Assets.girl;
+		
 		BLGGraphics g = (BLGGraphics) game.getGraphics();
 		g.clear(GameConstants.BG_COLOR);
-		g.drawPixmap(Assets.maincharTile, 64, 32, 0, 0, 32, 32);
+		g.drawPixmap(pixmap, 64, 32, 0, 0, 32, 32);
 		g.drawPixmap(Assets.vs, 150, 44);
 		GmudWorld.npcc.drawBiased(7, 1, 0, 0, enemyid);
 
@@ -136,7 +141,7 @@ public class BattleScreen extends CScreen {
 	}
 
 	public void setStatus(Status s) {
-//		Log.i("设置状态：", s.toString());
+		Log.i("设置状态：", s.toString());
 		this.st = s;
 	}
 
@@ -192,8 +197,24 @@ public class BattleScreen extends CScreen {
 				"小腹", "左肩", "右肩", "裆部", "臀部" };
 		int i = (int) (Math.random() * p.length);
 		t = t.replace("$1", p[i]);
-		t = t.replace("none", "拳头");
 		return t;
 	}
 
+	public void xiqiprocess()
+	{
+		zdp.xiqi();
+		ViewScreen.setText(zdp.name + "深深吸了口气，脸色看起来好多了。");
+		game.setScreen(new ViewScreen(game));
+	}
+	
+	public void atkprocess(Gesture ges,Status controller)
+	{
+		setStatus(new PreAttackStatus(ges,controller));
+	}
+	
+	public void atkprocess(Gesture ges,Status controller, String prefix)
+	{
+		setStatus(new PreAttackStatus(ges,controller,prefix));
+	}
+	
 }
