@@ -856,6 +856,36 @@ android.support.v4.widget.ViewDragHelper:
 android.support.v4.widget.ViewDragHelper$2
 android.support.v4.widget.ViewDragHelper$Callback:
     148:148:public ViewDragHelper$Callback()
+com.feiwoone.coverscreen.AdComponent:
+    public static final int SUCCESS
+    public static final int FAIL_NOT_INITIALIZE
+    public static final int FAIL_NO_AD
+    public static final int FAIL_IN_PREPARATION
+    public static final int FAIL_START_ACTIVITY
+    public static final int FAIL_SHOW_AD
+    public static boolean isShowAtScreenOn()
+com.feiwoone.coverscreen.CoverAdComponent:
+    public static void setShowAtScreenOn(boolean)
+com.feiwoone.coverscreen.a.C:
+    public C()
+com.feiwoone.coverscreen.a.H:
+    public H()
+com.feiwoone.coverscreen.a.J:
+    public J()
+com.feiwoone.coverscreen.a.K:
+    public K()
+com.feiwoone.coverscreen.a.b:
+    public b()
+com.feiwoone.coverscreen.a.h:
+    public h()
+com.feiwoone.coverscreen.a.k:
+    public k()
+com.feiwoone.coverscreen.a.l:
+    public l()
+com.feiwoone.coverscreen.a.x:
+    public x()
+com.feiwoone.coverscreen.a.z:
+    public z()
 lostland.gmud.platinum12548.BuildConfig
 lostland.gmud.platinum12548.R
 lostland.gmud.platinum12548.R$attr
@@ -923,7 +953,7 @@ lostland.gumd.platinum12548.GmudWorld:
     63:63:public static boolean near(int,int,int,int)
     77:81:public static int[] push_top(int[],int)
 lostland.gumd.platinum12548.LoadingScreen:
-    182:187:private int ReadInt16Signed(java.io.InputStream)
+    184:189:private int ReadInt16Signed(java.io.InputStream)
 lostland.gumd.platinum12548.MainCharTile:
     static final int MAINCHAR_WIDTH
     static final int MAINCHAR_HEIGHT
@@ -1014,8 +1044,8 @@ lostland.gumd.platinum12548.blgframework.impl.BLGPixmap:
 lostland.gumd.platinum12548.blgframework.impl.KeyboardHandler:
     80:82:public boolean isKeyPressed(int)
 lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler:
-    232:232:public int getTouchX(int)
-    243:243:public int getTouchY(int)
+    239:239:public int getTouchX(int)
+    250:250:public int getTouchY(int)
 lostland.gumd.platinum12548.blgframework.impl.TouchHandler:
     public abstract int getTouchX(int)
     public abstract int getTouchY(int)

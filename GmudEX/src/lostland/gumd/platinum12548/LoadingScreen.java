@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.feiwoone.coverscreen.CoverAdComponent;
+
 import lostland.gumd.platinum12548.battle.BattleScreen;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;
@@ -106,7 +108,7 @@ public class LoadingScreen extends CScreen {
 		/////////////////////////////////////////////////
 
 
-
+		CoverAdComponent.init(((GmudGame)game).getApplicationContext(), "n63D4CejIND4Mv1wj8Qo1M7k");
 
 		
 

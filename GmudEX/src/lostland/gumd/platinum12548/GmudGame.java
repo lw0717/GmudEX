@@ -7,6 +7,8 @@
  */
 package lostland.gumd.platinum12548;
 
+import com.feiwoone.coverscreen.CoverAdComponent;
+
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGame;
 import lostland.gumd.platinum12548.ui.core.ButtonControlledScreen;
@@ -62,6 +64,7 @@ public class GmudGame extends BLGGame {
 	public void onDestroy()
 	{
 		super.onDestroy();
+		CoverAdComponent.destory(this);
 		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 

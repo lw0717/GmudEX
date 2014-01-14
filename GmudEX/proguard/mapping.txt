@@ -1246,6 +1246,484 @@ android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.a
     boolean tryCaptureView(android.view.View,int) -> a
     int clampViewPositionHorizontal(android.view.View,int,int) -> a
     int clampViewPositionVertical(android.view.View,int,int) -> b
+com.feiwoone.coverscreen.AdComponent -> com.feiwoone.coverscreen.a:
+    boolean a -> a
+    boolean b -> b
+    java.lang.String c -> c
+    android.content.Context d -> d
+    boolean e -> e
+    int f -> f
+    java.util.TimerTask g -> g
+    java.util.Timer h -> h
+    android.os.Handler i -> i
+    void a() -> a
+    void b() -> b
+    void a(boolean) -> a
+    void c() -> c
+    void a(org.json.JSONArray) -> a
+    java.lang.String d() -> d
+    android.content.Context e() -> e
+    boolean a(java.lang.String) -> a
+    void a(com.feiwoone.coverscreen.AdComponent) -> a
+    void b(com.feiwoone.coverscreen.AdComponent) -> b
+    android.content.Context c(com.feiwoone.coverscreen.AdComponent) -> c
+com.feiwoone.coverscreen.CoverAdComponent -> com.feiwoone.coverscreen.b:
+    org.json.JSONArray c -> c
+    java.util.Date d -> d
+    boolean e -> e
+    long f -> f
+    com.feiwoone.coverscreen.CoverAdComponent g -> g
+    com.feiwoone.coverscreen.CoverAdComponent getInstance() -> f
+    com.feiwoone.coverscreen.CoverAdComponent init(android.content.Context,java.lang.String) -> a
+    void b() -> b
+    void c() -> c
+    int a(android.content.Context) -> d
+    int showAd(android.content.Context) -> a
+    void destory(android.content.Context) -> b
+    void close(android.content.Context) -> c
+    void a() -> a
+com.feiwoone.coverscreen.SA -> com.feiwoone.coverscreen.SA:
+    android.os.Handler a -> a
+    android.view.View c -> c
+    java.util.List d -> d
+    java.util.List e -> e
+    android.content.Context b -> b
+    android.content.BroadcastReceiver f -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    android.content.Context getContext() -> a
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void onResume() -> onResume
+    void onDestroy() -> onDestroy
+    void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void a(com.feiwoone.coverscreen.a.j) -> a
+    void b(com.feiwoone.coverscreen.a.j) -> b
+    java.util.List a() -> b
+    void a(com.feiwoone.coverscreen.SA) -> a
+com.feiwoone.coverscreen.SR -> com.feiwoone.coverscreen.SR:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void a(com.feiwoone.coverscreen.SR,android.content.Context,java.lang.String) -> a
+com.feiwoone.coverscreen.WA -> com.feiwoone.coverscreen.WA:
+    android.widget.TextView d -> d
+    android.webkit.WebView a -> a
+    java.lang.String b -> b
+    boolean c -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onBackPressed() -> onBackPressed
+    void a() -> a
+    void a(com.feiwoone.coverscreen.WA,java.lang.String) -> a
+com.feiwoone.coverscreen.a -> com.feiwoone.coverscreen.c:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    void run() -> run
+com.feiwoone.coverscreen.a.A -> com.feiwoone.coverscreen.a.a:
+    com.feiwoone.coverscreen.a.A a -> a
+    com.feiwoone.coverscreen.a.A a() -> a
+    void a(android.content.Context,java.lang.String) -> a
+    void b(android.content.Context,java.lang.String) -> b
+    boolean c(android.content.Context,java.lang.String) -> c
+com.feiwoone.coverscreen.a.B -> com.feiwoone.coverscreen.a.b:
+    com.feiwoone.coverscreen.a.B a -> a
+    com.feiwoone.coverscreen.a.B a() -> a
+    java.lang.String a(android.content.Context,boolean) -> a
+    boolean a(android.content.Context,java.lang.String) -> a
+com.feiwoone.coverscreen.a.C -> com.feiwoone.coverscreen.a.c:
+    java.lang.String a(android.content.Context) -> a
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    java.lang.String b(android.content.Context) -> b
+    java.lang.String c(android.content.Context) -> c
+    java.lang.String c() -> c
+    java.lang.String d() -> d
+    com.feiwoone.coverscreen.a.I d(android.content.Context) -> d
+com.feiwoone.coverscreen.a.D -> com.feiwoone.coverscreen.a.d:
+    com.feiwoone.coverscreen.a.D a -> a
+    android.os.Handler b -> b
+    java.util.concurrent.ConcurrentHashMap c -> c
+    java.util.concurrent.ExecutorService d -> d
+    java.util.concurrent.ConcurrentHashMap e -> e
+    com.feiwoone.coverscreen.a.D a() -> a
+    android.graphics.Bitmap a(android.content.Context,java.lang.String) -> a
+    android.graphics.drawable.Drawable a(android.content.Context,java.lang.String,com.feiwoone.coverscreen.a.G) -> a
+    java.util.concurrent.ConcurrentHashMap a(com.feiwoone.coverscreen.a.D) -> a
+    java.util.concurrent.ConcurrentHashMap b(com.feiwoone.coverscreen.a.D) -> b
+    void a(com.feiwoone.coverscreen.a.D,android.content.Context,java.lang.String) -> a
+    android.os.Handler c(com.feiwoone.coverscreen.a.D) -> c
+com.feiwoone.coverscreen.a.E -> com.feiwoone.coverscreen.a.e:
+    com.feiwoone.coverscreen.a.D a -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.feiwoone.coverscreen.a.F -> com.feiwoone.coverscreen.a.f:
+    com.feiwoone.coverscreen.a.D a -> a
+    android.content.Context b -> b
+    java.lang.String c -> c
+    void run() -> run
+com.feiwoone.coverscreen.a.G -> com.feiwoone.coverscreen.a.g:
+    void a(android.graphics.drawable.Drawable) -> a
+com.feiwoone.coverscreen.a.H -> com.feiwoone.coverscreen.a.h:
+    android.graphics.drawable.Drawable a(java.lang.String) -> a
+    int a(android.content.Context,float) -> a
+com.feiwoone.coverscreen.a.I -> com.feiwoone.coverscreen.a.i:
+    int a -> a
+    int b -> b
+com.feiwoone.coverscreen.a.J -> com.feiwoone.coverscreen.a.j:
+    java.lang.String a(android.content.Context,java.lang.String,java.lang.String) -> a
+    java.lang.String a(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    void a(android.content.Context,java.lang.String,java.lang.String,boolean) -> a
+    void a(android.content.Context,java.lang.String,java.lang.String,int) -> a
+    void b(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> b
+    void b(android.content.Context,java.lang.String,java.lang.String) -> b
+com.feiwoone.coverscreen.a.K -> com.feiwoone.coverscreen.a.k:
+    boolean a(java.lang.String) -> a
+    java.lang.String a(int) -> a
+com.feiwoone.coverscreen.a.a -> com.feiwoone.coverscreen.a.l:
+    int a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    org.json.JSONObject a(android.content.Context,double,double,java.lang.String,int,java.lang.String,java.lang.String) -> a
+    org.json.JSONObject a(android.content.Context,int) -> a
+    org.json.JSONObject a(android.content.Context,java.lang.String,java.lang.String) -> a
+    org.json.JSONObject a(android.content.Context,java.lang.String) -> a
+    org.json.JSONObject a(android.content.Context,java.lang.String,org.json.JSONArray) -> a
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    java.lang.String c() -> c
+    java.lang.String d() -> d
+    int e() -> e
+com.feiwoone.coverscreen.a.b -> com.feiwoone.coverscreen.a.m:
+    java.lang.String a -> a
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    java.lang.String c() -> c
+    java.lang.String d() -> d
+    java.lang.String e() -> e
+com.feiwoone.coverscreen.a.c -> com.feiwoone.coverscreen.a.n:
+    com.feiwoone.coverscreen.a.c a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    com.feiwoone.coverscreen.a.c a(android.content.Context) -> a
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    java.lang.String c() -> c
+    java.lang.String d() -> d
+    java.lang.String e() -> e
+com.feiwoone.coverscreen.a.d -> com.feiwoone.coverscreen.a.o:
+    com.feiwoone.coverscreen.a.d a -> a
+    java.util.concurrent.ExecutorService b -> b
+    java.util.Map c -> c
+    int d -> d
+    int e -> e
+    com.feiwoone.coverscreen.a.d a() -> a
+    android.graphics.drawable.Drawable a(android.content.Context,java.lang.String,java.lang.String,com.feiwoone.coverscreen.a.g) -> a
+    void a(java.lang.String,java.lang.String) -> a
+    android.graphics.drawable.Drawable a(android.content.Context,java.lang.String,java.lang.String) -> a
+    android.graphics.Bitmap a(android.content.Context,java.lang.String) -> a
+    java.util.Map a(com.feiwoone.coverscreen.a.d) -> a
+com.feiwoone.coverscreen.a.e -> com.feiwoone.coverscreen.a.p:
+    com.feiwoone.coverscreen.a.g a -> a
+    java.lang.String b -> b
+    void handleMessage(android.os.Message) -> handleMessage
+com.feiwoone.coverscreen.a.f -> com.feiwoone.coverscreen.a.q:
+    com.feiwoone.coverscreen.a.d a -> a
+    android.content.Context b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    boolean e -> e
+    android.os.Handler f -> f
+    void run() -> run
+com.feiwoone.coverscreen.a.g -> com.feiwoone.coverscreen.a.r:
+com.feiwoone.coverscreen.a.h -> com.feiwoone.coverscreen.a.s:
+    char[] a -> a
+    int[] b -> b
+    byte[] c -> c
+    char[] b(byte[],boolean) -> b
+    java.lang.String a(byte[],boolean) -> a
+    byte[] a(java.lang.String) -> a
+com.feiwoone.coverscreen.a.i -> com.feiwoone.coverscreen.a.t:
+    com.feiwoone.coverscreen.a.i a -> a
+    java.util.Map b -> b
+    android.content.Context c -> c
+    android.os.Handler d -> d
+    boolean a(android.content.Context) -> a
+    int b(android.content.Context) -> b
+    void c(android.content.Context) -> c
+    com.feiwoone.coverscreen.a.i a() -> a
+    boolean a(java.lang.String) -> a
+    void a(com.feiwoone.coverscreen.a.a,com.feiwoone.coverscreen.a.m) -> a
+    void a(com.feiwoone.coverscreen.a.a) -> a
+com.feiwoone.coverscreen.a.j -> com.feiwoone.coverscreen.a.u:
+    int a -> a
+    int b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    java.lang.String h -> h
+    java.lang.String i -> i
+    java.lang.String j -> j
+    java.lang.String k -> k
+    java.lang.String l -> l
+    java.lang.String m -> m
+    java.lang.String n -> n
+    java.lang.String o -> o
+    java.lang.String p -> p
+    int a() -> a
+    void a(int) -> a
+    java.lang.String b() -> b
+    void a(java.lang.String) -> a
+    java.lang.String c() -> c
+    void b(java.lang.String) -> b
+    java.lang.String d() -> d
+    void c(java.lang.String) -> c
+    java.lang.String e() -> e
+    void d(java.lang.String) -> d
+    java.lang.String f() -> f
+    void e(java.lang.String) -> e
+    java.lang.String g() -> g
+    void f(java.lang.String) -> f
+    java.lang.String h() -> h
+    void g(java.lang.String) -> g
+    java.lang.String i() -> i
+    void h(java.lang.String) -> h
+    java.lang.String j() -> j
+    void i(java.lang.String) -> i
+    java.lang.String k() -> k
+    void j(java.lang.String) -> j
+    java.lang.String l() -> l
+    void k(java.lang.String) -> k
+    int m() -> m
+    void b(int) -> b
+    java.lang.String n() -> n
+    void l(java.lang.String) -> l
+    java.lang.String o() -> o
+    void m(java.lang.String) -> m
+    java.lang.String p() -> p
+    void n(java.lang.String) -> n
+com.feiwoone.coverscreen.a.k -> com.feiwoone.coverscreen.a.v:
+    byte[] b(java.lang.String,java.lang.String) -> b
+    java.lang.String a(java.lang.String,java.lang.String,boolean) -> a
+    byte[] c(java.lang.String,java.lang.String) -> c
+    java.lang.String a(java.lang.String,java.lang.String) -> a
+    java.lang.String a(java.lang.String) -> a
+com.feiwoone.coverscreen.a.l -> com.feiwoone.coverscreen.a.w:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+com.feiwoone.coverscreen.a.m -> com.feiwoone.coverscreen.a.x:
+    void a(com.feiwoone.coverscreen.a.a,java.lang.String,boolean) -> a
+com.feiwoone.coverscreen.a.n -> com.feiwoone.coverscreen.a.y:
+    java.util.Queue c -> c
+    com.feiwoone.coverscreen.a.a a -> a
+    java.lang.String b -> b
+    long d -> d
+    long e -> e
+    int f -> f
+    com.feiwoone.coverscreen.a.i g -> g
+    void a(com.feiwoone.coverscreen.a.m) -> a
+    void run() -> run
+    void a(boolean) -> a
+    void a(int) -> a
+    com.feiwoone.coverscreen.a.i a(com.feiwoone.coverscreen.a.n) -> a
+com.feiwoone.coverscreen.a.o -> com.feiwoone.coverscreen.a.z:
+    com.feiwoone.coverscreen.a.n a -> a
+    void run() -> run
+com.feiwoone.coverscreen.a.p -> com.feiwoone.coverscreen.a.aa:
+    com.feiwoone.coverscreen.a.n a -> a
+    boolean b -> b
+    void run() -> run
+com.feiwoone.coverscreen.a.q -> com.feiwoone.coverscreen.a.ab:
+    com.feiwoone.coverscreen.a.n a -> a
+    int b -> b
+    void run() -> run
+com.feiwoone.coverscreen.a.r -> com.feiwoone.coverscreen.a.ac:
+    com.feiwoone.coverscreen.a.r a -> a
+    com.feiwoone.coverscreen.a.r a() -> a
+    boolean b() -> b
+    java.lang.String a(android.content.Context,java.lang.String,java.lang.String) -> a
+com.feiwoone.coverscreen.a.s -> com.feiwoone.coverscreen.a.ad:
+    com.feiwoone.coverscreen.a.s a -> a
+    java.util.concurrent.ExecutorService b -> b
+    com.feiwoone.coverscreen.a.s a() -> a
+    void a(com.feiwoone.coverscreen.a.u) -> a
+com.feiwoone.coverscreen.a.t -> com.feiwoone.coverscreen.a.ae:
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.a.u -> com.feiwoone.coverscreen.a.af:
+    java.net.URL a -> a
+    com.feiwoone.coverscreen.a.t b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    android.content.Context e -> e
+    void a(com.feiwoone.coverscreen.a.t) -> a
+    void a(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    void run() -> run
+com.feiwoone.coverscreen.a.v -> com.feiwoone.coverscreen.a.ag:
+    double a -> a
+    double b -> b
+    com.feiwoone.coverscreen.a.v c -> c
+    double a() -> a
+    double b() -> b
+    com.feiwoone.coverscreen.a.v c() -> c
+    void a(com.feiwoone.coverscreen.a.v,double) -> a
+    void b(com.feiwoone.coverscreen.a.v,double) -> b
+com.feiwoone.coverscreen.a.w -> com.feiwoone.coverscreen.a.ah:
+    com.feiwoone.coverscreen.a.v a -> a
+    void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    void onProviderDisabled(java.lang.String) -> onProviderDisabled
+    void onLocationChanged(android.location.Location) -> onLocationChanged
+com.feiwoone.coverscreen.a.x -> com.feiwoone.coverscreen.a.ai:
+    boolean a -> a
+    void a(java.lang.String) -> a
+    void b(java.lang.String) -> b
+    void a(java.lang.Exception) -> a
+    void c(java.lang.String) -> c
+com.feiwoone.coverscreen.a.y -> com.feiwoone.coverscreen.a.aj:
+    android.app.NotificationManager a -> a
+    com.feiwoone.coverscreen.a.y b -> b
+    android.content.Context c -> c
+    com.feiwoone.coverscreen.a.y a(android.content.Context) -> a
+    void a(int,int,java.lang.String,java.lang.String,java.lang.String,android.content.Intent,int,java.lang.String) -> a
+    void a(int) -> a
+    android.widget.ImageView a(android.view.View) -> a
+com.feiwoone.coverscreen.a.z -> com.feiwoone.coverscreen.a.ak:
+    int a(java.lang.String,int) -> a
+com.feiwoone.coverscreen.b -> com.feiwoone.coverscreen.d:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    void run() -> run
+com.feiwoone.coverscreen.c -> com.feiwoone.coverscreen.e:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.d -> com.feiwoone.coverscreen.f:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.e -> com.feiwoone.coverscreen.g:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    java.lang.String b -> b
+    void run() -> run
+com.feiwoone.coverscreen.f -> com.feiwoone.coverscreen.h:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    java.lang.String b -> b
+    void run() -> run
+com.feiwoone.coverscreen.g -> com.feiwoone.coverscreen.i:
+    com.feiwoone.coverscreen.AdComponent a -> a
+    android.content.Intent b -> b
+    void run() -> run
+com.feiwoone.coverscreen.h -> com.feiwoone.coverscreen.j:
+    com.feiwoone.coverscreen.CoverAdComponent a -> a
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.i -> com.feiwoone.coverscreen.k:
+    com.feiwoone.coverscreen.SA a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.feiwoone.coverscreen.j -> com.feiwoone.coverscreen.l:
+    com.feiwoone.coverscreen.SA a -> a
+    void run() -> run
+com.feiwoone.coverscreen.k -> com.feiwoone.coverscreen.m:
+    com.feiwoone.coverscreen.SA a -> a
+    void run() -> run
+com.feiwoone.coverscreen.l -> com.feiwoone.coverscreen.n:
+    com.feiwoone.coverscreen.SA a -> a
+    com.feiwoone.coverscreen.a.j b -> b
+    void a(com.feiwoone.coverscreen.a.a,java.lang.String,boolean) -> a
+com.feiwoone.coverscreen.m -> com.feiwoone.coverscreen.o:
+    com.feiwoone.coverscreen.l a -> a
+    java.lang.String b -> b
+    com.feiwoone.coverscreen.a.a c -> c
+    void run() -> run
+com.feiwoone.coverscreen.n -> com.feiwoone.coverscreen.p:
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.o -> com.feiwoone.coverscreen.q:
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.p -> com.feiwoone.coverscreen.r:
+    com.feiwoone.coverscreen.SR a -> a
+    android.content.Intent b -> b
+    android.content.Context c -> c
+    void run() -> run
+com.feiwoone.coverscreen.q -> com.feiwoone.coverscreen.s:
+    android.content.Context a -> a
+    java.lang.String b -> b
+    void a(boolean,java.lang.String) -> a
+com.feiwoone.coverscreen.r -> com.feiwoone.coverscreen.t:
+    com.feiwoone.coverscreen.SA a -> a
+    java.util.List b -> b
+    java.util.Map c -> c
+    int a(android.view.View,com.feiwoone.coverscreen.a.j) -> a
+    void a() -> a
+    void b() -> b
+    void c() -> c
+    void b(android.view.View,com.feiwoone.coverscreen.a.j) -> b
+    void c(android.view.View,com.feiwoone.coverscreen.a.j) -> c
+    void a(android.widget.ImageView,java.lang.String,boolean) -> a
+    void d() -> d
+    android.view.ViewGroup e() -> e
+    int f() -> f
+    void a(int) -> a
+com.feiwoone.coverscreen.s -> com.feiwoone.coverscreen.u:
+    com.feiwoone.coverscreen.r a -> a
+    void onClick(android.view.View) -> onClick
+com.feiwoone.coverscreen.t -> com.feiwoone.coverscreen.v:
+    com.feiwoone.coverscreen.r a -> a
+    android.view.View b -> b
+    com.feiwoone.coverscreen.a.j c -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.feiwoone.coverscreen.u -> com.feiwoone.coverscreen.w:
+    com.feiwoone.coverscreen.r a -> a
+    android.widget.ImageView b -> b
+    java.lang.String c -> c
+    boolean d -> d
+    void a(android.graphics.drawable.Drawable) -> a
+com.feiwoone.coverscreen.v -> com.feiwoone.coverscreen.x:
+    android.view.View a -> a
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+com.feiwoone.coverscreen.w -> com.feiwoone.coverscreen.y:
+    int c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    int g -> g
+    int h -> h
+    int i -> i
+    int j -> j
+    int k -> k
+    int l -> l
+    int m -> m
+    int n -> n
+    int o -> o
+    int p -> p
+    android.widget.LinearLayout q -> q
+    android.view.GestureDetector r -> r
+    android.widget.ViewFlipper s -> s
+    int t -> t
+    void b() -> b
+    void c() -> c
+    android.view.ViewGroup e() -> e
+    int f() -> f
+    int a(android.view.View,com.feiwoone.coverscreen.a.j) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    boolean onSingleTapUp(android.view.MotionEvent) -> onSingleTapUp
+    boolean onDown(android.view.MotionEvent) -> onDown
+    void onShowPress(android.view.MotionEvent) -> onShowPress
+    boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+com.feiwoone.coverscreen.x -> com.feiwoone.coverscreen.z:
+    com.feiwoone.coverscreen.WA a -> a
+    void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long) -> onDownloadStart
+com.feiwoone.coverscreen.y -> com.feiwoone.coverscreen.aa:
+    com.feiwoone.coverscreen.WA a -> a
+    void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
+com.feiwoone.coverscreen.z -> com.feiwoone.coverscreen.ab:
+    com.feiwoone.coverscreen.WA a -> a
+    void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+    void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
 lostland.gumd.platinum12548.Assets -> lostland.gumd.platinum12548.a:
     lostland.gumd.platinum12548.blgframework.IPixmap maincharTile -> a
     lostland.gumd.platinum12548.blgframework.IPixmap girl -> b

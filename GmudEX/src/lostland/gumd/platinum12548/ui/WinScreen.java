@@ -12,7 +12,11 @@ import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
+import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.ui.core.DialogScreen;
+import android.os.Handler;
+import android.util.Log;
+import com.feiwoone.coverscreen.CoverAdComponent;
 
 /**
  * ¿‡√˚£∫WinScreen <p>
@@ -109,8 +113,8 @@ public class WinScreen extends DialogScreen {
 	 */
 	@Override
 	protected void onClick(int tx, int ty) {
-		
-			game.setScreen(GmudWorld.ms);
+		SingleTouchHandler.flag = 11;
+		game.setScreen(GmudWorld.ms);
 	}
 
 	/* £®∑« Javadoc£©
@@ -118,6 +122,7 @@ public class WinScreen extends DialogScreen {
 	 */
 	@Override
 	public void onCancel() {
+		SingleTouchHandler.flag = 11;
 		game.setScreen(GmudWorld.ms);
 	}
 

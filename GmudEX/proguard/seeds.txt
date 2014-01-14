@@ -62,6 +62,12 @@ android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.grap
 android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
 android.support.v4.widget.SlidingPaneLayout$SavedState
 android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+com.feiwoone.coverscreen.SA
+com.feiwoone.coverscreen.SA: SA()
+com.feiwoone.coverscreen.SR
+com.feiwoone.coverscreen.SR: SR()
+com.feiwoone.coverscreen.WA
+com.feiwoone.coverscreen.WA: WA()
 lostland.gmud.platinum12548.R$color: int black
 lostland.gmud.platinum12548.R$dimen: int activity_horizontal_margin
 lostland.gmud.platinum12548.R$dimen: int activity_vertical_margin
