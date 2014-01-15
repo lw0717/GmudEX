@@ -48,6 +48,7 @@ public class GmudGame extends BLGGame {
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		CoverAdComponent.init(getApplicationContext(), "n63D4CejIND4Mv1wj8Qo1M7k");
 		GmudWorld.game = this;
 	}
 
