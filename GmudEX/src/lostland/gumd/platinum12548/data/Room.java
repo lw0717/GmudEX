@@ -16,7 +16,7 @@ public class Room {
 
 	private void item(ItemGenerator g)
 	{
-		
+		//TODO: 未实现
 	}
 	
 	private abstract class ItemGenerator {
@@ -30,37 +30,56 @@ public class Room {
 		//设置物品类型
 		void type(int id)
 		{
-			
+			//TODO: 未实现
 		}
 		
 		//设置物品子类型（装备位置）
 		void subtype(int id)
 		{
-			
+			//TODO: 未实现
 		}
 		
-		//是否可掉落
+		//是否可丢弃
 		void dropable(boolean b)
 		{
-			
+			//TODO: 未实现
 		}
 		
+		//设置物品描述
+		void desc(String s)
+		{
+			//TODO: 未实现
+		}
+		
+		//TODO: 更多。。。。。。
 		
 		
+		abstract void setup();
 	}
 	
 	
-	public abstract class EquipEffect {
+	void exec()
+	{
+		// 把编辑器生成的代码放到这里
+		
+		
+		//例如：
+		item(new ItemGenerator() {
+
+			@Override
+			void setup() {
+				name("三角石板");
+				type(6);
+				desc("一块年代久远的石板");
+				dropable(false);
+			}
+			
+			
+		});
 		
 	}
 	
-	public abstract class Buff {
-		
-	}
-	
-	public abstract class Trigger {
-		
-	}
+
 	
 	
 	
