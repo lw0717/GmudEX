@@ -104,13 +104,10 @@ public class LoadingScreen extends CScreen {
 		TalkingScreen.mdone = false;
 		TalkingScreen.pdone = false;
 		
-		
 		/////////////////////////////////////////////////
 
 
 		CoverAdComponent.init(((GmudGame)game).getApplicationContext(), "n63D4CejIND4Mv1wj8Qo1M7k");
-
-		
 
 
 

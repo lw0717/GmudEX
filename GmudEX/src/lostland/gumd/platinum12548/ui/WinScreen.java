@@ -14,9 +14,6 @@ import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
 import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.ui.core.DialogScreen;
-import android.os.Handler;
-import android.util.Log;
-import com.feiwoone.coverscreen.CoverAdComponent;
 
 /**
  * ¿‡√˚£∫WinScreen <p>

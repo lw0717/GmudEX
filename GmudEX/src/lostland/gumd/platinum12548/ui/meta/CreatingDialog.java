@@ -7,6 +7,10 @@
  */
 package lostland.gumd.platinum12548.ui.meta;
 
+import lostland.gmud.platinum12548.R;
+import lostland.gumd.platinum12548.GmudWorld;
+import lostland.gumd.platinum12548.data.MainChar;
+import lostland.gumd.platinum12548.ui.StartScreen;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -17,10 +21,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ToggleButton;
-import lostland.gmud.platinum12548.R;
-import lostland.gumd.platinum12548.GmudWorld;
-import lostland.gumd.platinum12548.data.MainChar;
-import lostland.gumd.platinum12548.ui.StartScreen;
 
 /**
  * ¿‡√˚£∫BottomDialog <p>
@@ -103,6 +103,7 @@ public class CreatingDialog extends Dialog {
 //						GmudWorld.mc.drink = 100;
 //						
 						StartScreen.flag = true;
+						
 						cancel();
 //					}
 //					
@@ -113,12 +114,7 @@ public class CreatingDialog extends Dialog {
 					e.printStackTrace();
 				}
 			}
-		});
-		
-
-		
+		});	
 	}
-	
-	
 	
 }

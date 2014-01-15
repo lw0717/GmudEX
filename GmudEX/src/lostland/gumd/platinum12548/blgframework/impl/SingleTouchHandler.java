@@ -29,8 +29,6 @@ import lostland.gumd.platinum12548.ui.meta.TradeDialog;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -175,12 +173,7 @@ public class SingleTouchHandler implements TouchHandler {
 		    		}).show();
 					break;
 				case 11:
-					new Handler().postDelayed(new Runnable() {
-						@Override
-						public void run() {
-							CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
-						}
-					}, 1000);
+					CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
 					break;
 				case 999:
 		    		new AlertDialog.Builder(GmudWorld.game)

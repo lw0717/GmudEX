@@ -31,15 +31,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity android:name="com.feiwoone.coverscreen.SA" 
+        
+        
+        <!-- 添加插屏配置 start --> 
+        <activity android:name="com.feiwoone.coverscreen.SA" 
              android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
              android:excludeFromRecents="true"
              android:launchMode="singleInstance">
-        </activity>  
+        </activity>   
         <activity android:name="com.feiwoone.coverscreen.WA"
              android:launchMode="singleInstance">
-        </activity>
-        <receiver android:name="com.feiwoone.coverscreen.SR">
+        </activity>          
+		<receiver android:name="com.feiwoone.coverscreen.SR">
 			<intent-filter>
 			<action android:name="android.intent.action.PACKAGE_ADDED"/>
 			<action android:name="android.intent.action.PACKAGE_REMOVED"/>
@@ -49,7 +52,9 @@
 			<action android:name="android.intent.action.USER_PRESENT"/>   
 			<action android:name="broadcast.route.control"/>
 			</intent-filter>
-		</receiver>
+		</receiver>  
+		<!-- 添加插屏配置 end -->   
+		
     </application>
 
 </manifest>
