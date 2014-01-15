@@ -21,9 +21,38 @@ public class Room {
 	
 	private abstract class ItemGenerator {
 		
+		//设置物品名
+		void name(String s)
+		{
+			//TODO: 未实现
+		}
+		
+		//设置物品类型
+		void type(int id)
+		{
+			
+		}
+		
+		//设置物品子类型（装备位置）
+		void subtype(int id)
+		{
+			
+		}
+		
+		//是否可掉落
+		void dropable(boolean b)
+		{
+			
+		}
+		
+		
+		
 	}
 	
 	
+	public abstract class EquipEffect {
+		
+	}
 	
 	public abstract class Buff {
 		
