@@ -34,25 +34,26 @@
         
         
         <!-- 添加插屏配置 start --> 
-        <activity android:name="com.feiwoone.coverscreen.SA" 
+        <activity android:name="com.feiwotwo.coverscreen.SA" 
              android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
              android:excludeFromRecents="true"
              android:launchMode="singleInstance">
-        </activity>   
-        <activity android:name="com.feiwoone.coverscreen.WA"
+        </activity>  
+        <activity android:name="com.feiwotwo.coverscreen.WA"
              android:launchMode="singleInstance">
-        </activity>          
-		<receiver android:name="com.feiwoone.coverscreen.SR">
+        </activity>        
+		<receiver android:name="com.feiwotwo.coverscreen.SR">
 			<intent-filter>
 			<action android:name="android.intent.action.PACKAGE_ADDED"/>
 			<action android:name="android.intent.action.PACKAGE_REMOVED"/>
 			<data android:scheme="package"/>
 			</intent-filter>
 			<intent-filter>
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 			<action android:name="android.intent.action.USER_PRESENT"/>   
 			<action android:name="broadcast.route.control"/>
 			</intent-filter>
-		</receiver>  
+		</receiver>
 		<!-- 添加插屏配置 end -->   
 		
     </application>

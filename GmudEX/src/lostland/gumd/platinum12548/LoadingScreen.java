@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.feiwoone.coverscreen.CoverAdComponent;
-
 import lostland.gumd.platinum12548.battle.BattleScreen;
 import lostland.gumd.platinum12548.blgframework.BasicScreen;
 import lostland.gumd.platinum12548.blgframework.CScreen;

@@ -7,13 +7,16 @@
  */
 package lostland.gumd.platinum12548.ui;
 
+
+
 import lostland.gumd.platinum12548.FontSize;
 import lostland.gumd.platinum12548.GmudGame;
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
-import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.ui.core.DialogScreen;
+
+import com.feiwotwo.coverscreen.CoverAdComponent;
 
 /**
  * ¿‡√˚£∫WinScreen <p>
@@ -110,7 +113,8 @@ public class WinScreen extends DialogScreen {
 	 */
 	@Override
 	protected void onClick(int tx, int ty) {
-		SingleTouchHandler.flag = 11;
+//		SingleTouchHandler.flag = 11;
+		CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
 		game.setScreen(GmudWorld.ms);
 	}
 
@@ -119,7 +123,8 @@ public class WinScreen extends DialogScreen {
 	 */
 	@Override
 	public void onCancel() {
-		SingleTouchHandler.flag = 11;
+//		SingleTouchHandler.flag = 11;
+		CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
 		game.setScreen(GmudWorld.ms);
 	}
 

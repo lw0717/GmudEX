@@ -8,7 +8,6 @@
 package lostland.gumd.platinum12548.ui;
 
 import java.util.Arrays;
-
 import lostland.gumd.platinum12548.Assets;
 import lostland.gumd.platinum12548.Direction;
 import lostland.gumd.platinum12548.FontSize;
@@ -20,7 +19,6 @@ import lostland.gumd.platinum12548.MapScreen;
 import lostland.gumd.platinum12548.SavingScreen;
 import lostland.gumd.platinum12548.blgframework.IGame;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGraphics;
-import lostland.gumd.platinum12548.blgframework.impl.SingleTouchHandler;
 import lostland.gumd.platinum12548.ui.core.MenuScreen;
 import lostland.gumd.platinum12548.ui.core.NewButton;
 
@@ -87,9 +85,7 @@ public class CreatingScreen extends MenuScreen {
 		MainCharTile.currentDirection= Direction.DOWN;
 		
 		GmudWorld.ms.map = GmudWorld.map[0];
-		SingleTouchHandler.flag = 11;
 		game.setScreen(GmudWorld.ms);
-		
 		
 	}
 

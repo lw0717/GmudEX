@@ -10,8 +10,6 @@ package lostland.gumd.platinum12548.blgframework.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.feiwoone.coverscreen.CoverAdComponent;
-
 import lostland.gumd.platinum12548.GmudWorld;
 import lostland.gumd.platinum12548.SavingScreen;
 import lostland.gumd.platinum12548.blgframework.Pool;
@@ -173,7 +171,7 @@ public class SingleTouchHandler implements TouchHandler {
 		    		}).show();
 					break;
 				case 11:
-					CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
+					com.feiwotwo.coverscreen.CoverAdComponent.showAd(GmudWorld.game.getApplicationContext());
 					break;
 				case 999:
 		    		new AlertDialog.Builder(GmudWorld.game)

@@ -7,7 +7,8 @@
  */
 package lostland.gumd.platinum12548;
 
-import com.feiwoone.coverscreen.CoverAdComponent;
+
+import com.feiwotwo.coverscreen.CoverAdComponent;
 
 import lostland.gumd.platinum12548.blgframework.CScreen;
 import lostland.gumd.platinum12548.blgframework.impl.BLGGame;
