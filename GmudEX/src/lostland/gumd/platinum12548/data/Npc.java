@@ -64,7 +64,7 @@ public class Npc {
 	
 	public int trading;      //交易列表id
 	
-	public int sells[]  = new int[0];;
+	public int sells[]  = new int[0];
 	
 	/////////////////////////////////////////////////////////////////////////
 	
