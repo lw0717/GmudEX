@@ -266,7 +266,7 @@ public class TalkingScreen extends DialogScreen {
 				}
 				else do{
 					m1npc = (int) (Math.random() * 123);
-				}while(m1npc == 2 || m1npc == 5 || m1npc == 9 || m1npc ==25 || m1npc ==30 || m1npc == 24);
+				}while(m1npc == 2 || m1npc == 5 || m1npc == 9 || m1npc ==25 || m1npc ==30 || m1npc == 24 || GmudWorld.npc[m1npc].dead);
 				window = new TalkingWindow((GmudGame) game,"ÇëËÙÈ¥°Ý¼û"+GmudWorld.npc[m1npc].name+"!", false);
 			}
 			else
