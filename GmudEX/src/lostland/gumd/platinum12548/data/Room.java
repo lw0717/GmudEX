@@ -13,76 +13,120 @@ package lostland.gumd.platinum12548.data;
  * @author 12548
  */
 public class Room {
+	
 
-	private void item(ItemGenerator g)
+	private ItemGenerator item()
 	{
-		//TODO: 未实现
+		return new ItemGenerator();
 	}
 	
-	private abstract class ItemGenerator {
-		
+	private class ItemGenerator {
+
+		public ItemGenerator() {
+			// TODO 物品生成预处理
+		}
+
 		//设置物品名
-		void name(String s)
+		ItemGenerator name(String s)
 		{
 			//TODO: 未实现
+			return this;
 		}
-		
+
 		//设置物品类型
-		void type(int id)
+		ItemGenerator type(int id)
 		{
 			//TODO: 未实现
+			return this;
 		}
-		
+
 		//设置物品子类型（装备位置）
-		void subtype(int id)
+		ItemGenerator subtype(int id)
 		{
 			//TODO: 未实现
+			return this;
 		}
-		
+
 		//是否可丢弃
-		void dropable(boolean b)
+		ItemGenerator dropable(boolean b)
 		{
 			//TODO: 未实现
+			return this;
 		}
-		
+
+		//是否可装备
+		ItemGenerator equipable(boolean b)
+		{
+			//TODO: 未实现
+			return this;
+		}
+
 		//设置物品描述
-		void desc(String s)
+		ItemGenerator desc(String s)
 		{
 			//TODO: 未实现
+			return this;
 		}
-		
+
+		//装备效果
+		ItemGenerator equip_effect(EquipEffect e)
+		{
+			//TODO: 未实现
+			return this;
+		}
+
 		//TODO: 更多。。。。。。
-		
-		
-		abstract void setup();
+
+	}
+
+	interface EquipEffect {
+		void equip(Npc person);
+		void unequip(Npc person);
 	}
 	
 	
+
 	void exec()
 	{
 		// 把编辑器生成的代码放到这里
+
+
+		//example:
+		item()
+		.name("三角石板")
+		.type(6)
+		.desc("一块年代久远的石板")
+		.dropable(false);
 		
 		
-		//例如：
-		item(new ItemGenerator() {
+		item()
+		.name("大留之剑")
+		.type(2)
+		.desc("大留使用的宝剑")
+		.equipable(true)
+		.equip_effect(new EquipEffect() {
 
 			@Override
-			void setup() {
-				name("三角石板");
-				type(6);
-				desc("一块年代久远的石板");
-				dropable(false);
+			public void equip(Npc person) {
+				person.atk += 10;
+			}
+
+			@Override
+			public void unequip(Npc person) {
+				person.atk -= 10;
 			}
 			
-			
-		});
+		})
+		.subtype(6)
+		.dropable(true);
+		
 		
 	}
-	
 
-	
-	
-	
+
+
+
+
 	/**
 	 * 
 	 */
