@@ -107,7 +107,7 @@ public class Room {
 
 	final int EFFECT_RESERVED = 0;                                        //保留，无效果
 	final int EFFECT_ADDTO_ATTR = 1;                                  //增加属性
-	final int EFFECT_ADDTO_ATTR_BOUNS = 2;                   //增加临时属性（正常以上难度下战斗结束后消失）
+	final int EFFECT_ADDTO_ATTR_BOUNS = 2;                   //增加临时属性（只在战斗中生效，正常以上难度下战斗结束后消失）
 	final int EFFECT_RECOVER_SP = 3;                                  //恢复体力
 	final int EFFECT_CURE = 4;                                                //治疗伤势
 	final int EFFECT_RECOVER_FP = 5;                                  //恢复内力
@@ -118,7 +118,7 @@ public class Room {
 
 
 	//效果作用目标
-	enum EffectTarget{ 
+	enum EffectTarget{
 		SELF,
 		ENEMY
 	}
@@ -145,7 +145,7 @@ public class Room {
 	private class EffectGenerator {
 		EffectGenerator(int effectid)
 		{
-
+			
 		}
 
 		//效果值

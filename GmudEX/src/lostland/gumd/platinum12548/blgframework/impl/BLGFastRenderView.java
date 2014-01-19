@@ -69,10 +69,8 @@ public class BLGFastRenderView extends SurfaceView implements Runnable {
 			
 			if(game.getCurrentScreen() instanceof ButtonControlledScreen)
 			{
-			
 				game.SecondFB.setHasAlpha(true);
 				canvas.drawBitmap(game.SecondFB, null, newRect, null);
-			
 			}
 			
 			holder.unlockCanvasAndPost(canvas);
